@@ -21,8 +21,8 @@ class Plotter{
         * @details virtual function implemented by the delta and XY-plotter to draw the gcode-command
         * @return returns a boolean if the command succeeded or failed
         */
-        virtual bool plot(const std::string& gcode);
+        virtual bool draw(const std::string& gcode);
 
     private:
-        bool draw;
+        bool lift;
 };
