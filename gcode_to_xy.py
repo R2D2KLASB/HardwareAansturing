@@ -1,39 +1,43 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-gcode = open("kaas.gcode", "r")
 
 print("Gcode to XY")
 
-def gcode_to_xy():
-    x_array = []
-    y_array = []
-    start_position = 0
-    end_position = 0
-    x_coord = 0
-    y_coord = 0
-    for line in gcode:
-        for pos, char in enumerate(line):
-            if char == "X":
-                x_coord = pos
-            if char == "Y":
-                y_coord = pos
+def read_gcode(filename):
 
-        if line[0:3] == "G01":
-            start_position = end_position
-            end_position = (line[y_coord+1:-1])
+    g = []
 
-        if line[0:3] == "G00":
-            start_position = (line[x_coord + 1 : y_coord - 1])
+    relative_coords = []
+    fixed_coords = []
+    with open(f"{filename}", "r") as gcode:
+        data = gcode.readlines()
+        for i in data:
+            tmp = []
+            tmp_g = ''
+            elements = i.split(' ')
+            for e in elements:
+                c = e[0]
 
-        x_array.append(start_position)
-        y_array.append(end_position)
+                if c == 'X':
+                    tmp.append(e.strip()[1:])
+                if c == 'Y':
+                    tmp.append(e.strip()[1:])
+                if c == 'G' and len(elements) > 1:
+                    tmp_g = e.strip()[1:]
 
-    return x_array, y_array
+           
+            if len(tmp) > 0 and len(tmp_g) > 0:
+                relative_coords.append((tmp_g, tmp))
+            elif len(tmp) == 0 and len(tmp_g) > 0:
+                relative_coords.append((tmp_g))
 
-x, y = gcode_to_xy()
+    return relative_coords, g
 
-x_n = np.array(x)
-y_n = np.array(y)
 
-gcode.close()
+
+coords, g = read_gcode("kaas.gcode")
+
+# print(g)
+for i in coords:
+    print(i)
