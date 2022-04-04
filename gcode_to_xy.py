@@ -6,8 +6,6 @@ print("Gcode to XY")
 
 def read_gcode(filename):
 
-    g = []
-
     relative_coords = []
     fixed_coords = []
     with open(f"{filename}", "r") as gcode:
@@ -26,18 +24,15 @@ def read_gcode(filename):
                 if c == 'G' and len(elements) > 1:
                     tmp_g = e.strip()[1:]
 
-           
+
             if len(tmp) > 0 and len(tmp_g) > 0:
                 relative_coords.append((tmp_g, tmp))
             elif len(tmp) == 0 and len(tmp_g) > 0:
                 relative_coords.append((tmp_g))
 
-    return relative_coords, g
+    return relative_coords
 
 
+coords = read_gcode("kaas.gcode")
 
-coords, g = read_gcode("kaas.gcode")
-
-# print(g)
-for i in coords:
-    print(i)
+print(coords)
