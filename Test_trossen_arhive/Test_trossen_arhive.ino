@@ -14,9 +14,9 @@ int delta_calcInverse(float x0, float y0, float z0, float &theta1, float &theta2
 
 // robot geometry
 // (look at pics above for explanation)
-const float e = 100.0;     // end effector
-const float f = 200.0;     // base
-const float re = 200.0;
+const float e = 108.0;     // end effector
+const float f = 350.0;     // base
+const float re = 220.0;
 const float rf = 50.0;
 
 // trigonometric constants
@@ -38,19 +38,22 @@ void setup() {
   servo2.attach(10);
   servo3.attach(11);
   delay(200);
-  servo1.write(180);
-  servo2.write(180);
-  servo3.write(180);
+  servo1.write(90);
+  servo2.write(90);
+  servo3.write(90);
   Serial.begin(9600);
 }
 
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  //
-//  write_ww2();
-//  //  write_square();
-//}
+  write_ww2();
+//  write_square();
+
+//serial();
+}
+
+
+void serial() {
   while (Serial.available() == 0) {
   }
   int x = Serial.parseInt();
@@ -64,109 +67,102 @@ void loop() {
   Serial.print(" z: ");
   Serial.println(z);
 
-  if (delta_calcInverse(x, y, z ,theta1, theta2, theta3) == -1) {
+  if (delta_calcInverse(x, y, z , theta1, theta2, theta3) == -1) {
     Serial.println("non existing");
   } else {
     Serial.println("return ok");
     Serial.print("theta1: ");
-    Serial.print(theta1+90);
+    Serial.print(theta1 + 90);
     Serial.print(" theta2: ");
-    Serial.print(theta2+90);
+    Serial.print(theta2 + 90);
     Serial.print(" theta3: ");
-    Serial.println(theta3+90);
-
-
-    servo1.write(theta1 + 90);
-    servo2.write(theta2 + 90);
-    servo3.write(theta3 + 90);
+    Serial.println(theta3 + 90);
+    write_servo();
   }
-  }
-
+}
 
 void write_ww2() {
   delay(3000);
 
-  int size = 60;
+  int size = 20;
+  int z_pos = 210;
 
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3);
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3);
   write_servo();
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3);
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3);
   write_servo();
-  delta_calcInverse( size, 0, 160, theta1, theta2, theta3 );
+  delta_calcInverse( size, 0, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( size, -size / 2, 160, theta1, theta2, theta3 );
+  delta_calcInverse( size, -size / 2, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( size, -size / 2, 150, theta1, theta2, theta3 );
-  write_servo();
-
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3 );
-  write_servo();
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3 );
+  delta_calcInverse( size, -size / 2, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, -size, 160, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( -size / 2, -size, 160, theta1, theta2, theta3 );
-  write_servo();
-  delta_calcInverse( -size / 2, -size, 150, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3);
+  delta_calcInverse( 0, -size, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3);
+  delta_calcInverse( -size / 2, -size, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( -size, 0, 160, theta1, theta2, theta3 );
-  write_servo();
-  delta_calcInverse( -size, size / 2, 160, theta1, theta2, theta3 );
-  write_servo();
-  delta_calcInverse( -size, size / 2, 150, theta1, theta2, theta3 );
+  delta_calcInverse( -size / 2, -size, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3);
   write_servo();
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3);
+  write_servo();
+  delta_calcInverse( -size, 0, z_pos, theta1, theta2, theta3 );
+  write_servo();
+  delta_calcInverse( -size, size / 2, z_pos, theta1, theta2, theta3 );
+  write_servo();
+  delta_calcInverse( -size, size / 2, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, size, 160, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( size / 2, size, 160, theta1, theta2, theta3 );
-  write_servo();
-  delta_calcInverse( size / 2, size, 150, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3);
+  delta_calcInverse( 0, size, z_pos, theta1, theta2, theta3 );
+  write_servo();
+  delta_calcInverse( size / 2, size, z_pos, theta1, theta2, theta3 );
+  write_servo();
+  delta_calcInverse( size / 2, size, z_pos - 10, theta1, theta2, theta3 );
+  write_servo();
+
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3);
   write_servo();
 }
 void write_servo() {
-
   servo1.write(theta1 + 90);
-  delay(10);
-  servo3.write(theta3 + 90);
-  delay(10);
   servo2.write(theta2 + 90);
-  delay(10);
+  servo3.write(theta3 + 90);
 
   delay(500);
 }
 
 void write_square() {
   delay(3000);
+  int z_pos = 210;
 
   int size = 60;
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3);
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3);
   write_servo();
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3);
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3);
   write_servo();
-  delta_calcInverse( size, 0, 160, theta1, theta2, theta3 );
+  delta_calcInverse( size, 0, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( size, -size, 160, theta1, theta2, theta3 );
+  delta_calcInverse( size, -size, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( 0, -size, 160, theta1, theta2, theta3 );
+  delta_calcInverse( 0, -size, z_pos, theta1, theta2, theta3 );
   write_servo();
 
-  delta_calcInverse( 0, 0, 160, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos, theta1, theta2, theta3 );
   write_servo();
-  delta_calcInverse( 0, 0, 150, theta1, theta2, theta3 );
+  delta_calcInverse( 0, 0, z_pos - 10, theta1, theta2, theta3 );
   write_servo();
 
 }
