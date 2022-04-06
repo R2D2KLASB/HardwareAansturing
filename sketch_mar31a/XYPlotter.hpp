@@ -2,7 +2,7 @@
 #define XYPLOTTER_HPP
 #include <Arduino.h>
 #include "plotter.hpp"
-#include <Dictionary>
+
 
 class XYPlotter: public Plotter {
 public:
@@ -22,7 +22,7 @@ public:
    }
 
 private:
-  Dictionary &Angles = new *(Dictionary(8));
+//  Dictionary &Angle = *(new Dictionary(8));
   Direction currentXDirection;
   Direction currentYDirection;
   uint8_t xDirectionPin;
@@ -33,7 +33,6 @@ private:
   uint16_t currentPos[2] = {0, 0};
   uint8_t delayUs = 15;
 
-  Dicti
 };
 
 
