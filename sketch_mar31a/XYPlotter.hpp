@@ -3,13 +3,14 @@
 #include <Arduino.h>
 #include "plotter.hpp"
 
+#define ANGLE_INTERVAL 45
 
 class XYPlotter: public Plotter {
 public:
   enum Direction{
-    standStill=2,
-    clockwise=1,
-    counterClockwise=0,
+    counterClockwise,
+    clockwise,
+    standStill
   };
 	XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin); //, uint8_t servoPin);
   void setXDirection(Direction direction);
@@ -20,9 +21,23 @@ public:
    bool draw(const String& gcode){
      return true;
    }
+   void draw(int hoek, unsigned int aantalStappen);
 
 private:
-//  Dictionary &Angle = *(new Dictionary(8));
+  struct Angle{
+    const int hoek;
+    const Direction motorX;
+    const Direction motorY;   
+  };
+  
+  const Angle angles[8] = {{0, Direction::counterClockwise, Direction::clockwise},
+                           {45, Direction::counterClockwise, Direction::standStill},
+                           {90, Direction::counterClockwise, Direction::counterClockwise},
+                           {135, Direction::standStill, Direction::counterClockwise},
+                           {180, Direction::clockwise, Direction::counterClockwise},
+                           {225, Direction::clockwise, Direction::standStill},
+                           {270, Direction::clockwise, Direction::clockwise},
+                           {315, Direction::standStill, Direction::clockwise}};
   Direction currentXDirection;
   Direction currentYDirection;
   uint8_t xDirectionPin;
