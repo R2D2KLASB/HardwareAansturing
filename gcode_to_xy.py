@@ -1,13 +1,20 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+"""! @file XY to g-code
+     @brief Code to turn g-code into xy coordinates so the printer understands it.
+"""
 
-print("Gcode to XY")
 
-def read_gcode(filename):
+def readGcode(filename):
+    """!
+    @brief Read the g-code and set it to xy coords.
+    @param coords this is where the coords are saved in.
+    @details Reads the file with g-codes and checks for every line what the G number is and what the X and Y are. Then appends this split to an array.
+    @return returns new array with shape: g-code number, X, Y.
+    """
 
-    relative_coords = []
-    fixed_coords = []
+    coords = []
     with open(f"{filename}", "r") as gcode:
         data = gcode.readlines()
         for i in data:
@@ -26,13 +33,13 @@ def read_gcode(filename):
 
 
             if len(tmp) > 0 and len(tmp_g) > 0:
-                relative_coords.append((tmp_g, tmp))
+                coords.append((tmp_g, tmp))
             elif len(tmp) == 0 and len(tmp_g) > 0:
-                relative_coords.append((tmp_g))
+                coords.append((tmp_g))
 
-    return relative_coords
+    return coords
 
 
-coords = read_gcode("kaas.gcode")
+coords = readGcode("kaas.gcode")
 
 print(coords)
