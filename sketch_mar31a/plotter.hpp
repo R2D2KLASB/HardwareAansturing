@@ -1,10 +1,10 @@
 #include <Arduino.h>
 
 /// @file
-
 /**
 * @brief virtual class implemented by the delta and XY-plotter
 */
+
 class Plotter{
     public:
         /**
@@ -12,7 +12,7 @@ class Plotter{
         * @details constructer for the Plotter class that also handles all the setup steps
         */
         Plotter(){};
-        
+
         /**
         * @brief virtual to draw the gcode
         * @param gcode the gcode-command to be plotted
