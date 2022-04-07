@@ -3,7 +3,7 @@
 
   Author:  mertwhocodes
 */
-
+#include <Servo.h>
 #include "XYPlotter.hpp"
 
 #define ENABLE_PIN 8
@@ -21,8 +21,8 @@
 #define DELAY 500
 #define MOVEMENT 15000
 
-
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN);
+  Servo x;
+//XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, SERVO_PIN);
 void setup() {
   Serial.begin(9600);
 
