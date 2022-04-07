@@ -25,135 +25,60 @@
 XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN);
 void setup() {
   Serial.begin(9600);
-//   Serial.println("1");
-//  Plot.setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::counterClockwise);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  } 
-//  delay(DELAY);
-//  Serial.println("2");
-//  Plot.setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::clockwise);
-//  for (size_t i = 0; i < MOVEMENT+1; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("3");
-//  Plot.setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::clockwise);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("4");
-//  Plot.setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::counterClockwise);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  for(unsigned int i=0; i<360; i++){
-//    Plot.draw(i, 100);
-//  }
 
-//Plot.draw(0, 10000);
-//Plot.draw(180, 10000);
-//
-//Plot.draw(45, 10000);
-//Plot.draw(225, 10000);
-//
-//Plot.draw(90, 10000);
-//Plot.draw(270, 10000);
-//
-//Plot.draw(135, 10000);
-//Plot.draw(315, 10000);
-//
-//Plot.draw(180, 10000);
-//Plot.draw(0, 10000);
-//
-//Plot.draw(225, 10000);
-//Plot.draw(45, 10000);
-//
-//Plot.draw(270, 10000);
-//Plot.draw(90, 10000);
-//
-//Plot.draw(315, 10000);
-//Plot.draw(135, 10000);
 
-for (int i=0; i<360; i+=5){
-  Plot.draw(i, 5000);
-  Plot.draw((i+180)%360, 5000);
-  delay(100);
+
+  Plot.draw(Coordinate{10000, 950});
+
+//  Coordinate test = {0, 0};
+//  for (int i=0; i<100; i+=10){
+////    Serial.println(100-i);
+//    test+={100, 100-i};
+//    Plot.draw(test);
+//  }
+//
+//  Serial.println("start");
+//
+//  Plot.draw(Coordinate{0, 1190});
+//  Serial.println("_1");
+//
+//  Plot.draw(Coordinate{714, 1904});
+//  Serial.println("_1");
+////  
+////  Plot.draw(Coordinate{1785, 3095});
+////    Serial.println("_1");
+//
+//  Plot.draw(Coordinate{2142, 3095});
+//  Serial.println("_1");
+//  
+//  Plot.draw(Coordinate{2500, 4285});
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{2500, 4761});
+//  Serial.println("_1");
+//
+//  Plot.draw(Coordinate{2142, 5000});
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{1428, 4761});
+//
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{1071, 4285});  
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{714, 19047});
+//  
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{357, 1904});
+//  Serial.println("_1");
+//  Plot.draw(Coordinate{0, 0});
+// 
+//  Serial.println("_1");
+//  
+ Serial.print("done");
+
+
+
+
 }
 
-//Plot.draw(0, 10000);
-//Plot.draw(180, 10000);
-//
-//Plot.draw(45, 10000);
-//Plot.draw(225, 10000);
-//
-//Plot.draw(90, 10000);
-//Plot.draw(270, 10000);
-//
-//Plot.draw(135, 10000);
-//Plot.draw(315, 10000);
-//
-//Plot.draw(180, 10000);
-//Plot.draw(0, 10000);
-//
-//Plot.draw(225, 10000);
-//Plot.draw(45, 10000);
-//
-//Plot.draw(270, 10000);
-//Plot.draw(90, 10000);
-//
-//Plot.draw(315, 10000);
-//Plot.draw(135, 10000);
-
-//  Plot.setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::clockwise);
-//  for (size_t i = 0; i < 10000; i++) {
-//   if(i%10000==0){
-//    Plot.setYDirection(XYPlotter::Direction::counterClockwise);
-//   }
-//   Plot.step();
-//   Plot.setYDirection(XYPlotter::Direction::standStill);
-//  }
-//}
-}
-
-//void loop(){
-//
-//}
-
-
-
-void loop() {
-//  delay(DELAY);
-//  Serial.println("5");
-//  Plot.setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::standStill);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("6");
-//  Plot.setXYDirection(XYPlotter::Direction::standStill, XYPlotter::Direction::counterClockwise);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("7");
-//  Plot.setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::standStill);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("8");
-//  Plot.setXYDirection(XYPlotter::Direction::standStill, XYPlotter::Direction::clockwise);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
-//  Serial.println("9");
-//  Plot.setXYDirection(XYPlotter::Direction::standStill, XYPlotter::Direction::standStill);
-//  for (size_t i = 0; i < MOVEMENT; i++) {
-//    Plot.step();
-//  }
-//  delay(DELAY);
+void loop(){
 
 }
