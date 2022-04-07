@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Code_Ros_to_arduino",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Code_Ros_to_arduino::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Code_Ros_to_arduino-Debug-8700a13cd55be4426241.json",
+					"name" : "Code_Ros_to_arduino",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/dhoeg/OneDrive/HBO_HU/HardwareAansturing/Code_Ros_to_arduino/cmake-build-debug",
+		"source" : "C:/Users/dhoeg/OneDrive/HBO_HU/HardwareAansturing/Code_Ros_to_arduino"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
