@@ -1,8 +1,5 @@
-import matplotlib.pyplot as plt
-import numpy as np
-
-"""! @file XY to g-code
-     @brief Code to turn g-code into xy coordinates so the printer understands it.
+"""! @file
+     @brief Python code to turn g-code into xy coordinates so the printer understands it.
 """
 
 
