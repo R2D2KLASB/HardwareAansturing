@@ -1,7 +1,5 @@
-
-
-#include <iostream>
-
-int main(){
-    std::cout << "griep\n";
-}
+//#include <iostream>
+//
+//int main(){
+//    std::cout << "griep\n";
+//}

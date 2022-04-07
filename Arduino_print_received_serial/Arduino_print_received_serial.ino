@@ -1,61 +1,83 @@
-String inString = "";
-bool state = 0;
 
-struct coor {
-  float x;
-  float y;
-};
+#include "XYPlotter.hpp"
 
-void draw(coor xy, bool pen) {
-  Serial.println("je moeder op een driewieler ");
-  Serial.println(xy.x);
-  Serial.println(' ');
-  Serial.println(xy.y);
-  Serial.println("bool: ");
-  Serial.println(pen);
+#define ENABLE_PIN 8
+#define DIR_X_PIN 5
+#define STEP_X_PIN 2
+
+#define DIR_Y_PIN 6
+#define STEP_Y_PIN 3
+
+#define ClOCKWISE 1
+#define OTHERWISE 0
+
+#define X_diff 30000
+#define Y_diff 25000
+#define DELAY 500
+#define MOVEMENT 15000
+
+
+XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN);
+
+
+void print_draw(Coordinate xy, bool pen) {
+  SerialUSB.print("DRAW x: ");
+  SerialUSB.print(xy.x);
+  SerialUSB.print(" Y: ");
+  SerialUSB.print(xy.y);
+  SerialUSB.print(" bool pen : ");
+  SerialUSB.println(pen);
 }
+
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
   // start serial port at 9600 bps:
+  SerialUSB.begin(9600);
   Serial.begin(9600);
-  while (!Serial) {
+  //  while (!Serial) {
+  //    ; // wait for serial port to connect. Needed for native USB port only
+  //  }
+  while (!SerialUSB) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
+
+  SerialUSB.println("setup done");
 }
 
 void loop() {
   // if we get a valid byte, read analog ins:
   if (Serial.available() > 0) {
-
+    SerialUSB.println("in Loop");
     int g_code = Serial.parseInt();
-    float x_coor = 0;
-    float y_coor = 0;
+    Coordinate XY;
+    //    float x_coor = 0;
+    //    float y_coor = 0;
 
     switch (g_code) {
       //G00 Z-axis up and move to location (x, y)
       case 0:
-        x_coor = Serial.parseFloat();
-        y_coor = Serial.parseFloat();
-        draw({x_coor, y_coor}, false);
+        XY.x = Serial.parseFloat();
+        XY.y = Serial.parseFloat();
+        //        Plot.draw(XY);
+        print_draw(XY, 0);
         break;
 
       //G01 Z-axis down and move to location (draw line) (x, y)
       case 1:
-        x_coor = Serial.parseFloat();
-        y_coor = Serial.parseFloat();
-        draw({x_coor, y_coor}, true);
+        XY.x = Serial.parseFloat();
+        XY.y = Serial.parseFloat();
+        //        Plot.draw(XY);
+        print_draw(XY, 1);
         break;
 
       //G02 Arc movement clockwise arc (x, y, i, j, e)
       case 2:
-        Serial.println("case 2");
         break;
 
       //G03 Arc movement clockwise arc (x, y, i, j, e)
       case 3:
-        Serial.println("case 3");
         break;
     }
   }

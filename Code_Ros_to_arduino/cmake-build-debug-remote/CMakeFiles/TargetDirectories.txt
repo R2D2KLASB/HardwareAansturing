@@ -1,0 +1,3 @@
+/home/deltarobot/clion/cmake-build-debug-remote/CMakeFiles/rebuild_cache.dir
+/home/deltarobot/clion/cmake-build-debug-remote/CMakeFiles/edit_cache.dir
+/home/deltarobot/clion/cmake-build-debug-remote/CMakeFiles/Code_Ros_to_arduino.dir

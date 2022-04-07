@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "C:/SOFTWARE_TI/i686-7.3.0-release-posix-dwarf-rt_v5-rev0/mingw32/bin/c++.exe")
+set(CMAKE_CXX_COMPILER "C:/SOFTWARE_TI/i686-7.3.0-release-posix-dwarf-rt_v5-rev0/mingw32/bin/g++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "7.3.0")

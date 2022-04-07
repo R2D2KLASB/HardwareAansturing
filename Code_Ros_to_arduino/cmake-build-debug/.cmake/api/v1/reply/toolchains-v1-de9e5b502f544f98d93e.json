@@ -94,7 +94,7 @@
 						"mingwex"
 					]
 				},
-				"path" : "C:/SOFTWARE_TI/i686-7.3.0-release-posix-dwarf-rt_v5-rev0/mingw32/bin/c++.exe",
+				"path" : "C:/SOFTWARE_TI/i686-7.3.0-release-posix-dwarf-rt_v5-rev0/mingw32/bin/g++.exe",
 				"version" : "7.3.0"
 			},
 			"language" : "CXX",
