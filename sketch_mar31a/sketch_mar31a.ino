@@ -9,6 +9,7 @@
 #define ENABLE_PIN 8
 #define DIR_X_PIN 5
 #define STEP_X_PIN 2
+#define SERVO_PIN 11
 
 #define DIR_Y_PIN 6
 #define STEP_Y_PIN 3
@@ -21,14 +22,53 @@
 #define DELAY 500
 #define MOVEMENT 15000
 
-
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN);
+  Servo x;
+XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, SERVO_PIN);
 void setup() {
   Serial.begin(9600);
 
+  x.attach(11);
+  
 
-
-  Plot.draw(Coordinate{10000, 950});
+//  Serial.println("0");
+//  Plot.draw({10000,0}, 0);
+//
+//  Serial.println("1");
+//  Plot.draw({0,0}, 1);
+//  
+//  Serial.println("2");
+//  Plot.draw({10000,10000}, 0);
+//  
+//  Serial.println("3");
+//  Plot.draw({0,10000}, 1);
+//
+//  Serial.println("4");
+//  Plot.draw({10000,0}, 0);
+//  
+//  Serial.println("5");
+//  Plot.draw({10000,10000}, 1);
+//  
+//  Serial.println("6");
+//  Plot.draw({0,10000}, 0);
+//  
+//  Serial.println("7");
+//  Plot.draw({0,0}, 1);
+//  
+//  Serial.println("8");
+//  Plot.draw({10000,10000}, 0);
+//  
+//  Serial.println("9");
+//  Plot.draw({5000,15000}, 1);
+//  
+//  Serial.println("10");
+//  Plot.draw({0,10000}, 0);
+//  
+//  Serial.println("11");
+//  Plot.draw({5000,15000}, 1);
+//
+//  Serial.println("12");
+//  Plot.draw({0,0}, 0);
+   
 
 //  Coordinate test = {0, 0};
 //  for (int i=0; i<100; i+=10){
@@ -80,5 +120,9 @@ void setup() {
 }
 
 void loop(){
+  x.write(0);
+  delay(1000);
+  x.write(90);
+  delay(1000);
 
 }
