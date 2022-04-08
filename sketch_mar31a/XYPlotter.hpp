@@ -1,81 +1,88 @@
 #ifndef XYPLOTTER_HPP
 #define XYPLOTTER_HPP
 #include <Arduino.h>
+
 #include "plotter.hpp"
+#include "DataTypes.hpp"
 
-#define ANGLE_INTERVAL 45
+/// @brief
 
-
-struct Coordinate {
-  int x;
-  int y;
-  Coordinate operator-(Coordinate lhs) {
-    return {x - lhs.x, y - lhs.y};
-  }
-  bool operator==(Coordinate lhs){
-    return (x==lhs.x and y == lhs.y);
-  }
-  void operator+=(Coordinate lhs){
-    x+=lhs.x;
-    y+=lhs.y;
-  }
-  bool operator!=(Coordinate lhs){
-    return !(x==lhs.x and y == lhs.y);
-  }
-};
+/**
+  @brief XYPlotter class that implements Plotter
+*/
 class XYPlotter: public Plotter {
   public:
+    /**
+      @brief Direction enum that makes the motordirections better readable
+    */
     enum Direction {
       counterClockwise,
       clockwise,
       standStill
     };
-    XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin); //, uint8_t servoPin);
+
+
+    bool draw(Coordinate finish);
+    bool draw(int x, int y);
+
+    /**
+      @brief Sets the direction of the X steppermotor.
+      @param direction the direction the motor needs to turn.
+      @details Sets the director of the X steppermotor to the direction you give as parameter.
+    */
     void setXDirection(Direction direction);
+
+    /**
+      @brief Sets the direction of the Y steppermotor.
+      @param direction the direction the motor needs to turn.
+      @details Sets the director of the Y steppermotor to the direction you give as parameter.
+    */
     void setYDirection(Direction direction);
+
+    /**
+      @brief Sets the direction of BOTH the steppermotors.
+      @param direction the direction the motor needs to turn.
+      @details Sets the director of BOTH steppermotors to the direction you give as parameter.
+    */
     void setXYDirection(Direction xDirection, Direction yDirection);
 
-    bool draw(const String& gcode) {
-      return true;
-    }
-//    void draw(int hoek, unsigned int aantalStappen);
-    void draw(Coordinate finish);
-//    void draw2(int hoek, unsigned int aantalStappen);
+
+
+
+
+
+    /**
+        @brief constructor for the XYPlotter class.
+        @param enablePin this is the enable pin for both of the steppermotors.
+        @param xDirectionPin this is the enable pin for the X steppermotor.
+        @param xStepPin this is the step pin for the X steppermotor, write this pin high and low causes the steppermotor to make a step.
+        @param yDirectionPin this is the enable pin for the Y steppermotor.
+        @param xStepPin this is the step pin for the Y steppermotor, write this pin high and low causes the steppermotor to make a step.
+        @param maxDimension The maximum drawingsize of the plotter.
+        @details constructor for the XYplotter class which also sets all the pins.
+        
+    */
+    XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension); //, uint8_t servoPin);
 
   private:
-      void step();
 
     Coordinate currentLocation;
-    struct Angle {
-      const int hoek;
-      const Direction motorX;
-      const Direction motorY;
-    };
-    void up();
-    void right();
-    void left();
-    void down();
-
-//    const Angle angles[8] = {{0, Direction::counterClockwise, Direction::clockwise},
-//      {45, Direction::counterClockwise, Direction::standStill},
-//      {90, Direction::counterClockwise, Direction::counterClockwise},
-//      {135, Direction::standStill, Direction::counterClockwise},
-//      {180, Direction::clockwise, Direction::counterClockwise},
-//      {225, Direction::clockwise, Direction::standStill},
-//      {270, Direction::clockwise, Direction::clockwise},
-//      {315, Direction::standStill, Direction::clockwise}
-//    };
+    Coordinate maxDimension;
     Direction currentXDirection;
     Direction currentYDirection;
+
+    uint8_t delayUs = 50;
+    uint8_t servoPin;
     uint8_t xDirectionPin;
     uint8_t xStepPin;
     uint8_t yDirectionPin;
     uint8_t yStepPin;
-    uint8_t servoPin;
-    uint16_t currentPos[2] = {0, 0};
-    uint8_t delayUs = 15;
 
+
+    void down();
+    void left();
+    void right();
+    void step();
+    void up();
 };
-
-
 #endif //XYPLOTTER_HPP
