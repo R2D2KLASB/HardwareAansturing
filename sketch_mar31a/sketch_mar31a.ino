@@ -3,126 +3,105 @@
 
   Author:  mertwhocodes
 */
-
+#include <Servo.h>
 #include "XYPlotter.hpp"
+#include "DataTypes.hpp"
+#include "Definitions.hpp"
 
-#define ENABLE_PIN 8
-#define DIR_X_PIN 5
-#define STEP_X_PIN 2
-#define SERVO_PIN 11
-
-#define DIR_Y_PIN 6
-#define STEP_Y_PIN 3
-
-#define ClOCKWISE 1
-#define OTHERWISE 0
-
-#define X_diff 30000
-#define Y_diff 25000
-#define DELAY 500
-#define MOVEMENT 15000
-
-  Servo x;
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, SERVO_PIN);
+Servo pen;
+XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen);
 void setup() {
-  Serial.begin(9600);
-
-  x.attach(11);
-  
-
-//  Serial.println("0");
-//  Plot.draw({10000,0}, 0);
-//
-//  Serial.println("1");
-//  Plot.draw({0,0}, 1);
-//  
-//  Serial.println("2");
-//  Plot.draw({10000,10000}, 0);
-//  
-//  Serial.println("3");
-//  Plot.draw({0,10000}, 1);
-//
-//  Serial.println("4");
-//  Plot.draw({10000,0}, 0);
-//  
-//  Serial.println("5");
-//  Plot.draw({10000,10000}, 1);
-//  
-//  Serial.println("6");
-//  Plot.draw({0,10000}, 0);
-//  
-//  Serial.println("7");
-//  Plot.draw({0,0}, 1);
-//  
-//  Serial.println("8");
-//  Plot.draw({10000,10000}, 0);
-//  
-//  Serial.println("9");
-//  Plot.draw({5000,15000}, 1);
-//  
-//  Serial.println("10");
-//  Plot.draw({0,10000}, 0);
-//  
-//  Serial.println("11");
-//  Plot.draw({5000,15000}, 1);
-//
-//  Serial.println("12");
-//  Plot.draw({0,0}, 0);
-   
-
-//  Coordinate test = {0, 0};
-//  for (int i=0; i<100; i+=10){
-////    Serial.println(100-i);
-//    test+={100, 100-i};
-//    Plot.draw(test);
-//  }
-//
-//  Serial.println("start");
-//
-//  Plot.draw(Coordinate{0, 1190});
-//  Serial.println("_1");
-//
-//  Plot.draw(Coordinate{714, 1904});
-//  Serial.println("_1");
-////  
-////  Plot.draw(Coordinate{1785, 3095});
-////    Serial.println("_1");
-//
-//  Plot.draw(Coordinate{2142, 3095});
-//  Serial.println("_1");
-//  
-//  Plot.draw(Coordinate{2500, 4285});
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{2500, 4761});
-//  Serial.println("_1");
-//
-//  Plot.draw(Coordinate{2142, 5000});
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{1428, 4761});
-//
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{1071, 4285});  
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{714, 19047});
-//  
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{357, 1904});
-//  Serial.println("_1");
-//  Plot.draw(Coordinate{0, 0});
-// 
-//  Serial.println("_1");
-//  
- Serial.print("done");
-
-
-
-
 }
 
-void loop(){
-  x.write(0);
-  delay(1000);
-  x.write(90);
-  delay(1000);
+void kaas() {
 
+Plot.draw(0, 1190.476074, 0);
+  Plot.draw(714.285828, 1904.762085);
+  Plot.draw(1785.713989, 3095.238037);
+  Plot.draw(2142.856934, 3571.428955);
+  Plot.draw(2500.000000, 4285.713867);
+  Plot.draw(2500.000000, 4761.904785);
+  Plot.draw(2142.856934, 5000.000000);
+  Plot.draw(1428.572021, 4761.904785);
+  Plot.draw(1071.428955, 4285.713867);
+  Plot.draw(714.285828, 3333.332764);
+  Plot.draw(357.142914, 1904.762085);
+  Plot.draw(0.000000, 0.000000);
+  Plot.draw(357.142914, 714.285828);
+  Plot.draw(714.285828, 1190.476074);
+  Plot.draw(1428.572021, 1904.762085);
+  Plot.draw(2142.856934, 2142.856934);
+  Plot.draw(2857.143066, 2142.856934);
+  Plot.draw(3214.286133, 1904.762085);
+  Plot.draw(3214.286133, 1428.572021);
+  Plot.draw(2500.000000, 1190.476074);
+  Plot.draw(1428.572021, 1190.476074);
+  Plot.draw(2142.856934, 952.381042);
+  Plot.draw(2500.000000, 238.095306);
+  Plot.draw(2857.143066, 0.000000);
+  Plot.draw(3214.286133, 0.000000);
+  Plot.draw(3928.571045, 238.095306);
+  Plot.draw(4285.713867, 476.190521);
+  Plot.draw(5000.000000, 1190.476074);
+  Plot.draw(7812.500000, 1666.666992, 0);
+  Plot.draw(7500.000000, 2222.221924);
+  Plot.draw(6875.000000, 2500.000000);
+  Plot.draw(6250.000000, 2500.000000);
+  Plot.draw(5625.000000, 2222.221924);
+  Plot.draw(5312.500000, 1944.444092);
+  Plot.draw(5000.000000, 1388.889038);
+  Plot.draw(5000.000000, 833.333374);
+  Plot.draw(5312.500000, 277.777802);
+  Plot.draw(5937.500000, 0.000000);
+  Plot.draw(6562.500000, 0.000000);
+  Plot.draw(7187.500000, 277.777802);
+  Plot.draw(7500.000000, 833.333374);
+  Plot.draw(8125.000000, 2500.000000);
+  Plot.draw(7812.500000, 1111.110962);
+  Plot.draw(7812.500000, 277.777802);
+  Plot.draw(8125.000000, 0.000000);
+  Plot.draw(8437.500000, 0.000000);
+  Plot.draw(9062.500000, 277.777802);
+  Plot.draw(9375.000000, 555.555603);
+  Plot.draw(10000.000000, 1388.889038);
+  Plot.draw(12812.500000, 1666.666992, 0);
+  Plot.draw(12500.000000, 2222.221924);
+  Plot.draw(11875.000000, 2500.000000);
+  Plot.draw(11250.000000, 2500.000000);
+  Plot.draw(10625.000000, 2222.221924);
+  Plot.draw(10312.500000, 1944.444092);
+  Plot.draw(10000.000000, 1388.889038);
+  Plot.draw(10000.000000, 833.333374);
+  Plot.draw(10312.500000, 277.777802);
+  Plot.draw(10937.500000, 0.000000);
+  Plot.draw(11562.500000, 0.000000);
+  Plot.draw(12187.500000, 277.777802);
+  Plot.draw(12500.000000, 833.333374);
+  Plot.draw(13125.000000, 2500.000000);
+  Plot.draw(12812.500000, 1111.110962);
+  Plot.draw(12812.500000, 277.777802);
+  Plot.draw(13125.000000, 0.000000);
+  Plot.draw(13437.500000, 0.000000);
+  Plot.draw(14062.500000, 277.777802);
+  Plot.draw(14375.000000, 555.555603);
+  Plot.draw(15000.000000, 1388.889038);
+  Plot.draw(15000.000000, 1750.000000, 0);
+  Plot.draw(15909.090820, 2800.000000);
+  Plot.draw(16363.634766, 3500.000000);
+  Plot.draw(16363.634766, 2800.000000);
+  Plot.draw(17272.726562, 1750.000000);
+  Plot.draw(17727.273438, 1050.000000);
+  Plot.draw(17727.273438, 350.000000);
+  Plot.draw(16818.181641, 0.000000);
+  Plot.draw(15000.000000, 350.000000, 0);
+  Plot.draw(15909.090820, 0.000000);
+  Plot.draw(17727.273438, 0.000000);
+  Plot.draw(18636.365234, 350.000000);
+  Plot.draw(19090.908203, 700.000000);
+  Plot.draw(20000.000000, 1750.000000, 0);
+  Plot.currentLocation = Coordinate{0,0};
+}
+
+void loop() {
+  kaas();
 }
