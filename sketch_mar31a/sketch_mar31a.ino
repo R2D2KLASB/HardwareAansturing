@@ -1,20 +1,16 @@
-/*
-  Name:    step_drive.ino
-
-  Author:  mertwhocodes
-*/
 #include <Servo.h>
+#include "XYPlotter.hpp"
 #include "DataTypes.hpp"
 #include "Definitions.hpp"
-#include "XYPlotter.hpp"
 
-
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y});//, SERVO_PIN);
+Servo pen;
+XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen);
 void setup() {
 }
 
 void kaas() {
-  Plot.draw(0, 1190.476074);
+
+Plot.draw(0, 1190.476074, 0);
   Plot.draw(714.285828, 1904.762085);
   Plot.draw(1785.713989, 3095.238037);
   Plot.draw(2142.856934, 3571.428955);
@@ -42,7 +38,7 @@ void kaas() {
   Plot.draw(3928.571045, 238.095306);
   Plot.draw(4285.713867, 476.190521);
   Plot.draw(5000.000000, 1190.476074);
-  Plot.draw(7812.500000, 1666.666992);
+  Plot.draw(7812.500000, 1666.666992, 0);
   Plot.draw(7500.000000, 2222.221924);
   Plot.draw(6875.000000, 2500.000000);
   Plot.draw(6250.000000, 2500.000000);
@@ -63,7 +59,7 @@ void kaas() {
   Plot.draw(9062.500000, 277.777802);
   Plot.draw(9375.000000, 555.555603);
   Plot.draw(10000.000000, 1388.889038);
-  Plot.draw(12812.500000, 1666.666992);
+  Plot.draw(12812.500000, 1666.666992, 0);
   Plot.draw(12500.000000, 2222.221924);
   Plot.draw(11875.000000, 2500.000000);
   Plot.draw(11250.000000, 2500.000000);
@@ -84,7 +80,7 @@ void kaas() {
   Plot.draw(14062.500000, 277.777802);
   Plot.draw(14375.000000, 555.555603);
   Plot.draw(15000.000000, 1388.889038);
-  Plot.draw(15000.000000, 1750.000000);
+  Plot.draw(15000.000000, 1750.000000, 0);
   Plot.draw(15909.090820, 2800.000000);
   Plot.draw(16363.634766, 3500.000000);
   Plot.draw(16363.634766, 2800.000000);
@@ -92,15 +88,14 @@ void kaas() {
   Plot.draw(17727.273438, 1050.000000);
   Plot.draw(17727.273438, 350.000000);
   Plot.draw(16818.181641, 0.000000);
-  Plot.draw(15000.000000, 350.000000);
+  Plot.draw(15000.000000, 350.000000, 0);
   Plot.draw(15909.090820, 0.000000);
   Plot.draw(17727.273438, 0.000000);
   Plot.draw(18636.365234, 350.000000);
   Plot.draw(19090.908203, 700.000000);
-  Plot.draw(20000.000000, 1750.000000);
-  Plot.currentLocation = Coordinate{0,0};
+  Plot.draw(20000.000000, 1750.000000, 0);
 }
 
 void loop() {
-
+  kaas();
 }

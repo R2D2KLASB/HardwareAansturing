@@ -1,6 +1,9 @@
 #include "XYPlotter.hpp"
 
-bool XYPlotter::draw(Coordinate finish) {
+bool XYPlotter::draw(Coordinate finish, bool draw) {
+  if (draw != prevState){
+    setServo(draw);
+  }
   if (finish.x > maxDimension.x or finish.y > maxDimension.y) {
     return true;
   }
@@ -89,8 +92,8 @@ bool XYPlotter::draw(Coordinate finish) {
   return false;
 }
 
-bool XYPlotter::draw(int x, int y) {
-  return draw(Coordinate{x, y});
+bool XYPlotter::draw(int x, int y, bool draw) {
+  return draw(Coordinate{x, y}, draw);
 }
 
 void XYPlotter::setXDirection(Direction direction) {
@@ -110,14 +113,14 @@ void XYPlotter::setXYDirection(Direction xDirection, Direction yDirection) {
   setYDirection(yDirection);
 }
 
-XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension): //, uint8_t servoPin):
+XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen):
   xDirectionPin(xDirectionPin),
   xStepPin(xStepPin),
   yDirectionPin(yDirectionPin),
   yStepPin(yStepPin),
-  servoPin(10),
   currentLocation({0, 0}),
-  maxDimension(maxDimension)
+  maxDimension(maxDimension),
+  penHolder(pen)
 {
   pinMode(xDirectionPin, OUTPUT);
   pinMode(xStepPin, OUTPUT);
@@ -142,6 +145,18 @@ void XYPlotter::left() {
 void XYPlotter::right() {
   setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::counterClockwise);
   step();
+}
+
+void XYPlotter::setServo(bool draw){
+  penHolder.attach(SERVO_PIN);
+  if(draw){
+    penHolder.write(SERVO_DOWN);
+  }
+  else{
+    penHolder.write(SERVO_UP);
+  }
+  prevState = draw;
+  delay(150);
 }
 
 void XYPlotter::step() {
