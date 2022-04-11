@@ -1,8 +1,3 @@
-/*
-  Name:    step_drive.ino
-
-  Author:  mertwhocodes
-*/
 #include <Servo.h>
 #include "XYPlotter.hpp"
 #include "DataTypes.hpp"

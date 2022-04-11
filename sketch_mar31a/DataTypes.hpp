@@ -1,5 +1,14 @@
 #ifndef DATATYPES_HPP
 #define DATATYPES_HPP
+/// @file
+
+/**
+* @brief Coordinate class
+* @param x 
+* 
+* @details detailed description
+* @return return details
+*/
 
 struct Coordinate {
   int x;
@@ -23,5 +32,4 @@ struct Coordinate {
     return !(x==lhs.x and y == lhs.y);
   }
 };
-
-#endif // DATATYPES_HPP
+#endif //DATATYPES_HPP
