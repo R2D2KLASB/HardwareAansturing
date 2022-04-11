@@ -23,9 +23,19 @@ class XYPlotter: public Plotter {
     };
 
     /**
-    * 
+    * @brief public draw function to move the pen from the current location to the given location the boolean indicates if the pen is on the paper or lifted
+    * @param finish Struct containing the x and y location of the destination
+    * @param draw boolean that indicates if the pen is on the paper or lifted
+    * @return returns if the operation was succesfull or not the reason for failure is that the location is out of bounds
     */
     bool draw(Coordinate finish, bool draw = 1);
+    /**
+    * @brief public draw function that's an interface for the bool draw(Coordinate finish, bool draw) function;
+    * @param x integer containing value of the x location of the destination
+    * @param y integer containing value of the y location of the destination
+    * @param draw boolean that indicates if the pen is on the paper or lifted
+    * @return returns if the operation was succesfull or not the reason for failure is that the location is out of bounds
+    */
     bool draw(int x, int y, bool draw = 1);
 
     /**
