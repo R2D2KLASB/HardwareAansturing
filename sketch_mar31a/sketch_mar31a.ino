@@ -94,7 +94,6 @@ Plot.draw(0, 1190.476074, 0);
   Plot.draw(18636.365234, 350.000000);
   Plot.draw(19090.908203, 700.000000);
   Plot.draw(20000.000000, 1750.000000, 0);
-  Plot.currentLocation = Coordinate{0,0};
 }
 
 void loop() {
