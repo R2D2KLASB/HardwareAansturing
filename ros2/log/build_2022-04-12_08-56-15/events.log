@@ -1,0 +1,273 @@
+[0.000000] (-) TimerEvent: {}
+[0.001242] (rpi_serial) JobQueued: {'identifier': 'rpi_serial', 'dependencies': OrderedDict()}
+[0.002247] (rpi_serial) JobStarted: {'identifier': 'rpi_serial'}
+[0.082090] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'cmake'}
+[0.085345] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'build'}
+[0.088695] (rpi_serial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', '--', '-j4', '-l4'], 'cwd': '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ubuntu'), ('SSH_CLIENT', '192.168.4.1 42480 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/opt/yaml_cpp_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/opt/rviz_ogre_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/ubuntu'), ('OLDPWD', '/home/ubuntu/HardwareAansturing/ros2/rpi_serial'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/aarch64-linux-gnu/pkgconfig:/home/ubuntu/ros2_foxy/ros2-linux/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ubuntu/ros2_foxy/ros2-linux/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial'), ('SSH_CONNECTION', '192.168.4.1 42480 192.168.4.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux')]), 'shell': False}
+[0.101376] (-) TimerEvent: {}
+[0.203126] (-) TimerEvent: {}
+[0.209981] (rpi_serial) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)\n'}
+[0.303327] (-) TimerEvent: {}
+[0.306676] (rpi_serial) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.403448] (-) TimerEvent: {}
+[0.504123] (-) TimerEvent: {}
+[0.604725] (-) TimerEvent: {}
+[0.705364] (-) TimerEvent: {}
+[0.806000] (-) TimerEvent: {}
+[0.906572] (-) TimerEvent: {}
+[1.007134] (-) TimerEvent: {}
+[1.105630] (rpi_serial) StdoutLine: {'line': b'-- Found rclcpp: 2.4.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rclcpp/cmake)\n'}
+[1.107265] (-) TimerEvent: {}
+[1.207872] (-) TimerEvent: {}
+[1.250613] (rpi_serial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.265805] (rpi_serial) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)\n'}
+[1.308020] (-) TimerEvent: {}
+[1.408685] (-) TimerEvent: {}
+[1.509393] (-) TimerEvent: {}
+[1.610104] (-) TimerEvent: {}
+[1.710778] (-) TimerEvent: {}
+[1.811492] (-) TimerEvent: {}
+[1.912152] (-) TimerEvent: {}
+[1.962926] (rpi_serial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.012323] (-) TimerEvent: {}
+[2.112972] (-) TimerEvent: {}
+[2.172523] (rpi_serial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/home/ubuntu/ros2_foxy/ros2-linux/share/rmw_implementation_cmake/cmake)\n'}
+[2.178713] (rpi_serial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.213144] (-) TimerEvent: {}
+[2.313833] (-) TimerEvent: {}
+[2.414501] (-) TimerEvent: {}
+[2.515164] (-) TimerEvent: {}
+[2.545600] (rpi_serial) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/home/ubuntu/ros2_foxy/ros2-linux/share/std_msgs/cmake)\n'}
+[2.615323] (-) TimerEvent: {}
+[2.716028] (-) TimerEvent: {}
+[2.816873] (-) TimerEvent: {}
+[2.883331] (rpi_serial) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.911488] (rpi_serial) StdoutLine: {'line': b'-- Generating done\n'}
+[2.917045] (-) TimerEvent: {}
+[2.918679] (rpi_serial) StdoutLine: {'line': b'-- Build files have been written to: /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial\n'}
+[3.017246] (-) TimerEvent: {}
+[3.025856] (rpi_serial) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target listener\x1b[0m\n'}
+[3.107499] (rpi_serial) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o\x1b[0m\n'}
+[3.108441] (rpi_serial) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/listener.dir/src/serialib/serialib.cpp.o\x1b[0m\n'}
+[3.117431] (-) TimerEvent: {}
+[3.218175] (-) TimerEvent: {}
+[3.318931] (-) TimerEvent: {}
+[3.419688] (-) TimerEvent: {}
+[3.520462] (-) TimerEvent: {}
+[3.621294] (-) TimerEvent: {}
+[3.722140] (-) TimerEvent: {}
+[3.822994] (-) TimerEvent: {}
+[3.923811] (-) TimerEvent: {}
+[4.024579] (-) TimerEvent: {}
+[4.125395] (-) TimerEvent: {}
+[4.226242] (-) TimerEvent: {}
+[4.327059] (-) TimerEvent: {}
+[4.427849] (-) TimerEvent: {}
+[4.528596] (-) TimerEvent: {}
+[4.629312] (-) TimerEvent: {}
+[4.730019] (-) TimerEvent: {}
+[4.830735] (-) TimerEvent: {}
+[4.931604] (-) TimerEvent: {}
+[5.032355] (-) TimerEvent: {}
+[5.133059] (-) TimerEvent: {}
+[5.233813] (-) TimerEvent: {}
+[5.334502] (-) TimerEvent: {}
+[5.435282] (-) TimerEvent: {}
+[5.536011] (-) TimerEvent: {}
+[5.636715] (-) TimerEvent: {}
+[5.737474] (-) TimerEvent: {}
+[5.838264] (-) TimerEvent: {}
+[5.938998] (-) TimerEvent: {}
+[6.039742] (-) TimerEvent: {}
+[6.140508] (-) TimerEvent: {}
+[6.241225] (-) TimerEvent: {}
+[6.341988] (-) TimerEvent: {}
+[6.442713] (-) TimerEvent: {}
+[6.543450] (-) TimerEvent: {}
+[6.644208] (-) TimerEvent: {}
+[6.744943] (-) TimerEvent: {}
+[6.845751] (-) TimerEvent: {}
+[6.946464] (-) TimerEvent: {}
+[7.047164] (-) TimerEvent: {}
+[7.147866] (-) TimerEvent: {}
+[7.248603] (-) TimerEvent: {}
+[7.349335] (-) TimerEvent: {}
+[7.450109] (-) TimerEvent: {}
+[7.550804] (-) TimerEvent: {}
+[7.651494] (-) TimerEvent: {}
+[7.752232] (-) TimerEvent: {}
+[7.852929] (-) TimerEvent: {}
+[7.953658] (-) TimerEvent: {}
+[8.054399] (-) TimerEvent: {}
+[8.155108] (-) TimerEvent: {}
+[8.255817] (-) TimerEvent: {}
+[8.356598] (-) TimerEvent: {}
+[8.457325] (-) TimerEvent: {}
+[8.558139] (-) TimerEvent: {}
+[8.658902] (-) TimerEvent: {}
+[8.759634] (-) TimerEvent: {}
+[8.860345] (-) TimerEvent: {}
+[8.961099] (-) TimerEvent: {}
+[9.061810] (-) TimerEvent: {}
+[9.162504] (-) TimerEvent: {}
+[9.263235] (-) TimerEvent: {}
+[9.363975] (-) TimerEvent: {}
+[9.464731] (-) TimerEvent: {}
+[9.565442] (-) TimerEvent: {}
+[9.666186] (-) TimerEvent: {}
+[9.766898] (-) TimerEvent: {}
+[9.867607] (-) TimerEvent: {}
+[9.968352] (-) TimerEvent: {}
+[10.069161] (-) TimerEvent: {}
+[10.169961] (-) TimerEvent: {}
+[10.270656] (-) TimerEvent: {}
+[10.371378] (-) TimerEvent: {}
+[10.472104] (-) TimerEvent: {}
+[10.572823] (-) TimerEvent: {}
+[10.673582] (-) TimerEvent: {}
+[10.774328] (-) TimerEvent: {}
+[10.875050] (-) TimerEvent: {}
+[10.975790] (-) TimerEvent: {}
+[11.076553] (-) TimerEvent: {}
+[11.177259] (-) TimerEvent: {}
+[11.278045] (-) TimerEvent: {}
+[11.378791] (-) TimerEvent: {}
+[11.479509] (-) TimerEvent: {}
+[11.580257] (-) TimerEvent: {}
+[11.680988] (-) TimerEvent: {}
+[11.781766] (-) TimerEvent: {}
+[11.882454] (-) TimerEvent: {}
+[11.983150] (-) TimerEvent: {}
+[12.083858] (-) TimerEvent: {}
+[12.184575] (-) TimerEvent: {}
+[12.285322] (-) TimerEvent: {}
+[12.386055] (-) TimerEvent: {}
+[12.486753] (-) TimerEvent: {}
+[12.587446] (-) TimerEvent: {}
+[12.688150] (-) TimerEvent: {}
+[12.788892] (-) TimerEvent: {}
+[12.889608] (-) TimerEvent: {}
+[12.990342] (-) TimerEvent: {}
+[13.091047] (-) TimerEvent: {}
+[13.191880] (-) TimerEvent: {}
+[13.292988] (-) TimerEvent: {}
+[13.393712] (-) TimerEvent: {}
+[13.494425] (-) TimerEvent: {}
+[13.595172] (-) TimerEvent: {}
+[13.695918] (-) TimerEvent: {}
+[13.796638] (-) TimerEvent: {}
+[13.897454] (-) TimerEvent: {}
+[13.998701] (-) TimerEvent: {}
+[14.099417] (-) TimerEvent: {}
+[14.200160] (-) TimerEvent: {}
+[14.301127] (-) TimerEvent: {}
+[14.402244] (-) TimerEvent: {}
+[14.502954] (-) TimerEvent: {}
+[14.603648] (-) TimerEvent: {}
+[14.704397] (-) TimerEvent: {}
+[14.805100] (-) TimerEvent: {}
+[14.905807] (-) TimerEvent: {}
+[15.006458] (-) TimerEvent: {}
+[15.107149] (-) TimerEvent: {}
+[15.207880] (-) TimerEvent: {}
+[15.308568] (-) TimerEvent: {}
+[15.409279] (-) TimerEvent: {}
+[15.509997] (-) TimerEvent: {}
+[15.610706] (-) TimerEvent: {}
+[15.711410] (-) TimerEvent: {}
+[15.812132] (-) TimerEvent: {}
+[15.912817] (-) TimerEvent: {}
+[16.013557] (-) TimerEvent: {}
+[16.114284] (-) TimerEvent: {}
+[16.214969] (-) TimerEvent: {}
+[16.315688] (-) TimerEvent: {}
+[16.416420] (-) TimerEvent: {}
+[16.517132] (-) TimerEvent: {}
+[16.617818] (-) TimerEvent: {}
+[16.718514] (-) TimerEvent: {}
+[16.819228] (-) TimerEvent: {}
+[16.919931] (-) TimerEvent: {}
+[17.020661] (-) TimerEvent: {}
+[17.121357] (-) TimerEvent: {}
+[17.222115] (-) TimerEvent: {}
+[17.322829] (-) TimerEvent: {}
+[17.423525] (-) TimerEvent: {}
+[17.524244] (-) TimerEvent: {}
+[17.624970] (-) TimerEvent: {}
+[17.725736] (-) TimerEvent: {}
+[17.826426] (-) TimerEvent: {}
+[17.927101] (-) TimerEvent: {}
+[18.027801] (-) TimerEvent: {}
+[18.128548] (-) TimerEvent: {}
+[18.229248] (-) TimerEvent: {}
+[18.329949] (-) TimerEvent: {}
+[18.430637] (-) TimerEvent: {}
+[18.531358] (-) TimerEvent: {}
+[18.632092] (-) TimerEvent: {}
+[18.732805] (-) TimerEvent: {}
+[18.833498] (-) TimerEvent: {}
+[18.934228] (-) TimerEvent: {}
+[19.034934] (-) TimerEvent: {}
+[19.135611] (-) TimerEvent: {}
+[19.236284] (-) TimerEvent: {}
+[19.336980] (-) TimerEvent: {}
+[19.437718] (-) TimerEvent: {}
+[19.538418] (-) TimerEvent: {}
+[19.639102] (-) TimerEvent: {}
+[19.739799] (-) TimerEvent: {}
+[19.840524] (-) TimerEvent: {}
+[19.941226] (-) TimerEvent: {}
+[20.042134] (-) TimerEvent: {}
+[20.142896] (-) TimerEvent: {}
+[20.243723] (-) TimerEvent: {}
+[20.344485] (-) TimerEvent: {}
+[20.445186] (-) TimerEvent: {}
+[20.546006] (-) TimerEvent: {}
+[20.646713] (-) TimerEvent: {}
+[20.747445] (-) TimerEvent: {}
+[20.848206] (-) TimerEvent: {}
+[20.949029] (-) TimerEvent: {}
+[21.050341] (-) TimerEvent: {}
+[21.151060] (-) TimerEvent: {}
+[21.251882] (-) TimerEvent: {}
+[21.282634] (rpi_serial) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable listener\x1b[0m\n'}
+[21.352169] (-) TimerEvent: {}
+[21.452989] (-) TimerEvent: {}
+[21.553861] (-) TimerEvent: {}
+[21.654737] (-) TimerEvent: {}
+[21.755552] (-) TimerEvent: {}
+[21.856363] (-) TimerEvent: {}
+[21.957047] (-) TimerEvent: {}
+[22.057752] (-) TimerEvent: {}
+[22.158653] (-) TimerEvent: {}
+[22.259674] (-) TimerEvent: {}
+[22.316762] (rpi_serial) StdoutLine: {'line': b'[100%] Built target listener\n'}
+[22.358011] (rpi_serial) CommandEnded: {'returncode': 0}
+[22.360325] (-) TimerEvent: {}
+[22.464702] (-) TimerEvent: {}
+[22.487018] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'install'}
+[22.527617] (rpi_serial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial'], 'cwd': '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ubuntu'), ('SSH_CLIENT', '192.168.4.1 42480 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/opt/yaml_cpp_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/opt/rviz_ogre_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/ubuntu'), ('OLDPWD', '/home/ubuntu/HardwareAansturing/ros2/rpi_serial'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/aarch64-linux-gnu/pkgconfig:/home/ubuntu/ros2_foxy/ros2-linux/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ubuntu/ros2_foxy/ros2-linux/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial'), ('SSH_CONNECTION', '192.168.4.1 42480 192.168.4.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux')]), 'shell': False}
+[22.564909] (-) TimerEvent: {}
+[22.568292] (rpi_serial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[22.569629] (rpi_serial) StdoutLine: {'line': b'-- Installing: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/lib/rpi_serial/listener\n'}
+[22.583196] (rpi_serial) StdoutLine: {'line': b'-- Set runtime path of "/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/lib/rpi_serial/listener" to ""\n'}
+[22.583791] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/ament_index/resource_index/package_run_dependencies/rpi_serial\n'}
+[22.584227] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/ament_index/resource_index/parent_prefix_path/rpi_serial\n'}
+[22.584653] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/environment/ament_prefix_path.sh\n'}
+[22.585058] (rpi_serial) StdoutLine: {'line': b'-- Installing: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/environment/ament_prefix_path.dsv\n'}
+[22.586383] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/environment/path.sh\n'}
+[22.586869] (rpi_serial) StdoutLine: {'line': b'-- Installing: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/environment/path.dsv\n'}
+[22.587975] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/local_setup.bash\n'}
+[22.588453] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/local_setup.sh\n'}
+[22.588871] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/local_setup.zsh\n'}
+[22.589257] (rpi_serial) StdoutLine: {'line': b'-- Installing: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/local_setup.dsv\n'}
+[22.590428] (rpi_serial) StdoutLine: {'line': b'-- Installing: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/package.dsv\n'}
+[22.591598] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/ament_index/resource_index/packages/rpi_serial\n'}
+[22.592047] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/cmake/rpi_serialConfig.cmake\n'}
+[22.592481] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/cmake/rpi_serialConfig-version.cmake\n'}
+[22.592901] (rpi_serial) StdoutLine: {'line': b'-- Up-to-date: /home/ubuntu/HardwareAansturing/ros2/install/rpi_serial/share/rpi_serial/package.xml\n'}
+[22.597926] (rpi_serial) CommandEnded: {'returncode': 0}
+[22.665160] (-) TimerEvent: {}
+[22.766164] (-) TimerEvent: {}
+[22.805123] (rpi_serial) JobEnded: {'identifier': 'rpi_serial', 'rc': 0}
+[22.807944] (-) EventReactorShutdown: {}

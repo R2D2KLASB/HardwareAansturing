@@ -1,0 +1,12 @@
+[0.089s] Invoking command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial': /usr/bin/cmake --build /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial -- -j4 -l4
+[0.277s] [35m[1mScanning dependencies of target listener[0m
+[0.462s] [ 33%] [32mBuilding CXX object CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o[0m
+[0.967s] In file included from [01m[K/home/ubuntu/HardwareAansturing/ros2/rpi_serial/src/subscriber_member_function.cpp:19[m[K:
+[0.968s] [01m[K/home/ubuntu/HardwareAansturing/ros2/rpi_serial/src/rpi_serial.hpp:1:10:[m[K [01;31m[Kfatal error: [m[Kserialib-master/lib/serialib.h: No such file or directory
+[0.968s]     1 | #include [01;31m[K"serialib-master/lib/serialib.h"[m[K
+[0.969s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.969s] compilation terminated.
+[0.976s] make[2]: *** [CMakeFiles/listener.dir/build.make:63: CMakeFiles/listener.dir/src/subscriber_member_function.cpp.o] Error 1
+[0.977s] make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/listener.dir/all] Error 2
+[0.977s] make: *** [Makefile:141: all] Error 2
+[0.984s] Invoked command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial' returned '2': /usr/bin/cmake --build /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial -- -j4 -l4

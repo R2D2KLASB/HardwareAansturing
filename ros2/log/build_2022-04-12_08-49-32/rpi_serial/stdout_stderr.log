@@ -1,0 +1,21 @@
+-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.4.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.3 (/home/ubuntu/ros2_foxy/ros2-linux/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 2.0.5 (/home/ubuntu/ros2_foxy/ros2-linux/share/std_msgs/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial
+[35m[1mScanning dependencies of target listener[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/listener.dir/src/serialib/serialib.cpp.o[0m
+[01m[K/home/ubuntu/HardwareAansturing/ros2/rpi_serial/src/serialib/serialib.cpp:18:10:[m[K [01;31m[Kfatal error: [m[Kserialib.h: No such file or directory
+   18 | #include [01;31m[K"serialib.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/listener.dir/build.make:76: CMakeFiles/listener.dir/src/serialib/serialib.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:78: CMakeFiles/listener.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
