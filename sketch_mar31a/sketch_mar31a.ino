@@ -23,21 +23,21 @@ Queue queue;
 
 
 
-void print_draw(Coordinate xy, int mode) {
-  Serial.print("DRAW x: ");
-  Serial.print(xy.x);
-  Serial.print(" Y: ");
-  Serial.print(xy.y);
-  Serial.print(" int mode : ");
-  Serial.println(mode);
-}
+//void print_draw(Coordinate xy, int mode) {
+//  SerialUSB.print("DRAW x: ");
+//  SerialUSB.print(xy.x);
+//  SerialUSB.print(" Y: ");
+//  SerialUSB.print(xy.y);
+//  SerialUSB.print(" int mode : ");
+//  SerialUSB.println(mode);
+//}
 
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   // start serial port at 19200 bps:
   Serial.begin(19200);
-  SerialUSB.begin(19200);
+//  SerialUSB.begin(19200);
   //  while (!Serial) {
   //    ; // wait for serial port to connect. Needed for native USB port only
   //  }
@@ -91,18 +91,20 @@ void loop() {
     }
 
   }
-  Serial.println("writing");
+//  Serial.println("writing");
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
     switch (writeCode.gcode) {
       //G00 Z-axis up and move to location (x, y)
       case 0:
         plot.draw(writeCode.location, 0);
+//        print_draw(writeCode.location, 0);
         break;
 
       //G01 Z-axis down and move to location (draw line) (x, y)
       case 1:
         plot.draw(writeCode.location, 1);
+//        print_draw(writeCode.location, 1);
         break;
 
       //G28 home
