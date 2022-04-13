@@ -34,15 +34,15 @@ using namespace std;
 //  return coords;
 //}
 
-string getXYCoord( string gcode){
+string getXYCoord( string gcode ){
   gcode.erase(std::remove_if(gcode.begin(), gcode.end(),
                             [](unsigned char ch) {
                                return ((ch == 'G') || (ch == 'X') ||
-                                       (ch == 'Y')); }),gcode.end());
+                                       (ch == 'Y') || (ch == 'M')); }),gcode.end());
   return gcode;
 }
 
-int plotter_print() {
+int plotter_print( string s ) {
   // Serial object
   serialib serial;
   char errorOpening = serial.openDevice(SERIAL_PORT, 9600);
@@ -54,8 +54,9 @@ int plotter_print() {
   cout << "Successful connection to " << SERIAL_PORT << endl;
 
   //test string
-  string gcode = "G00 X0.000000 Y2.857143\nG01 X1.428571 Y4.571429\nG01 "
-                 "X3.571429 Y7.428571\nG01 X4.285714 Y8.571428";
+  // string gcode = "G00 X0.000000 Y2.857143\nG01 X1.428571 Y4.571429\nG01 "
+  //                "X3.571429 Y7.428571\nG01 X4.285714 Y8.571428";
+  string gcode = s;
 
 
   string coords = getXYCoord(gcode);
@@ -63,6 +64,6 @@ int plotter_print() {
   //for debuggin
   cout << coords << endl;
 
-  serial.writeString(coords.c_str());
+//  serial.writeString(coords.c_str());
   return 0;
 }
