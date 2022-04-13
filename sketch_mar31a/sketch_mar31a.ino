@@ -1,13 +1,16 @@
 #include <Servo.h>
-#include "XYPlotter.hpp"
+#include "XYplotter.hpp"
 #include "DataTypes.hpp"
 #include "Definitions.hpp"
+#include "queue.hpp"
 
 Servo pen;
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
+XYPlotter plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
+Queue queue;
+
 
 //void setup() {
-//  Plot.home();
+//  plot.home();
 //  liefde();
 //}
 //
@@ -20,13 +23,13 @@ XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X,
 
 
 
-void print_draw(Coordinate xy, bool pen) {
-  SerialUSB.print("DRAW x: ");
-  SerialUSB.print(xy.x);
-  SerialUSB.print(" Y: ");
-  SerialUSB.print(xy.y);
-  SerialUSB.print(" bool pen : ");
-  SerialUSB.println(pen);
+void print_draw(Coordinate xy, int mode) {
+  Serial.print("DRAW x: ");
+  Serial.print(xy.x);
+  Serial.print(" Y: ");
+  Serial.print(xy.y);
+  Serial.print(" int mode : ");
+  Serial.println(mode);
 }
 
 
@@ -43,7 +46,7 @@ void setup() {
   //  }
   //
   //  SerialUSB.println("setup done");
-  //  Plot.init();
+  plot.init();
 }
 
 void SerialFlush() {
@@ -53,48 +56,62 @@ void SerialFlush() {
 }
 
 void loop() {
+  Gcode readCode;
+  readCode.gcode = 0;
   // if we get a valid byte, read analog ins:
-  while (Serial.available() == 0) {
+  while (readCode.gcode != -1) {
+    readCode.location = {0, 0};
+
+    while (Serial.available() == 0) {
+    }
+    readCode.gcode = Serial.parseInt();
+    if (readCode.gcode != -1) {
+      switch (readCode.gcode) {
+        //G00 Z-axis up and move to location (x, y)
+        case 0:
+          readCode.location.x = Serial.parseInt();
+          readCode.location.y = Serial.parseInt();
+          break;
+
+        //G01 Z-axis down and move to location (draw line) (x, y)
+        case 1:
+          readCode.location.x = Serial.parseInt();
+          readCode.location.y = Serial.parseInt();
+          break;
+
+        default:
+          break;
+      }
+      if (queue.append(readCode)) {
+        break;
+      }
+      else {
+        Serial.write(6);
+      }
+    }
+
   }
-  int g_code = Serial.parseInt();
-  Coordinate XY;
+  Serial.println("writing");
+  Gcode writeCode;
+  while (!queue.pop(writeCode)) {
+    switch (writeCode.gcode) {
+      //G00 Z-axis up and move to location (x, y)
+      case 0:
+        plot.draw(writeCode.location, 0);
+        break;
 
-  switch (g_code) {
-    //G00 Z-axis up and move to location (x, y)
-    case 0:
-      XY.x = Serial.parseInt();
-      XY.y = Serial.parseInt();
-      Plot.draw(XY, 0);
-      print_draw(XY, 0);
-      break;
+      //G01 Z-axis down and move to location (draw line) (x, y)
+      case 1:
+        plot.draw(writeCode.location, 1);
+        break;
 
-    //G01 Z-axis down and move to location (draw line) (x, y)
-    case 1:
-      XY.x = Serial.parseInt();
-      XY.y = Serial.parseInt();
-      Plot.draw(XY, 1);
-      break;
+      //G28 home
+      case 28:
+        plot.home();
+        break;
 
-    //G28 home
-    case 28:
-      Plot.home();
-      break;
-
-    //G02 Arc movement clockwise arc (x, y, i, j, e)
-    case 2:
-      break;
-
-    //G03 Arc movement clockwise arc (x, y, i, j, e)
-    case 3:
-      break;
-
-    default:
-      break;
+      default:
+        break;
+    }
   }
-  //  Serial.write('"');
-  //  Serial.write(i);
-  //  Serial.write('"');
-  //  Serial.write(": Ready\n");
-  SerialFlush();
-  Serial.write(6);
 }

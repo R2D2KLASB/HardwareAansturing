@@ -32,4 +32,10 @@ struct Coordinate {
     return !(x==lhs.x and y == lhs.y);
   }
 };
+
+
+struct Gcode{
+  int gcode=0;
+  Coordinate location={0,0};
+};
 #endif //DATATYPES_HPP
