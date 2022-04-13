@@ -4,98 +4,97 @@
 #include "Definitions.hpp"
 
 Servo pen;
-XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen);
-void setup() {
+XYPlotter Plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
+
+//void setup() {
+//  Plot.home();
+//  liefde();
+//}
+//
+//void loop() {
+//  if (Serial.available()>0){
+//    String input = Serial.readStringUntil('\n');
+//    input.split(' ');
+//  }
+//}
+
+
+
+void print_draw(Coordinate xy, bool pen) {
+  SerialUSB.print("DRAW x: ");
+  SerialUSB.print(xy.x);
+  SerialUSB.print(" Y: ");
+  SerialUSB.print(xy.y);
+  SerialUSB.print(" bool pen : ");
+  SerialUSB.println(pen);
 }
 
-void kaas() {
 
-Plot.draw(0, 1190.476074, 0);
-  Plot.draw(714.285828, 1904.762085);
-  Plot.draw(1785.713989, 3095.238037);
-  Plot.draw(2142.856934, 3571.428955);
-  Plot.draw(2500.000000, 4285.713867);
-  Plot.draw(2500.000000, 4761.904785);
-  Plot.draw(2142.856934, 5000.000000);
-  Plot.draw(1428.572021, 4761.904785);
-  Plot.draw(1071.428955, 4285.713867);
-  Plot.draw(714.285828, 3333.332764);
-  Plot.draw(357.142914, 1904.762085);
-  Plot.draw(0.000000, 0.000000);
-  Plot.draw(357.142914, 714.285828);
-  Plot.draw(714.285828, 1190.476074);
-  Plot.draw(1428.572021, 1904.762085);
-  Plot.draw(2142.856934, 2142.856934);
-  Plot.draw(2857.143066, 2142.856934);
-  Plot.draw(3214.286133, 1904.762085);
-  Plot.draw(3214.286133, 1428.572021);
-  Plot.draw(2500.000000, 1190.476074);
-  Plot.draw(1428.572021, 1190.476074);
-  Plot.draw(2142.856934, 952.381042);
-  Plot.draw(2500.000000, 238.095306);
-  Plot.draw(2857.143066, 0.000000);
-  Plot.draw(3214.286133, 0.000000);
-  Plot.draw(3928.571045, 238.095306);
-  Plot.draw(4285.713867, 476.190521);
-  Plot.draw(5000.000000, 1190.476074);
-  Plot.draw(7812.500000, 1666.666992, 0);
-  Plot.draw(7500.000000, 2222.221924);
-  Plot.draw(6875.000000, 2500.000000);
-  Plot.draw(6250.000000, 2500.000000);
-  Plot.draw(5625.000000, 2222.221924);
-  Plot.draw(5312.500000, 1944.444092);
-  Plot.draw(5000.000000, 1388.889038);
-  Plot.draw(5000.000000, 833.333374);
-  Plot.draw(5312.500000, 277.777802);
-  Plot.draw(5937.500000, 0.000000);
-  Plot.draw(6562.500000, 0.000000);
-  Plot.draw(7187.500000, 277.777802);
-  Plot.draw(7500.000000, 833.333374);
-  Plot.draw(8125.000000, 2500.000000);
-  Plot.draw(7812.500000, 1111.110962);
-  Plot.draw(7812.500000, 277.777802);
-  Plot.draw(8125.000000, 0.000000);
-  Plot.draw(8437.500000, 0.000000);
-  Plot.draw(9062.500000, 277.777802);
-  Plot.draw(9375.000000, 555.555603);
-  Plot.draw(10000.000000, 1388.889038);
-  Plot.draw(12812.500000, 1666.666992, 0);
-  Plot.draw(12500.000000, 2222.221924);
-  Plot.draw(11875.000000, 2500.000000);
-  Plot.draw(11250.000000, 2500.000000);
-  Plot.draw(10625.000000, 2222.221924);
-  Plot.draw(10312.500000, 1944.444092);
-  Plot.draw(10000.000000, 1388.889038);
-  Plot.draw(10000.000000, 833.333374);
-  Plot.draw(10312.500000, 277.777802);
-  Plot.draw(10937.500000, 0.000000);
-  Plot.draw(11562.500000, 0.000000);
-  Plot.draw(12187.500000, 277.777802);
-  Plot.draw(12500.000000, 833.333374);
-  Plot.draw(13125.000000, 2500.000000);
-  Plot.draw(12812.500000, 1111.110962);
-  Plot.draw(12812.500000, 277.777802);
-  Plot.draw(13125.000000, 0.000000);
-  Plot.draw(13437.500000, 0.000000);
-  Plot.draw(14062.500000, 277.777802);
-  Plot.draw(14375.000000, 555.555603);
-  Plot.draw(15000.000000, 1388.889038);
-  Plot.draw(15000.000000, 1750.000000, 0);
-  Plot.draw(15909.090820, 2800.000000);
-  Plot.draw(16363.634766, 3500.000000);
-  Plot.draw(16363.634766, 2800.000000);
-  Plot.draw(17272.726562, 1750.000000);
-  Plot.draw(17727.273438, 1050.000000);
-  Plot.draw(17727.273438, 350.000000);
-  Plot.draw(16818.181641, 0.000000);
-  Plot.draw(15000.000000, 350.000000, 0);
-  Plot.draw(15909.090820, 0.000000);
-  Plot.draw(17727.273438, 0.000000);
-  Plot.draw(18636.365234, 350.000000);
-  Plot.draw(19090.908203, 700.000000);
-  Plot.draw(20000.000000, 1750.000000, 0);
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  // start serial port at 19200 bps:
+  Serial.begin(19200);
+  SerialUSB.begin(19200);
+  //  while (!Serial) {
+  //    ; // wait for serial port to connect. Needed for native USB port only
+  //  }
+  //  while (!SerialUSB) {
+  //    ; // wait for serial port to connect. Needed for native USB port only
+  //  }
+  //
+  //  SerialUSB.println("setup done");
+  //  Plot.init();
+}
+
+void SerialFlush() {
+  while (Serial.available() > 0) {
+    Serial.read();
+  }
 }
 
 void loop() {
-  kaas();
+  // if we get a valid byte, read analog ins:
+  while (Serial.available() == 0) {
+  }
+  int g_code = Serial.parseInt();
+  Coordinate XY;
+
+  switch (g_code) {
+    //G00 Z-axis up and move to location (x, y)
+    case 0:
+      XY.x = Serial.parseInt();
+      XY.y = Serial.parseInt();
+      Plot.draw(XY, 0);
+      print_draw(XY, 0);
+      break;
+
+    //G01 Z-axis down and move to location (draw line) (x, y)
+    case 1:
+      XY.x = Serial.parseInt();
+      XY.y = Serial.parseInt();
+      Plot.draw(XY, 1);
+      break;
+
+    //G28 home
+    case 28:
+      Plot.home();
+      break;
+
+    //G02 Arc movement clockwise arc (x, y, i, j, e)
+    case 2:
+      break;
+
+    //G03 Arc movement clockwise arc (x, y, i, j, e)
+    case 3:
+      break;
+
+    default:
+      break;
+  }
+  //  Serial.write('"');
+  //  Serial.write(i);
+  //  Serial.write('"');
+  //  Serial.write(": Ready\n");
+  SerialFlush();
+  Serial.write(6);
 }

@@ -4,7 +4,7 @@ bool XYPlotter::draw(Coordinate finish, bool draw) {
   if (draw != prevState){
     setServo(draw);
   }
-  if (finish.x > maxDimension.x or finish.y > maxDimension.y) {
+  if (finish.x > maxDimension.x or finish.y > maxDimension.y or finish.y<0 or finish.x <0) {
     return true;
   }
   Coordinate delta = finish - currentLocation;
@@ -92,44 +92,51 @@ bool XYPlotter::draw(Coordinate finish, bool draw) {
   return false;
 }
 
-bool XYPlotter::draw(int x, int y, bool draw) {
-  return draw(Coordinate{x, y}, draw);
+bool XYPlotter::draw(int x, int y, bool d) {
+  return draw(Coordinate{x, y}, d);
 }
 
-void XYPlotter::setXDirection(Direction direction) {
-  currentXDirection = direction;
-  if (direction != XYPlotter::Direction::standStill) {
-    digitalWrite(xDirectionPin, direction);
+
+bool XYPlotter::home(){
+  setServo(0);
+  while(digitalRead(ySwitchPin)){
+    down();
   }
-}
-void XYPlotter::setYDirection(Direction direction) {
-  currentYDirection = direction;
-  if (direction != XYPlotter::Direction::standStill) {
-    digitalWrite(yDirectionPin, direction);
+  while(digitalRead(xSwitchPin)){
+    left();
   }
-}
-void XYPlotter::setXYDirection(Direction xDirection, Direction yDirection) {
-  setXDirection(xDirection);
-  setYDirection(yDirection);
+  currentLocation = {0, 0};
 }
 
-XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen):
+XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen, uint8_t xSwitchPin, uint8_t ySwitchPin):
+  enablePin(enablePin),
   xDirectionPin(xDirectionPin),
   xStepPin(xStepPin),
   yDirectionPin(yDirectionPin),
   yStepPin(yStepPin),
   currentLocation({0, 0}),
   maxDimension(maxDimension),
-  penHolder(pen)
-{
+  penHolder(pen),
+  xSwitchPin(xSwitchPin),
+  ySwitchPin(ySwitchPin)
+{}
+
+void XYPlotter::init(){
+  pinMode(12, OUTPUT);
   pinMode(xDirectionPin, OUTPUT);
   pinMode(xStepPin, OUTPUT);
   pinMode(yDirectionPin, OUTPUT);
   pinMode(yStepPin, OUTPUT);
   pinMode(enablePin, OUTPUT);
+  pinMode(xSwitchPin, INPUT);
+  pinMode(ySwitchPin, INPUT);
+
+  digitalWrite(12, HIGH);
   digitalWrite(xStepPin, LOW);
   digitalWrite(yStepPin, LOW);
   digitalWrite(enablePin, LOW);
+  setServo(0);  
+  home();
 }
 
 void XYPlotter::down() {
@@ -157,6 +164,23 @@ void XYPlotter::setServo(bool draw){
   }
   prevState = draw;
   delay(150);
+}
+
+void XYPlotter::setXDirection(Direction direction) {
+  currentXDirection = direction;
+  if (direction != XYPlotter::Direction::standStill) {
+    digitalWrite(xDirectionPin, direction);
+  }
+}
+void XYPlotter::setYDirection(Direction direction) {
+  currentYDirection = direction;
+  if (direction != XYPlotter::Direction::standStill) {
+    digitalWrite(yDirectionPin, direction);
+  }
+}
+void XYPlotter::setXYDirection(Direction xDirection, Direction yDirection) {
+  setXDirection(xDirection);
+  setYDirection(yDirection);
 }
 
 void XYPlotter::step() {
