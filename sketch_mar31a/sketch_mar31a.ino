@@ -6,7 +6,6 @@
 
 Servo pen;
 XYPlotter plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
-Queue queue;
 
 
 //void setup() {
@@ -56,6 +55,7 @@ void SerialFlush() {
 }
 
 void loop() {
+  Queue queue;
   Gcode readCode;
   readCode.gcode = 0;
   // if we get a valid byte, read analog ins:
@@ -82,7 +82,8 @@ void loop() {
         default:
           break;
       }
-      if (queue.append(readCode)) {
+      queue.append(readCode);
+      if (queue.isFull()) {
         break;
       }
       else {
@@ -91,7 +92,6 @@ void loop() {
     }
 
   }
-//  Serial.println("writing");
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
     switch (writeCode.gcode) {
@@ -110,6 +110,7 @@ void loop() {
       //G28 home
       case 28:
         plot.home();
+        
         break;
 
       default:

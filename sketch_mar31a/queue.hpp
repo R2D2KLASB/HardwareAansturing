@@ -5,10 +5,16 @@
 class Queue {
   private:
     Gcode queue[5000] = {};
-    int head = 0;
-    int tail = 0;
+    int head;
+    int tail;
 
-  public:
+  public:    
+    int getTail(){
+      return tail;
+    }
+    int getHead(){
+      return head;
+    }
     bool append(const Gcode& code) {
       if(tail<5000){
         queue[tail] = code;
@@ -18,7 +24,7 @@ class Queue {
       return true;
     }
     bool pop(Gcode& code) {
-      if(head<=tail){
+      if(head<tail){
         code = queue[head];
         head++;
         return false;
@@ -26,6 +32,9 @@ class Queue {
       head = 0;
       tail = 0;
       return true;
+    }
+    bool isFull(){
+      return tail >= 5000;
     }
 };
 #endif //QUEUE_HPP
