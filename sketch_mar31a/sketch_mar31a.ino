@@ -63,7 +63,6 @@ void loop() {
     readCode.location = {0, 0};
 
     while (Serial.available() == 0) {
-    }
     readCode.gcode = Serial.parseInt();
     if (readCode.gcode != -1) {
       switch (readCode.gcode) {
@@ -91,6 +90,7 @@ void loop() {
       }
     }
 
+  }
   }
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
