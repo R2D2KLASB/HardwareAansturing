@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Code_Ros_to_arduino.dir/RPI_send_string.cpp.o CMakeFiles/Code_Ros_to_arduino.dir/serialib-master/lib/serialib.cpp.o  -o Code_Ros_to_arduino 

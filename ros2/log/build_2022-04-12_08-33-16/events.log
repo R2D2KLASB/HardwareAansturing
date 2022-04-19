@@ -1,0 +1,98 @@
+[0.000000] (-) TimerEvent: {}
+[0.001229] (rpi_serial) JobQueued: {'identifier': 'rpi_serial', 'dependencies': OrderedDict()}
+[0.002203] (rpi_serial) JobStarted: {'identifier': 'rpi_serial'}
+[0.096164] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'cmake'}
+[0.097169] (rpi_serial) Command: {'cmd': ['/usr/bin/cmake', '/home/ubuntu/HardwareAansturing/ros2/rpi_serial', '-DCMAKE_INSTALL_PREFIX=/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial'], 'cwd': '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ubuntu'), ('SSH_CLIENT', '192.168.4.1 42480 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/opt/yaml_cpp_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/opt/rviz_ogre_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/ubuntu'), ('OLDPWD', '/home/ubuntu/HardwareAansturing/ros2/rpi_serial'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/aarch64-linux-gnu/pkgconfig:/home/ubuntu/ros2_foxy/ros2-linux/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ubuntu/ros2_foxy/ros2-linux/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial'), ('SSH_CONNECTION', '192.168.4.1 42480 192.168.4.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux')]), 'shell': False}
+[0.101828] (-) TimerEvent: {}
+[0.202658] (-) TimerEvent: {}
+[0.303918] (-) TimerEvent: {}
+[0.404877] (-) TimerEvent: {}
+[0.505716] (-) TimerEvent: {}
+[0.606675] (-) TimerEvent: {}
+[0.707628] (-) TimerEvent: {}
+[0.808552] (-) TimerEvent: {}
+[0.909637] (-) TimerEvent: {}
+[1.010516] (-) TimerEvent: {}
+[1.111390] (-) TimerEvent: {}
+[1.212268] (-) TimerEvent: {}
+[1.213836] (rpi_serial) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[1.312475] (-) TimerEvent: {}
+[1.413357] (-) TimerEvent: {}
+[1.514228] (-) TimerEvent: {}
+[1.615178] (-) TimerEvent: {}
+[1.716159] (-) TimerEvent: {}
+[1.817274] (-) TimerEvent: {}
+[1.918136] (-) TimerEvent: {}
+[2.019103] (-) TimerEvent: {}
+[2.120073] (-) TimerEvent: {}
+[2.220863] (-) TimerEvent: {}
+[2.321797] (-) TimerEvent: {}
+[2.422560] (-) TimerEvent: {}
+[2.523348] (-) TimerEvent: {}
+[2.624076] (-) TimerEvent: {}
+[2.724791] (-) TimerEvent: {}
+[2.825506] (-) TimerEvent: {}
+[2.926227] (-) TimerEvent: {}
+[3.026939] (-) TimerEvent: {}
+[3.121038] (rpi_serial) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[3.127098] (-) TimerEvent: {}
+[3.151126] (rpi_serial) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[3.227301] (-) TimerEvent: {}
+[3.328133] (-) TimerEvent: {}
+[3.428886] (-) TimerEvent: {}
+[3.476338] (rpi_serial) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[3.482676] (rpi_serial) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.529062] (-) TimerEvent: {}
+[3.629852] (-) TimerEvent: {}
+[3.731014] (-) TimerEvent: {}
+[3.783305] (rpi_serial) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[3.823573] (rpi_serial) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[3.825576] (rpi_serial) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[3.831100] (-) TimerEvent: {}
+[3.838684] (rpi_serial) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[3.931346] (-) TimerEvent: {}
+[4.032319] (-) TimerEvent: {}
+[4.133093] (-) TimerEvent: {}
+[4.166119] (rpi_serial) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[4.169841] (rpi_serial) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.233272] (-) TimerEvent: {}
+[4.334052] (-) TimerEvent: {}
+[4.434728] (-) TimerEvent: {}
+[4.535588] (-) TimerEvent: {}
+[4.636335] (-) TimerEvent: {}
+[4.737062] (-) TimerEvent: {}
+[4.837911] (-) TimerEvent: {}
+[5.563609] (-) TimerEvent: {}
+[5.664670] (-) TimerEvent: {}
+[5.676517] (rpi_serial) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[5.719960] (rpi_serial) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[5.721842] (rpi_serial) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[5.762255] (rpi_serial) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)\n'}
+[5.764806] (-) TimerEvent: {}
+[5.865529] (-) TimerEvent: {}
+[5.905359] (rpi_serial) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[5.906011] (rpi_serial) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[5.965698] (-) TimerEvent: {}
+[6.066380] (-) TimerEvent: {}
+[6.167477] (-) TimerEvent: {}
+[6.268422] (-) TimerEvent: {}
+[6.369020] (-) TimerEvent: {}
+[6.469629] (-) TimerEvent: {}
+[6.570228] (-) TimerEvent: {}
+[6.670957] (-) TimerEvent: {}
+[6.771933] (-) TimerEvent: {}
+[6.872590] (-) TimerEvent: {}
+[6.945428] (rpi_serial) StderrLine: {'line': b'CMake Error at /home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:77 (message):\n'}
+[6.946111] (rpi_serial) StderrLine: {'line': b"  ament_target_dependencies() the passed package name 'rclcpp' was not found\n"}
+[6.946452] (rpi_serial) StderrLine: {'line': b'  before\n'}
+[6.946760] (rpi_serial) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[6.947121] (rpi_serial) StderrLine: {'line': b'  CMakeLists.txt:12 (ament_target_dependencies)\n'}
+[6.947437] (rpi_serial) StderrLine: {'line': b'\n'}
+[6.947732] (rpi_serial) StderrLine: {'line': b'\n'}
+[6.950773] (rpi_serial) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[6.951370] (rpi_serial) StdoutLine: {'line': b'See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeOutput.log".\n'}
+[6.962671] (rpi_serial) CommandEnded: {'returncode': 1}
+[6.972938] (-) TimerEvent: {}
+[7.075042] (-) TimerEvent: {}
+[7.077524] (rpi_serial) JobEnded: {'identifier': 'rpi_serial', 'rc': 1}
+[7.089323] (-) EventReactorShutdown: {}

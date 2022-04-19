@@ -5,6 +5,7 @@
 /**
 * @brief virtual class implemented by the delta and XY-plotter
 */
+
 class Plotter{
     public:
         /**

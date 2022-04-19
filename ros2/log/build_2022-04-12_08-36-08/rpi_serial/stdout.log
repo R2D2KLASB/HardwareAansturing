@@ -1,0 +1,4 @@
+-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Configuring incomplete, errors occurred!
+See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeOutput.log".

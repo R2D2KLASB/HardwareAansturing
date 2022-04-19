@@ -1,0 +1,57 @@
+[0.000000] (-) TimerEvent: {}
+[0.001410] (rpi_serial) JobQueued: {'identifier': 'rpi_serial', 'dependencies': OrderedDict()}
+[0.002357] (rpi_serial) JobStarted: {'identifier': 'rpi_serial'}
+[0.081598] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'cmake'}
+[0.084915] (rpi_serial) JobProgress: {'identifier': 'rpi_serial', 'progress': 'build'}
+[0.087942] (rpi_serial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', '--', '-j4', '-l4'], 'cwd': '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ubuntu'), ('SSH_CLIENT', '192.168.4.1 42480 22'), ('XDG_SESSION_TYPE', 'tty'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/opt/yaml_cpp_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/opt/rviz_ogre_vendor/lib:/home/ubuntu/ros2_foxy/ros2-linux/lib'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/ubuntu'), ('OLDPWD', '/home/ubuntu/HardwareAansturing/ros2/rpi_serial'), ('SSH_TTY', '/dev/pts/0'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLCON_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/aarch64-linux-gnu/pkgconfig:/home/ubuntu/ros2_foxy/ros2-linux/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ubuntu/ros2_foxy/ros2-linux/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial'), ('SSH_CONNECTION', '192.168.4.1 42480 192.168.4.64 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/ros2_foxy/ros2-linux/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/ros2_foxy/ros2-linux')]), 'shell': False}
+[0.101200] (-) TimerEvent: {}
+[0.202986] (-) TimerEvent: {}
+[0.209191] (rpi_serial) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)\n'}
+[0.303160] (-) TimerEvent: {}
+[0.305555] (rpi_serial) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.403309] (-) TimerEvent: {}
+[0.503941] (-) TimerEvent: {}
+[0.604612] (-) TimerEvent: {}
+[0.705197] (-) TimerEvent: {}
+[0.805904] (-) TimerEvent: {}
+[0.906509] (-) TimerEvent: {}
+[1.007087] (-) TimerEvent: {}
+[1.104903] (rpi_serial) StdoutLine: {'line': b'-- Found rclcpp: 2.4.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rclcpp/cmake)\n'}
+[1.107223] (-) TimerEvent: {}
+[1.207815] (-) TimerEvent: {}
+[1.247167] (rpi_serial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.262022] (rpi_serial) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)\n'}
+[1.307961] (-) TimerEvent: {}
+[1.408651] (-) TimerEvent: {}
+[1.509364] (-) TimerEvent: {}
+[1.610093] (-) TimerEvent: {}
+[1.710853] (-) TimerEvent: {}
+[1.811614] (-) TimerEvent: {}
+[1.912309] (-) TimerEvent: {}
+[1.946003] (rpi_serial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.012488] (-) TimerEvent: {}
+[2.113142] (-) TimerEvent: {}
+[2.151005] (rpi_serial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/home/ubuntu/ros2_foxy/ros2-linux/share/rmw_implementation_cmake/cmake)\n'}
+[2.157109] (rpi_serial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.213294] (-) TimerEvent: {}
+[2.313942] (-) TimerEvent: {}
+[2.414590] (-) TimerEvent: {}
+[2.515264] (-) TimerEvent: {}
+[2.520569] (rpi_serial) StdoutLine: {'line': b'-- Found std_msgs: 2.0.5 (/home/ubuntu/ros2_foxy/ros2-linux/share/std_msgs/cmake)\n'}
+[2.588866] (rpi_serial) StderrLine: {'line': b'CMake Error at CMakeLists.txt:13 (target_include_directories):\n'}
+[2.589565] (rpi_serial) StderrLine: {'line': b'  Cannot specify include directories for target "listener" which is not built\n'}
+[2.589925] (rpi_serial) StderrLine: {'line': b'  by this project.\n'}
+[2.590236] (rpi_serial) StderrLine: {'line': b'\n'}
+[2.590555] (rpi_serial) StderrLine: {'line': b'\n'}
+[2.615380] (-) TimerEvent: {}
+[2.715993] (-) TimerEvent: {}
+[2.816714] (-) TimerEvent: {}
+[2.857391] (rpi_serial) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[2.857955] (rpi_serial) StdoutLine: {'line': b'See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeOutput.log".\n'}
+[2.858305] (rpi_serial) StdoutLine: {'line': b'See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeError.log".\n'}
+[2.877640] (rpi_serial) StderrLine: {'line': b'make: *** [Makefile:296: cmake_check_build_system] Error 1\n'}
+[2.883024] (rpi_serial) CommandEnded: {'returncode': 2}
+[2.916994] (-) TimerEvent: {}
+[3.017919] (-) TimerEvent: {}
+[3.069295] (rpi_serial) JobEnded: {'identifier': 'rpi_serial', 'rc': 2}
+[3.080920] (-) EventReactorShutdown: {}

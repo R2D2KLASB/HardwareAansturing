@@ -1,0 +1,12 @@
+-- Found ament_cmake: 0.9.9 (/home/ubuntu/ros2_foxy/ros2-linux/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found rclcpp: 2.4.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rclcpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.2.1 (/home/ubuntu/ros2_foxy/ros2-linux/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 1.0.3 (/home/ubuntu/ros2_foxy/ros2-linux/share/rmw_implementation_cmake/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 2.0.5 (/home/ubuntu/ros2_foxy/ros2-linux/share/std_msgs/cmake)
+-- Configuring incomplete, errors occurred!
+See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeOutput.log".
+See also "/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial/CMakeFiles/CMakeError.log".

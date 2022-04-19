@@ -1,0 +1,2 @@
+Invoking command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial': /usr/bin/cmake /home/ubuntu/HardwareAansturing/ros2/rpi_serial -DCMAKE_INSTALL_PREFIX=/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial
+Invoked command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial' returned '1': /usr/bin/cmake /home/ubuntu/HardwareAansturing/ros2/rpi_serial -DCMAKE_INSTALL_PREFIX=/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial
