@@ -108,19 +108,6 @@ bool XYPlotter::home(){
   currentLocation = {0, 0};
 }
 
-XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen, uint8_t xSwitchPin, uint8_t ySwitchPin):
-  enablePin(enablePin),
-  xDirectionPin(xDirectionPin),
-  xStepPin(xStepPin),
-  yDirectionPin(yDirectionPin),
-  yStepPin(yStepPin),
-  currentLocation({0, 0}),
-  maxDimension(maxDimension),
-  penHolder(pen),
-  xSwitchPin(xSwitchPin),
-  ySwitchPin(ySwitchPin)
-{}
-
 void XYPlotter::init(){
   pinMode(12, OUTPUT);
   pinMode(xDirectionPin, OUTPUT);
@@ -138,6 +125,19 @@ void XYPlotter::init(){
   setServo(0);  
   home();
 }
+
+XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen, uint8_t xSwitchPin, uint8_t ySwitchPin):
+  enablePin(enablePin),
+  xDirectionPin(xDirectionPin),
+  xStepPin(xStepPin),
+  yDirectionPin(yDirectionPin),
+  yStepPin(yStepPin),
+  currentLocation({0, 0}),
+  maxDimension(maxDimension),
+  penHolder(pen),
+  xSwitchPin(xSwitchPin),
+  ySwitchPin(ySwitchPin)
+{}
 
 void XYPlotter::down() {
   setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::counterClockwise);

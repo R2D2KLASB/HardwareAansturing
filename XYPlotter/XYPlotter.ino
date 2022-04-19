@@ -8,19 +8,6 @@ Servo pen;
 XYPlotter plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
 
 Queue queue;
-//void setup() {
-//  plot.home();
-//  liefde();
-//}
-//
-//void loop() {
-//  if (Serial.available()>0){
-//    String input = Serial.readStringUntil('\n');
-//    input.split(' ');
-//  }
-//}
-
-
 
 //void print_draw(Coordinate xy, int mode) {
 //  SerialUSB.print("DRAW x: ");
@@ -86,7 +73,6 @@ void loop() {
     }
 
   }
-  //  Serial.println("writing");
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
     switch (writeCode.gcode) {

@@ -3,11 +3,9 @@
 /// @file
 
 /**
-* @brief Coordinate class
-* @param x 
-* 
-* @details detailed description
-* @return return details
+* @brief Coordinate class that stores the coordinates
+* @param x the value of the x-location
+* @param y the value of the y-location
 */
 
 struct Coordinate {
@@ -33,7 +31,11 @@ struct Coordinate {
   }
 };
 
-
+/**
+* @brief Gcode class that contains the gcode command and location
+* @param gcode the integervalue corresponding to the gcode command 
+* @param location the {x, y} location the gcode command has to go to
+*/
 struct Gcode{
   int gcode=0;
   Coordinate location={0,0};
