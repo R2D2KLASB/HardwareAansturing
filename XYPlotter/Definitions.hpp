@@ -16,4 +16,6 @@
 #define SERVO_UP 0
 #define SERVO_DOWN 90
 
+#define BUFFER_SIZE 5000
+
 #endif // DEFINITIONS_HPP
