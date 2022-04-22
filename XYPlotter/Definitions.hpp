@@ -16,6 +16,9 @@
 #define SERVO_UP 0
 #define SERVO_DOWN 90
 
-#define BUFFER_SIZE 5000
+#define MICROSWITCHX 9
+#define MICROSWITCHY 10
+
+#define BUFFER_SIZE 2500
 
 #endif // DEFINITIONS_HPP
