@@ -13,13 +13,13 @@ bool XYPlotter::draw(Coordinate finish, bool draw) {
   }
   if (delta.x == 0) {
     if (delta.y > 0) {
-      for (unsigned int i = 0; i < delta.y; i++) {
+      for (int i = 0; i < delta.y; i++) {
         up();
         currentLocation += {0, 1};
       }
     }
     else {
-      for (unsigned int i = 0; i < 0 - delta.y; i++) {
+      for (int i = 0; i < 0 - delta.y; i++) {
         down();
         currentLocation += {0, -1};
       }
@@ -27,13 +27,13 @@ bool XYPlotter::draw(Coordinate finish, bool draw) {
   }
   else if (delta.y == 0) {
     if (delta.x > 0) {
-      for (unsigned int i = 0; i < delta.x; i++) {
+      for (int i = 0; i < delta.x; i++) {
         right();
         currentLocation += {1, 0};
       }
     }
     else {
-      for (unsigned int i = 0; i < 0 - delta.x; i++) {
+      for (int i = 0; i < 0 - delta.x; i++) {
         left();
         currentLocation += { -1, 0};
       }
@@ -97,7 +97,7 @@ bool XYPlotter::draw(int x, int y, bool d) {
 }
 
 
-bool XYPlotter::home() {
+void XYPlotter::home() {
   setServo(0);
   while (digitalRead(ySwitchPin)) {
     down();
@@ -126,19 +126,17 @@ void XYPlotter::init() {
   home();
 }
 
-XYPlotter::XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen, uint8_t xSwitchPin, uint8_t ySwitchPin):
+XYPlotter::XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t xSwitchPin, uint8_t yDirectionPin, uint8_t yStepPin, uint8_t ySwitchPin):
+  currentLocation({0, 0}),
+  maxDimension(maxDimension),
+  penHolder(pen),
   enablePin(enablePin),
   xDirectionPin(xDirectionPin),
   xStepPin(xStepPin),
+  xSwitchPin(xSwitchPin),
   yDirectionPin(yDirectionPin),
   yStepPin(yStepPin),
-  currentLocation( {
-  0, 0
-}),
-maxDimension(maxDimension),
-penHolder(pen),
-xSwitchPin(xSwitchPin),
-ySwitchPin(ySwitchPin)
+  ySwitchPin(ySwitchPin)
 {}
 
 void XYPlotter::down() {

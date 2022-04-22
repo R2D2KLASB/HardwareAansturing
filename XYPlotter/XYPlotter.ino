@@ -5,7 +5,7 @@
 #include "queue.hpp"
 
 Servo pen;
-XYPlotter plot(ENABLE_PIN, DIR_X_PIN, STEP_X_PIN, DIR_Y_PIN, STEP_Y_PIN, {MAX_X, MAX_Y}, pen, 9, 10);
+XYPlotter plot({MAX_X, MAX_Y}, pen, ENABLE_PIN, DIR_X_PIN, STEP_X_PIN,MICROSWITCHX, DIR_Y_PIN, STEP_Y_PIN, MICROSWITCHY);
 
 Queue queue;
 
@@ -17,13 +17,12 @@ Queue queue;
 //  SerialUSB.print(" int mode : ");
 //  SerialUSB.println(mode);
 //}
-
+//
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   // start serial port at 19200 bps:
-  Serial.begin(19200);
-  //  SerialUSB.begin(19200);
+  Serial.begin(115200);
   plot.init();
 }
 
@@ -34,27 +33,26 @@ void SerialFlush() {
 }
 
 void loop() {
-  queue.init_queue();
   Gcode readCode;
   readCode.gcode = 0;
   // if we get a valid byte, read analog ins:
+  SerialFlush();
+  Serial.write(6);
   while (readCode.gcode != -1) {
-
     while (Serial.available() == 0) {}
-
-    readCode.gcode = Serial.parseInt();
+    readCode.gcode = Serial.parseFloat();
     if (readCode.gcode != -1) {
       switch (readCode.gcode) {
         //G00 Z-axis up and move to location (x, y)
         case 0:
-          readCode.location.x = Serial.parseInt();
-          readCode.location.y = Serial.parseInt();
+          readCode.location.x = Serial.parseFloat();
+          readCode.location.y = Serial.parseFloat();
           break;
 
         //G01 Z-axis down and move to location (draw line) (x, y)
         case 1:
-          readCode.location.x = Serial.parseInt();
-          readCode.location.y = Serial.parseInt();
+          readCode.location.x = Serial.parseFloat();
+          readCode.location.y = Serial.parseFloat();
           break;
         case 28:
           readCode.location.x = 0;
@@ -71,7 +69,6 @@ void loop() {
         Serial.write(6);
       }
     }
-
   }
   Gcode writeCode;
   while (!queue.pop(writeCode)) {

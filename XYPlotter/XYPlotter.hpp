@@ -42,7 +42,7 @@ class XYPlotter: public Plotter {
       @brief Function to return to the homeposition using the microswitches
       @details Homing function that uses the microswitches to return to the homeposition over x and y-axis and than resets than calibrates the position.
     */
-    bool home();
+    void home();
 
     /**
        @brief init function that set the Pinmode sets the servo in the upposition and calls the home-function
@@ -63,7 +63,12 @@ class XYPlotter: public Plotter {
       @param ySwitchPin The pin to which the microswitch of the x-axis is connected.
       @details constructor for the XYplotter class which also sets all the pins.
     */
-    XYPlotter(uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t yDirectionPin, uint8_t yStepPin, Coordinate maxDimension, Servo & pen, uint8_t xSwitchPin, uint8_t ySwitchPin);
+
+
+
+
+    
+    XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t xSwitchPin, uint8_t yDirectionPin, uint8_t yStepPin, uint8_t ySwitchPin);
   private:
 
     bool prevState;
@@ -77,13 +82,12 @@ class XYPlotter: public Plotter {
 
     uint8_t delayUs = 50;
     uint8_t enablePin;
-    uint8_t servoPin;
-    uint8_t xSwitchPin;
     uint8_t xDirectionPin;
     uint8_t xStepPin;
-    uint8_t ySwitchPin;
+    uint8_t xSwitchPin;
     uint8_t yDirectionPin;
     uint8_t yStepPin;
+    uint8_t ySwitchPin;
 
     void down();
     void left();
