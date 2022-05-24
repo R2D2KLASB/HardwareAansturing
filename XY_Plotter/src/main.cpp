@@ -42,6 +42,7 @@ void SerialFlush() {
 }
 
 void loop() {
+  plot.setMotorState(XYPlotter::motorState::off);
   Gcode readCode;
   readCode.gcode = 0;
   // clear buffer for random existing bytes
@@ -71,9 +72,25 @@ void loop() {
           readCode.location.x = Serial.parseInt();
           readCode.location.y = Serial.parseInt();
           break;
+        case 3:
+          break;
+        case 4:
+          readCode.row = Serial.parseInt();
+          readCode.colom = Serial.parseInt();
+          readCode.player = Serial.parseInt();
+          break;
+        case 5:
+          readCode.row = Serial.parseInt();
+          readCode.colom = Serial.parseInt();
+          readCode.player = Serial.parseInt();
+          break;
+        case 6:
+          readCode.row = Serial.parseInt();
+          readCode.colom = Serial.parseInt();
+          readCode.width = Serial.parseInt();
+          readCode.length = Serial.parseInt();
+          break;
         case 28:
-          readCode.location.x = 0;
-          readCode.location.y = 0;
           break;
         default:
           break;
@@ -88,6 +105,8 @@ void loop() {
       }
     }
   }
+  plot.setMotorState(XYPlotter::motorState::on);
+  plot.home();
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
     switch (writeCode.gcode) {
@@ -108,9 +127,19 @@ void loop() {
         #ifdef DEBUG
         print_draw(writeCode.location, 1);
         #endif // DEBUG
-
         break;
-
+      case 3:
+        plot.g3();
+        break;
+      case 4:
+        plot.g4(writeCode.row, writeCode.colom, writeCode.player);
+        break;
+      case 5:
+        plot.g5(writeCode.row, writeCode.colom, writeCode.player);
+        break;
+      case 6:
+        plot.g6(writeCode.row, writeCode.colom, writeCode.width, writeCode.length);
+        break;
       //G28 home
       case 28:
         plot.home();
@@ -120,4 +149,5 @@ void loop() {
         break;
     }
   }
+  plot.setMotorState(XYPlotter::motorState::off);
 }

@@ -22,33 +22,20 @@ class XYPlotter: public Plotter {
       standStill
     };
 
-    /**
-      @brief public draw function to move the pen from the current location to the given location the boolean indicates if the pen is on the paper or lifted
-      @param finish Struct containing the x and y location of the destination
-      @param draw boolean that indicates if the pen is on the paper or lifted
-      @return returns if the operation was succesfull or not the reason for failure is that the location is out of bounds
-    */
-    bool draw(Coordinate finish, bool draw = 1);
-    /**
-      @brief public draw function that's an interface for the bool draw(Coordinate finish, bool draw) function;
-      @param x integer containing value of the x location of the destination
-      @param y integer containing value of the y location of the destination
-      @param draw boolean that indicates if the pen is on the paper or lifted
-      @return returns if the operation was succesfull or not the reason for failure is that the location is out of bounds
-    */
-    bool draw(int x, int y, bool draw = 1);
+    enum motorState{
+      off = 1,
+      on = 0
+    };
 
-    /**
-      @brief Function to return to the homeposition using the microswitches
-      @details Homing function that uses the microswitches to return to the homeposition over x and y-axis and than resets than calibrates the position.
-    */
-    void home();
+
+    void home() override;
 
     /**
        @brief init function that set the Pinmode sets the servo in the upposition and calls the home-function
     */
     void init();
 
+    void setMotorState(motorState newState);
 
     /**
       @brief constructor for the XYPlotter class.
@@ -64,23 +51,13 @@ class XYPlotter: public Plotter {
       @details constructor for the XYplotter class which also sets all the pins.
     */
 
-
-
-
-    
     XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t xSwitchPin, uint8_t yDirectionPin, uint8_t yStepPin, uint8_t ySwitchPin);
   private:
 
-    bool prevState;
-    bool firstDraw = true;
-    Coordinate currentLocation;
-    Coordinate maxDimension;
     Direction currentXDirection;
     Direction currentYDirection;
-
+    
     Servo & penHolder;
-
-    uint8_t delayUs = 50;
     uint8_t enablePin;
     uint8_t xDirectionPin;
     uint8_t xStepPin;
@@ -89,15 +66,6 @@ class XYPlotter: public Plotter {
     uint8_t yStepPin;
     uint8_t ySwitchPin;
 
-    void down();
-    void left();
-    void right();
-    void setServo(bool draw);
-    /**
-      @brief Sets the direction of the X steppermotor.
-      @param direction the direction the motor needs to turn.
-      @details Sets the director of the X steppermotor to the direction you give as parameter.
-    */
     void setXDirection(Direction direction);
 
     /**
@@ -114,9 +82,12 @@ class XYPlotter: public Plotter {
     */
     void setXYDirection(Direction xDirection, Direction yDirection);
     void step();
-    void up();
+    
+    void down() override;
+    void left() override;
+    void right() override;
+    void up() override;
 
-
-
+    void setServo(bool draw) override;
 };
 #endif //XYPLOTTER_HPP
