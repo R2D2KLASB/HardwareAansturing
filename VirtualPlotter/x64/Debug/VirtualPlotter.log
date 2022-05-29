@@ -1,0 +1,9 @@
+﻿  MainState.cpp
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\Game.hpp(34,23): warning C4305: 'initializing': truncation from 'double' to 'const float'
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(9,31): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(12,42): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(13,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(54,69): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(90,71): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\MainState.cpp(114,69): warning C4267: 'argument': conversion from 'size_t' to 'const int', possible loss of data
+  VirtualPlotter.vcxproj -> D:\Users\Stephan\Documents\GitHub\R2D2KLASB\HardwareAansturing\VisualStudio\VirtualPlotter\x64\Debug\VirtualPlotter.exe
