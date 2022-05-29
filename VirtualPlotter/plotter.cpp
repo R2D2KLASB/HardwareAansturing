@@ -149,23 +149,81 @@ void Plotter::g3(){
 }
 
 void Plotter::g4(const int& row, const int& colom, const int& player){
+    Coordinate origin(0, 0);
+    int celSize;
+    if (player == 1) {
+        origin = friendlyGameboardOrigin;
+        celSize = friendlyGameboardSize / 10;
+    }
+    else {
+        origin = enemyGameboardOrigin;
+        celSize = enemyGameboardSize / 10;
+    }
 
+    //Top
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 0);
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 6 * 5), 1);
+
+    //Upper right corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5 * 4, colom * celSize + celSize / 5 * 4), 1);
+	
+	//Right
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 6 * 5, colom * celSize + celSize / 2), 1);
+
+    //Lower right corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5 * 4, colom * celSize + celSize / 5), 1);
+	
+	//Lower
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 6), 1);
+
+    //Lower left corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5, colom * celSize + celSize / 5), 1);
+	
+    //Left
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 6, colom * celSize + celSize / 2), 1);
+
+	//Upper left corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5, colom * celSize + celSize / 5 * 4), 1);
+
+    home();
 }
 
-void Plotter::g5(const int& row, const int& colom, const int& player){
-  if (player == 0) {
-		draw(friendlyGameboardOrigin + Coordinate(row * (friendlyGameboardSize / 10) + (friendlyGameboardSize / 10) / 5, colom * (friendlyGameboardSize / 10) + (friendlyGameboardSize / 10) / 5), 0);
-		draw(friendlyGameboardOrigin + Coordinate((row + 1) * (friendlyGameboardSize / 10) - (friendlyGameboardSize / 10) / 5, (colom + 1) * (friendlyGameboardSize / 10) - (friendlyGameboardSize / 10) / 5), 1);
-		draw(friendlyGameboardOrigin + Coordinate(row * (friendlyGameboardSize / 10) + (friendlyGameboardSize / 10) / 5, ((colom + 1) * (friendlyGameboardSize / 10)) - (friendlyGameboardSize / 10) / 5), 0);
-		draw(friendlyGameboardOrigin + Coordinate((row + 1) * (friendlyGameboardSize / 10) - (friendlyGameboardSize / 10) / 5, colom * (friendlyGameboardSize / 10) + (friendlyGameboardSize / 10) / 5), 1);
-	}
-	else if (player == 1) {
-		draw(enemyGameboardOrigin + Coordinate(row * (enemyGameboardSize / 10) + (enemyGameboardSize / 10) / 5, colom * (enemyGameboardSize / 10) + (enemyGameboardSize / 10) / 5), 0);
-		draw(enemyGameboardOrigin + Coordinate((row + 1) * (enemyGameboardSize / 10) - (enemyGameboardSize / 10) / 5, (colom + 1) * (enemyGameboardSize / 10) - (enemyGameboardSize / 10) / 5), 1);
-		draw(enemyGameboardOrigin + Coordinate(row * (enemyGameboardSize / 10) + (enemyGameboardSize / 10) / 5, ((colom + 1) * (enemyGameboardSize / 10)) - (enemyGameboardSize / 10) / 5), 0);
-		draw(enemyGameboardOrigin + Coordinate((row + 1) * (enemyGameboardSize / 10) - (enemyGameboardSize / 10) / 5, colom * (enemyGameboardSize / 10) + (enemyGameboardSize / 10) / 5), 1);
-	}
-	home();
+void Plotter::g5(const int& row, const int& colom, const int& player) {
+    Coordinate origin(0, 0);
+    int celSize;
+    if (player == 1) {
+        origin = friendlyGameboardOrigin;
+        celSize = friendlyGameboardSize / 10;
+    }
+    else {
+        origin = enemyGameboardOrigin;
+        celSize = enemyGameboardSize / 10;
+    }
+
+    //Upper right corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 0);
+    draw(origin + Coordinate(row * celSize + celSize / 5 * 4, colom * celSize + celSize / 5 * 4), 1);
+
+    //Lower right corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5 * 4, colom * celSize + celSize / 5), 1);
+
+    //Lower left corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5, colom * celSize + celSize / 5), 1);
+
+    //Upper left corner
+    draw(origin + Coordinate(row * celSize + celSize / 2, colom * celSize + celSize / 2), 1);
+    draw(origin + Coordinate(row * celSize + celSize / 5, colom * celSize + celSize / 5 * 4), 1);
+
+    home();
 }
 
 void Plotter::g6(const int& row, const int& colom, const int& width, const int& length){
