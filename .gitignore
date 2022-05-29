@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+VirtualPlotter/x64/*
+VirtualPlotter/.vs/*
