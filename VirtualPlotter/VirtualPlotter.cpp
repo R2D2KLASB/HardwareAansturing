@@ -8,7 +8,7 @@ VirtualPlotter::VirtualPlotter(const sf::Color& foreground, const sf::Color& bac
 	traveling(traveling),
 	traveling_drawed(traveling_drawed)
 {
-	image.create(6020, 5020, background);
+	image.create(maxDimension.x/scale + padding*2, maxDimension.y/scale + padding * 2, background);
 }
 
 void VirtualPlotter::home() {

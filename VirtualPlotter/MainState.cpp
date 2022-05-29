@@ -116,16 +116,51 @@ void MainState::update() {
 
 void MainState::draw() {
     gameData->window.clear();
+
+	//Create background
+	sf::Image imageBackground;
+
+	imageBackground.create(gameData->window.getSize().x, gameData->window.getSize().y, background);
+	sf::Texture textureBackground;
+	textureBackground.loadFromImage(imageBackground);
+	sf::Sprite spriteBackground;
+	spriteBackground.setTexture(textureBackground);
+
+	//Create drawable object of plotter
 	sf::Texture texture;
 	texture.loadFromImage(plotter.getImage());
 	sf::Sprite sprite;
-	sprite.setPosition(20, 20);
+	sprite.setPosition(15, 15);
 	sprite.setTexture(texture);
-	sprite.scale({0.2, 0.2});
+
+	//Create drawable border for plotter
+	sf::Image imageBorder;
+	
+	if (background.r > 200 && background.g > 200 && background.b > 200) {
+		imageBorder.create(texture.getSize().x + 30, texture.getSize().y + 30, sf::Color::Black);
+	}
+	else {
+		imageBorder.create(texture.getSize().x + 30, texture.getSize().y + 30, sf::Color::White);
+	}
+
+	sf::Texture textureBorder;
+	textureBorder.loadFromImage(imageBorder);
+	sf::Sprite spriteBorder;
+	spriteBorder.setTexture(textureBorder);
+	
+
+	//Create drawable object of statistics
 	statistics.setPosition(1300, 10);
 	statistics.setFillColor(text);
 	statistics_data.setPosition(1550, 10);
 	statistics_data.setFillColor(text);
+
+
+
+
+
+	gameData->window.draw(spriteBackground);
+	gameData->window.draw(spriteBorder);
 	gameData->window.draw(sprite);
 	gameData->window.draw(statistics);
 	gameData->window.draw(statistics_data);
