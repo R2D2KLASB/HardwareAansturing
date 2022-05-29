@@ -46,7 +46,7 @@ private:
 	unsigned int servoChanges = 0;
 	unsigned int amountStepsDrawing = 0;
 	unsigned int amountStepsTotal = 0;
-	const unsigned int scale = 5;
+	const unsigned int scale = 25;
 	unsigned int padding = 10;
 
 	sf::Color foreground;
