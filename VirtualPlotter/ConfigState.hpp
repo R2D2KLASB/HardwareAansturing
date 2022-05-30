@@ -40,6 +40,7 @@ private:
 	
     sf::Font Textfont;
 	
+    sf::CircleShape playButton;
 public:
     ///\brief
     /// This constructor constructs an object of GameOverState

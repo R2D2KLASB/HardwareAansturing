@@ -118,36 +118,26 @@ void MainState::draw() {
     gameData->window.clear();
 
 	//Create background
-	sf::Image imageBackground;
-
-	imageBackground.create(gameData->window.getSize().x, gameData->window.getSize().y, background);
-	sf::Texture textureBackground;
-	textureBackground.loadFromImage(imageBackground);
-	sf::Sprite spriteBackground;
-	spriteBackground.setTexture(textureBackground);
-
+	sf::RectangleShape backgroundShape(sf::Vector2f(gameData->window.getSize().x, gameData->window.getSize().y));
+	backgroundShape.setFillColor(background);
+	
 	//Create drawable object of plotter
 	sf::Texture texture;
 	texture.loadFromImage(plotter.getImage());
 	sf::Sprite sprite;
-	sprite.setPosition(15, 15);
+	sprite.setPosition(10, 10);
 	sprite.setTexture(texture);
 
 	//Create drawable border for plotter
-	sf::Image imageBorder;
-	
+	sf::RectangleShape borderShape(sf::Vector2f(texture.getSize().x, texture.getSize().y));
+	borderShape.setPosition(sprite.getGlobalBounds().left, sprite.getGlobalBounds().top);
 	if (background.r > 200 && background.g > 200 && background.b > 200) {
-		imageBorder.create(texture.getSize().x + 30, texture.getSize().y + 30, sf::Color::Black);
+		borderShape.setOutlineColor(sf::Color::Black);
 	}
 	else {
-		imageBorder.create(texture.getSize().x + 30, texture.getSize().y + 30, sf::Color::White);
+		borderShape.setOutlineColor(sf::Color::White);
 	}
-
-	sf::Texture textureBorder;
-	textureBorder.loadFromImage(imageBorder);
-	sf::Sprite spriteBorder;
-	spriteBorder.setTexture(textureBorder);
-	
+	borderShape.setOutlineThickness(5);
 
 	//Create drawable object of statistics
 	statistics.setPosition(1300, 10);
@@ -159,8 +149,8 @@ void MainState::draw() {
 
 
 
-	gameData->window.draw(spriteBackground);
-	gameData->window.draw(spriteBorder);
+	gameData->window.draw(backgroundShape);
+	gameData->window.draw(borderShape);
 	gameData->window.draw(sprite);
 	gameData->window.draw(statistics);
 	gameData->window.draw(statistics_data);
