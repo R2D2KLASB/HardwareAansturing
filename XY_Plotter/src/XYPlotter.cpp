@@ -21,11 +21,14 @@ void XYPlotter::init() {
   pinMode(xSwitchPin, INPUT);
   pinMode(ySwitchPin, INPUT);
 
+
   digitalWrite(12, HIGH);
   digitalWrite(xStepPin, LOW);
   digitalWrite(yStepPin, LOW);
   digitalWrite(enablePin, LOW);
+
   setServo(0);
+
   home();
 }
 
@@ -69,7 +72,7 @@ void XYPlotter::setServo(bool draw) {
     penHolder.write(SERVO_UP);
   }
   prevState = draw;
-  delay(servoDelayUs);
+  delayMicroseconds(servoDelayUs);
 }
 
 void XYPlotter::setXDirection(Direction direction) {
