@@ -31,7 +31,7 @@ private:
     sf::Color traveling = gameData->jsonManager.getTraveling();
     sf::Color traveling_drawed = gameData->jsonManager.getTravelingDrawed();
     sf::Color text = gameData->jsonManager.getText();
-    std::vector<std::vector<std::string>> gcode;
+    std::vector<std::string> gcodeStrings;
     VirtualPlotter plotter = VirtualPlotter(foreground, background, traveling, traveling_drawed);
     unsigned int speed = 1;
     unsigned int i = 0;

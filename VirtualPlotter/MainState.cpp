@@ -43,7 +43,7 @@ void MainState::init() {
 	inputFile.open("gcode.txt");
 	std::string temp;
 	while (std::getline(inputFile, temp)) {
-		gcode.push_back(splitString(temp, 1));
+		gcodeStrings.push_back(temp); //splitString(temp, 1));
 	}
 	statistics_font.loadFromFile(BIT_FONT_PATH);
 	statistics.setFont(statistics_font);
@@ -51,7 +51,7 @@ void MainState::init() {
 	statistics.setString(plotter.statistics());
 	statistics_data.setFont(statistics_font);
 	statistics_data.setCharacterSize(20);
-	statistics_data.setString(plotter.statistics_values(i, gcode.size()));
+	statistics_data.setString(plotter.statistics_values(i, gcodeStrings.size()));
 }
 
 void MainState::handleInput() {
@@ -86,34 +86,40 @@ void MainState::handleInput() {
 
 void MainState::update() {
 	for (unsigned int x = 0; x < speed; x++) {
-		if (gcode.size() == 0 || i >= gcode.size()) {
-			statistics_data.setString(plotter.statistics_values(i, gcode.size()));
+		if (gcodeStrings.size() == 0 || i >= gcodeStrings.size()) {
+			statistics_data.setString(plotter.statistics_values(i, gcodeStrings.size()));
 			return;
 		}
-		if (gcode[i][0] == "G0" || gcode[i][0] == "G00") {
-			plotter.draw({ std::stoi(gcode[i][1]), std::stoi(gcode[i][2]) }, 0);
+		std::vector<std::string>gcode = splitString(gcodeStrings[i], 1);
+		if ((gcode[0] == "G0" || gcode[0] == "G00") && gcode.size() == 3) {
+			plotter.draw({ std::stoi(gcode[1]), std::stoi(gcode[2]) }, 0);
 		}
-		else if (gcode[i][0] == "G1" || gcode[i][0] == "G01") {
-			plotter.draw({ std::stoi(gcode[i][1]), std::stoi(gcode[i][2]) }, 1);
+		else if ((gcode[0] == "G1" || gcode[0] == "G01") && gcode.size() == 3) {
+			plotter.draw({ std::stoi(gcode[1]), std::stoi(gcode[2]) }, 1);
 		}
-		else if (gcode[i][0] == "G3" || gcode[i][0] == "G03") {
+		else if ((gcode[0] == "G3" || gcode[0] == "G03") && gcode.size() == 1) {
 			plotter.g3();
 		}
-		else if (gcode[i][0] == "G4" || gcode[i][0] == "G04") {
-			plotter.g4(std::stoi(gcode[i][1]), std::stoi(gcode[i][2]), std::stoi(gcode[i][3]));
+		else if ((gcode[0] == "G4" || gcode[0] == "G04") && gcode.size() == 4) {
+			plotter.g4(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]));
 		}
-		else if (gcode[i][0] == "G5" || gcode[i][0] == "G05") {
-			plotter.g5(std::stoi(gcode[i][1]), std::stoi(gcode[i][2]), std::stoi(gcode[i][3]));
+		else if ((gcode[0] == "G5" || gcode[0] == "G05") && gcode.size() == 4) {
+			plotter.g5(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]));
 		}
-		else if (gcode[i][0] == "G6" || gcode[i][0] == "G06") {
-			plotter.g6(std::stoi(gcode[i][1]), std::stoi(gcode[i][2]), std::stoi(gcode[i][3]), std::stoi(gcode[i][4]));
+		else if ((gcode[0] == "G6" || gcode[0] == "G06") && gcode.size() == 5) {
+			plotter.g6(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]));
 		}
-		else if (gcode[i][0] == "G28") {
+		else if (gcode[0] == "G28" && gcode.size() == 1) {
 			plotter.home();
+		}
+		else {
+			std::string error = "The command: '" + gcodeStrings[i] + "' is not found as Gcode\n";
+			std::cout << error;
+			throw std::exception(error.c_str());
 		}
 		i++;
 	}
-	statistics_data.setString(plotter.statistics_values(i, gcode.size()));
+	statistics_data.setString(plotter.statistics_values(i, gcodeStrings.size()));
 }
 
 void MainState::draw() {
