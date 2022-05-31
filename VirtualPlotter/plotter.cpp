@@ -226,17 +226,43 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
     home();
 }
 
-void Plotter::g6(const int& row, const int& colom, const int& width, const int& length){
-	int min = width * 10;
-	if (length < width) {
-		min = length*10;
-	}
-	for (int i = 1; i <= min; i++) {
-		draw(friendlyGameboardOrigin + Coordinate(row * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20)*i, colom * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20)*i), 0);
-		draw(friendlyGameboardOrigin + Coordinate((row + width) * (friendlyGameboardSize / 10) - ((friendlyGameboardSize / 10) / 20)*i, colom * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20) * i), 1);
-		draw(friendlyGameboardOrigin + Coordinate((row + width) * (friendlyGameboardSize / 10) - ((friendlyGameboardSize / 10) / 20)*i, (colom + length) * (friendlyGameboardSize / 10) - ((friendlyGameboardSize / 10) / 20) * i), 1);
-		draw(friendlyGameboardOrigin + Coordinate(row * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20)*i, (colom + length) * (friendlyGameboardSize / 10) - ((friendlyGameboardSize / 10) / 20) * i), 1);
-		draw(friendlyGameboardOrigin + Coordinate(row * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20)*i, colom * (friendlyGameboardSize / 10) + ((friendlyGameboardSize / 10) / 20) * i), 1);
-	}
+
+Coordinate pointsOnCircle(int radius, int angle, Coordinate origin) {
+    float PI = 3.14159265358979323846;
+	return Coordinate(origin.x + radius * cos(angle * PI / 180), origin.y + radius * sin(angle * PI / 180));
 }
 
+void Plotter::g6(const int& row, const int& colom, const int& width, const int& length){
+    float PI = 3.14159265358979323846;
+    if (width == 1) {
+        int radius = (friendlyGameboardSize / 20) - (friendlyGameboardSize / 10) * 0.1;
+        draw(friendlyGameboardOrigin + Coordinate((row + 0.9) * (friendlyGameboardSize / 10), (colom + 0.5) * (friendlyGameboardSize / 10)), 0);
+        
+        draw(friendlyGameboardOrigin + Coordinate((row + 0.9) * (friendlyGameboardSize / 10), (colom + length - 0.5) * (friendlyGameboardSize / 10)), 1);
+        
+        for (unsigned int degree = 0; degree <= 180; degree++) {
+            draw(pointsOnCircle(radius, degree, Coordinate((row + 0.5) * (friendlyGameboardSize / 10), (colom + length - 0.5) * (friendlyGameboardSize / 10))), 1);
+        }
+        draw(friendlyGameboardOrigin + Coordinate((row + 0.1) * (friendlyGameboardSize / 10), (colom + 0.5) * (friendlyGameboardSize / 10)), 1);
+        for (unsigned int degree = 0; degree <= 180; degree++) {
+            draw(pointsOnCircle(radius, 180 + degree, Coordinate((row + 0.5) * (friendlyGameboardSize / 10), (colom + 0.5) * (friendlyGameboardSize / 10))), 1);
+        }
+    }
+    else if (length == 1) {
+        int radius = (friendlyGameboardSize / 20) - (friendlyGameboardSize / 10) * 0.1;
+        draw(friendlyGameboardOrigin + Coordinate((row + 0.5) * (friendlyGameboardSize / 10), (colom + 0.1) * (friendlyGameboardSize / 10)), 0);
+        
+        draw(friendlyGameboardOrigin + Coordinate((row + width -0.5) * (friendlyGameboardSize / 10), (colom + 0.1) * (friendlyGameboardSize / 10)), 1);
+        for (unsigned int degree = 0; degree <= 180 ; degree++) {
+            draw(pointsOnCircle(radius, 270+degree, Coordinate((row + width - 0.5) * (friendlyGameboardSize / 10), (colom + 0.5) * (friendlyGameboardSize / 10))), 1);
+        }
+        draw(friendlyGameboardOrigin + Coordinate((row + 0.5) * (friendlyGameboardSize / 10), (colom + 0.9) * (friendlyGameboardSize / 10)), 1);
+        for (unsigned int degree = 0; degree <= 180; degree++) {
+            draw(pointsOnCircle(radius, 90 + degree, Coordinate((row + 0.5) * (friendlyGameboardSize / 10), (colom + 0.5) * (friendlyGameboardSize / 10))), 1);
+        }
+	}
+	else {
+        // unallowed size
+        return;
+    }
+}
