@@ -105,7 +105,9 @@ void MainState::update() {
 		else if (gcode[i][0] == "G5" || gcode[i][0] == "G05") {
 			plotter.g5(std::stoi(gcode[i][1]), std::stoi(gcode[i][2]), std::stoi(gcode[i][3]));
 		}
-		
+		else if (gcode[i][0] == "G6" || gcode[i][0] == "G06") {
+			plotter.g6(std::stoi(gcode[i][1]), std::stoi(gcode[i][2]), std::stoi(gcode[i][3]), std::stoi(gcode[i][4]));
+		}
 		else if (gcode[i][0] == "G28") {
 			plotter.home();
 		}
