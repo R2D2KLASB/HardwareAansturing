@@ -16,28 +16,6 @@ std::vector<std::string> splitString(std::string str, int offset, std::string de
 	return words;
 }
 
-sf::Color getColorFromString(std::string colorString) {
-	std::vector<std::string> colors = splitString(colorString, 0, ",");
-	if (colors.size() == 3) {
-		int r = 0;
-		int g = 0;
-		int b = 0;
-		if (colors[0] != "") {
-			r = std::stoi(colors[0]);
-		}
-		if (colors[1] != "") {
-			g = std::stoi(colors[1]);
-		}
-		if (colors[2] != "") {
-			b = std::stoi(colors[2]);
-		}
-		return sf::Color(r, g, b);
-	}
-	else {
-		throw InvalidJsonException("Invalid color string");
-	}
-}
-
 void MainState::init() {
 	std::ifstream inputFile;
 	inputFile.open("gcode.txt");
