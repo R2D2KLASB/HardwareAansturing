@@ -29,6 +29,8 @@
 *.out
 *.app
 
+*/.vs
+
 VirtualPlotter/x64/Debug/
 VirtualPlotter/x64/Release/*.obj
 VirtualPlotter/x64/Release/*.iobj
@@ -37,6 +39,7 @@ VirtualPlotter/x64/Release/*.pdb
 VirtualPlotter/x64/Release/*.recipe
 VirtualPlotter/x64/Release/*.log
 VirtualPlotter/x64/Release/*.txt
+!VirtualPlotter/x64/Release/gcode.txt
 VirtualPlotter/x64/Release/VirtualPlotter.tlog/*
 VirtualPlotter/.vs/*
 VirtualPlotter/image.bmp
