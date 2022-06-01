@@ -1,4 +1,6 @@
 #include "DataTypes.hpp"
+#include <math.h>
+
 /// @file
 
 /**
