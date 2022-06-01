@@ -14,7 +14,6 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
 
 # Fortran module files
 *.mod
@@ -27,10 +26,17 @@
 *.lib
 
 # Executables
-*.exe
 *.out
 *.app
 
-VirtualPlotter/x64/*
+VirtualPlotter/x64/Debug/
+VirtualPlotter/x64/Release/*.obj
+VirtualPlotter/x64/Release/*.iobj
+VirtualPlotter/x64/Release/*.ipdb
+VirtualPlotter/x64/Release/*.pdb
+VirtualPlotter/x64/Release/*.recipe
+VirtualPlotter/x64/Release/*.log
+VirtualPlotter/x64/Release/*.txt
+VirtualPlotter/x64/Release/VirtualPlotter.tlog/*
 VirtualPlotter/.vs/*
 VirtualPlotter/image.bmp
