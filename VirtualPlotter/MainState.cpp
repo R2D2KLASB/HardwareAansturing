@@ -1,6 +1,7 @@
 #include "MainState.hpp"
 #include <utility>
 
+
 MainState::MainState(GameDataReference gameData) : gameData(std::move(gameData)) {}
 
 std::vector<std::string> splitString(std::string str, int offset, std::string delimiter = " ") {
@@ -93,7 +94,7 @@ void MainState::update() {
 		else {
 			std::string error = "The command: '" + gcodeStrings[i] + "' is not found as Gcode\n";
 			std::cout << error;
-			throw std::exception(error.c_str());
+//			throw std::exception(error.c_str());
 		}
 		i++;
 	}
@@ -130,9 +131,6 @@ void MainState::draw() {
 	statistics.setFillColor(text);
 	statistics_data.setPosition(1550, 10);
 	statistics_data.setFillColor(text);
-
-
-
 
 
 	gameData->window.draw(backgroundShape);

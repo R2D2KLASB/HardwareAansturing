@@ -1,6 +1,6 @@
 {
-	"background" : "13,17,0",
-	"foreground" : "253,241,229",
+	"background" : "1,2,7",
+	"foreground" : "254,229,225",
 	"text" : "251,20,2",
 	"traveling" : "240,33,1",
 	"travelingDrawed" : "0,246,225"

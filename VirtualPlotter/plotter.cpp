@@ -230,7 +230,7 @@ void Plotter::g6(const int& row, const int& colom, const int& width, const int& 
             draw(pointsOnCircle(radius, 90 + degree, Coordinate((row + 0.5) * celSize, (colom + 0.5) * celSize)), 1);
         }
 	}
-	else {
+    else {
         // unallowed size
         return;
     }
