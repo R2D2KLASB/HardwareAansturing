@@ -21,13 +21,14 @@ class XYPlotter: public Plotter {
       clockwise,
       standStill
     };
-
     enum motorState{
       off = 1,
       on = 0
     };
 
-
+    /**
+     * @brief overriden function of the inherited class Plotter
+     */
     void home() override;
 
     /**
@@ -50,7 +51,6 @@ class XYPlotter: public Plotter {
       @param ySwitchPin The pin to which the microswitch of the x-axis is connected.
       @details constructor for the XYplotter class which also sets all the pins.
     */
-
     XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t xSwitchPin, uint8_t yDirectionPin, uint8_t yStepPin, uint8_t ySwitchPin);
   private:
 
@@ -66,6 +66,11 @@ class XYPlotter: public Plotter {
     uint8_t yStepPin;
     uint8_t ySwitchPin;
 
+    /**
+      @brief Sets the direction of the X steppermotor.
+      @param direction the direction the motor needs to turn.
+      @details Sets the director of the X steppermotor to the direction you give as parameter.
+    */
     void setXDirection(Direction direction);
 
     /**
@@ -76,11 +81,12 @@ class XYPlotter: public Plotter {
     void setYDirection(Direction direction);
 
     /**
-      @brief Sets the direction of BOTH the steppermotors.
+      @brief Sets the direction of both the steppermotors.
       @param direction the direction the motor needs to turn.
-      @details Sets the director of BOTH steppermotors to the direction you give as parameter.
+      @details Sets the director of both steppermotors to the direction you give as parameter.
     */
     void setXYDirection(Direction xDirection, Direction yDirection);
+
     void step();
     
     void down() override;

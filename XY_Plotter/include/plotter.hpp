@@ -25,7 +25,7 @@ class Plotter {
     bool draw(Coordinate finish, bool draw = 1);
     
     /**
-      @brief public draw function that's an interface for the bool draw(Coordinate finish, bool draw) function;
+      @brief public draw function that's an adapter for the bool draw(Coordinate finish, bool draw) function;
       @param x integer containing value of the x location of the destination
       @param y integer containing value of the y location of the destination
       @param draw boolean that indicates if the pen is on the paper or lifted
@@ -33,12 +33,37 @@ class Plotter {
     */
     bool draw(int x, int y, bool draw = 1);
 
+    /**
+     * @brief function that draws the grid for battleship
+     */
     void g3();
 
+    /**
+     * @brief function that draws a star ont the game board to indicate a hit
+     * 
+     * @param row the x-location on the battleship game board
+     * @param colom the y-location on the battleship game board
+     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board 
+     */
     void g4(const int& row, const int& colom, const int& player);
 
+    /**
+     * @brief function that draws a cross on the game board to indicate a miss
+     * 
+     * @param row the x-location on the battleship game board
+     * @param colom the y-location on the battleship game board
+     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board 
+     */
     void g5(const int& row, const int& colom, const int& player);
     
+    /**
+     * @brief function that draws a boat on the game board
+     * 
+     * @param row the x-location on the battleship game board
+     * @param colom the y-location on the battleship game board
+     * @param width the length of the boat over the x-axis
+     * @param length the length of the boat over the y-axis
+     */
     void g6(const int& row, const int& colom, const int& width, const int& length);
 
     /**

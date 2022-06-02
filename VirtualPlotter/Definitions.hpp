@@ -4,9 +4,10 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
-/// @file Definitions.hpp
-/// @brief
-/// Project_Game: This file contains all macro's, and several enum's and structs used for sharing data through the program.
+/**
+* @file Definitions.hpp
+* @brief Project_Game: This file contains all macro's, and several enum's and structs used for sharing data through the program.
+*/
 
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
