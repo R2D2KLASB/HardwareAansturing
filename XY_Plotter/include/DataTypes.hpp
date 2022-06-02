@@ -7,37 +7,46 @@
   @param x the value of the x-location
   @param y the value of the y-location
 */
-
 struct Coordinate {
   int x;
   int y;
-  Coordinate operator-(Coordinate lhs) {
-    return {x - lhs.x, y - lhs.y};
+  Coordinate(const int& x, const int& y):
+  x(x),
+  y(y)
+  {}
+  Coordinate operator-(const Coordinate & rhs) const{
+    return {x - rhs.x, y - rhs.y};
   }
-  bool operator==(Coordinate lhs) {
-    return (x == lhs.x and y == lhs.y);
+  bool operator==(const Coordinate &rhs) const{
+    return (x == rhs.x && y == rhs.y);
   }
-  void operator+=(Coordinate lhs) {
-    x += lhs.x;
-    y += lhs.y;
+  void operator+=(const Coordinate &rhs) {
+    x += rhs.x;
+    y += rhs.y;
+  }
+  void operator-=(const Coordinate &rhs) {
+    x -= rhs.x;
+    y -= rhs.y;
+  }
+  Coordinate operator+(const Coordinate &rhs) const{
+    return {x + rhs.x, y + rhs.y};
   }
 
-  Coordinate operator+(Coordinate lhs) {
-    return {x + lhs.x, y + lhs.y};
-  }
-
-  bool operator!=(Coordinate lhs) {
-    return !(x == lhs.x and y == lhs.y);
+  bool operator!=(const Coordinate & rhs) const{
+    return !(x == rhs.x && y == rhs.y);
   }
 };
 
 /**
-  @brief Gcode class that contains the gcode command and location
-  @param gcode the integervalue corresponding to the gcode command
-  @param location the {x, y} location the gcode command has to go to
+  @brief Gcode class that contains the gcode command and either the location or the battleship information;
 */
 struct Gcode {
   int gcode = 0;
   Coordinate location = {0, 0};
+  int row = 0;
+  int colom = 0;
+  int player = 0;
+  int width = 0;
+  int length = 0;
 };
 #endif //DATATYPES_HPP

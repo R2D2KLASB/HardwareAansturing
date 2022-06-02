@@ -7,13 +7,13 @@
   @brief virtual class implemented by the XY-plotter and the virtual xy-plotter
 */
 class Plotter {
-  public:
+public:
     /**
       @brief constructer for the Plotter class
       @details constructer for the Plotter class that also handles all the setup steps
     */
-    Plotter(Coordinate maxDimension):
-      maxDimension(maxDimension)
+    Plotter(Coordinate maxDimension) :
+        maxDimension(maxDimension)
     {};
 
     /**
@@ -23,7 +23,7 @@ class Plotter {
       @return returns if the operation was succesfull or not the reason for failure is that the location is out of bounds
     */
     bool draw(Coordinate finish, bool draw = 1);
-    
+
     /**
       @brief public draw function that's an adapter for the bool draw(Coordinate finish, bool draw) function;
       @param x integer containing value of the x location of the destination
@@ -40,25 +40,25 @@ class Plotter {
 
     /**
      * @brief function that draws a star ont the game board to indicate a hit
-     * 
+     *
      * @param row the x-location on the battleship game board
      * @param colom the y-location on the battleship game board
-     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board 
+     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board
      */
     void g4(const int& row, const int& colom, const int& player);
 
     /**
      * @brief function that draws a cross on the game board to indicate a miss
-     * 
+     *
      * @param row the x-location on the battleship game board
      * @param colom the y-location on the battleship game board
-     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board 
+     * @param player indicates if the targetboard is the friendly's game board or the enemie's game board
      */
     void g5(const int& row, const int& colom, const int& player);
-    
+
     /**
      * @brief function that draws a boat on the game board
-     * 
+     *
      * @param row the x-location on the battleship game board
      * @param colom the y-location on the battleship game board
      * @param width the length of the boat over the x-axis
@@ -71,11 +71,11 @@ class Plotter {
       @details Homing function that uses the microswitches to return to the homeposition over x and y-axis and than resets than calibrates the position.
     */
     virtual void home() = 0;
-  protected:
+protected:
     bool prevState = false;
-    Coordinate currentLocation = {0,0};
-    const Coordinate enemyGameboardOrigin = {21000, 0};
-    const Coordinate friendlyGameboardOrigin = {0, 0};
+    Coordinate currentLocation = { 0,0 };
+    const Coordinate enemyGameboardOrigin = { 21000, 0 };
+    const Coordinate friendlyGameboardOrigin = { 0, 0 };
     Coordinate maxDimension;
 
     const int friendlyGameboardSize = 20000;
@@ -83,7 +83,7 @@ class Plotter {
 
     unsigned int stepDelayUs = 50;
     unsigned int servoDelayUs = 150000;
-    
+
     virtual void down() = 0;
     virtual void left() = 0;
     virtual void right() = 0;
