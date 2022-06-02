@@ -4,6 +4,13 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 
+/**
+* @brief function that slits std::string on the given delimiter plus the offset and that gives back a vector of strings
+* @param str the string to slit
+* @param delimiter the delimiter
+* @param offset the offset
+* @return a vector of strings
+*/
 std::vector<std::string> splitString(std::string str, int offset, std::string delimiter = " ") {
 	std::vector<std::string> words;
 	int start = 0;
@@ -17,6 +24,11 @@ std::vector<std::string> splitString(std::string str, int offset, std::string de
 	return words;
 }
 
+/**
+* @brief function that turns a string containing rgb seperated by commas into a sf::Color
+* @param colorString the string to convert
+* @return the sf::Color
+*/
 sf::Color getColorFromString(std::string colorString) {
 	std::vector<std::string> colors = splitString(colorString, 0, ",");
 	if (colors.size() == 3) {

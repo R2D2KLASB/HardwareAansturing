@@ -38,7 +38,7 @@ struct Coordinate {
 };
 
 /**
-  @brief Gcode class that contains the gcode command and location
+  @brief Gcode class that contains the gcode command and either the location or the battleship information;
 */
 struct Gcode {
   int gcode = 0;

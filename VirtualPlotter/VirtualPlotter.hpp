@@ -8,16 +8,44 @@
 
 class VirtualPlotter: public Plotter {
 public:
+	/**
+	* @brief Constructor for the VirtualPlotter class
+	* @param foreground const sf::Color& The color of the foreground
+	* @param background const sf::Color& The color of the background
+	* @param traveling const sf::Color& The color used when traveling
+	* @param traveling_drawed cosnt sf::Color& The color used when traveling and drawn
+	*/
+	
 	VirtualPlotter(const sf::Color& foreground, const sf::Color& background, const sf::Color& traveling, const sf::Color& traveling_drawed);
 
+	/**
+	* @brief implementation of the inherited function home
+	*/
 	void home() override;
 
+	/**
+	* @brief function that`s called on closing the program to export the picture
+	* @param path const std::string& The path to the file
+	*/
 	void export_picture(std::string path);
 
+	/**
+	* @brief statistics function that`s called on initiaton that returns the statistics headers
+	* @return std::string The statistics headers
+	*/
 	std::string statistics();
+	/**
+	* @brief statistics function that`s called on every update that return the statistics values
+	* @param amount_commands_processed const int& The amount of commands processed
+	* @param total_commands const int& The total amounts of commands
+	* @return std::string The statistics values
+	*/
 	std::string statistics_values(const int& amount_commands_processed, const int& total_commands);
 
-
+	/**
+	* @brief function that`s called on every draw that returns the current image of the plotter drawing area
+	* @return sf::Image The current image
+	*/
 	sf::Image getImage() {
 		return image;
 	}

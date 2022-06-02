@@ -10,13 +10,15 @@
 #include "Game.hpp"
 #include "VirtualPlotter.hpp"
 
-///@file StartUpState.hpp
-/// @brief
-/// Project_Game: This is the StartUpState which is the first state you will see if the program has started
+/**
+* @file StartUpState.hpp
+* @brief Project_Game: This is the StartUpState which is the first state you will see if the program has started
+*/
 
 
-/// @brief
-/// This class is used to create the StartUpState and all of its contents
+/**
+* @brief This class is used to create the StartUpState and all of its contents
+*/
 class MainState : public GameState {
 private:
     GameDataReference gameData;
@@ -37,25 +39,27 @@ private:
     unsigned int i = 0;
 
 public:
-    ///\brief
-    /// This constructor constructs an object of GameOverState
-    /// \param gameData
+    /**
+    * @brief This constructor constructs an object of GameOverState
+    * @param gameData
+    */
     MainState(GameDataReference gameData);
 
-    ///\brief
-    /// This function initializes all of the textures and set their positions
+	/**
+    * @brief This function initializes all of the textures and set their positions
+    */
     void init() override;
-
-    /// @brief
-    /// In this function all of the input from the user is checked and the corresponding actions are taken
+    /**
+    * @brief In this function all of the input from the user is checked and the corresponding actions are taken
+    */
     void handleInput() override;
-
-    /// @brief
-    /// This function switches to the MainMenuState.
+    /**
+    * @brief This function switches to the MainMenuState.
+    */
     void update() override;
-
-    /// @brief
-    /// This function draws all of it's contents onto the screen
+    /**
+    * @brief This function draws all of it's contents onto the screen
+    */
     void draw() override;
 
 };
