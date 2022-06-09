@@ -7,9 +7,9 @@ unsigned int absolute(int value) {
 	return value;
 }
 
-Coordinate pointsOnCircle(int radius, int angle, Coordinate origin) {
-    float PI = 3.14159265358979323846;
-    return Coordinate(origin.x + radius * cos(angle * PI / 180), origin.y + radius * sin(angle * PI / 180));
+Coordinate Plotter::pointsOnCircle(int radius, int angle, Coordinate origin) {
+    float pi = 3.14159265358979323846;
+    return Coordinate(origin.x + radius * cos(angle * pi / 180), origin.y + radius * sin(angle * pi / 180));
 }
 
 bool Plotter::draw(Coordinate finish, bool draw) {
@@ -57,7 +57,7 @@ bool Plotter::draw(Coordinate finish, bool draw) {
     float rc = delta.y / (float)delta.x;
     if (delta.x > 0) {
       if (rc > 0) {
-        for (int i = 0; i <= delta.x; i++) {
+        for (int i = 1; i <= delta.x; i++) {
           nextLocation = startLocation + Coordinate{i, int(rc * i)};
           right();
           currentLocation.x++;
@@ -65,11 +65,10 @@ bool Plotter::draw(Coordinate finish, bool draw) {
             up();
             currentLocation.y++;
           }
-          currentLocation = nextLocation;
         }
       }
       else {
-        for (int i = 0; i <= delta.x; i++) {
+        for (int i = 1; i <= delta.x; i++) {
           nextLocation = startLocation + Coordinate{i, int(rc * i)};
           right();
           currentLocation.x++;
@@ -77,13 +76,12 @@ bool Plotter::draw(Coordinate finish, bool draw) {
             down();
             currentLocation.y--;
           }
-          currentLocation = nextLocation;
         }
       }
     }
     else {
       if (rc > 0) {
-        for (int i = 0; i <= 0 - delta.x; i++) {
+        for (int i = 1; i <= 0 - delta.x; i++) {
           nextLocation = startLocation + Coordinate{ -i, int(rc * -i)};
           left();
           currentLocation.x--;
@@ -91,11 +89,10 @@ bool Plotter::draw(Coordinate finish, bool draw) {
             down();
             currentLocation.y--;
           }
-          currentLocation = nextLocation;
         }
       }
       else {
-        for (int i = 0; i <= 0 - delta.x; i++) {
+        for (int i = 1; i <= 0 - delta.x; i++) {
           nextLocation = startLocation + Coordinate{ -i, int(rc * -i)};
           left();
           currentLocation.x--;
@@ -103,7 +100,6 @@ bool Plotter::draw(Coordinate finish, bool draw) {
             up();
             currentLocation.y++;
           }
-          currentLocation = nextLocation;
         }
       }
     }
@@ -167,8 +163,6 @@ void Plotter::g4(const int& row, const int& colom, const int& player) {
         origin = { int(enemyGameboardOrigin.x + (row + 0.5) * celSize), int(enemyGameboardOrigin.y + (colom + 0.5) * celSize) };
         radius = celSize * 0.4;
     }
-    float PI = 3.14159265358979323846;
-
 	draw(origin, 0);
     for (unsigned int degree = 0; degree <= 360; degree += 45) {
         draw(pointsOnCircle(radius, degree, origin), 1);
@@ -191,10 +185,8 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
         origin = { int(enemyGameboardOrigin.x + (row + 0.5) * celSize), int(enemyGameboardOrigin.y + (colom + 0.5) * celSize) };
         radius = celSize * 0.4;
     }
-    float PI = 3.14159265358979323846;
-
     draw(origin, 0);
-    for (unsigned int degree = 0; degree <= 360; degree += 40) {
+    for (unsigned int degree = 0; degree <= 360; degree += 90) {
         draw(pointsOnCircle(radius, degree, origin), 1);
         draw(origin, 1);
     }
@@ -202,8 +194,7 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
 }
 
 void Plotter::g6(const int& row, const int& colom, const int& width, const int& length){
-    float PI = 3.14159265358979323846;
-	int celSize = friendlyGameboardSize / 10;
+  	int celSize = friendlyGameboardSize / 10;
     int radius = celSize * 0.4;
     if (width == 1) {
         draw(friendlyGameboardOrigin + Coordinate((row + 0.9) * celSize, (colom + 0.5) * celSize), 0);
