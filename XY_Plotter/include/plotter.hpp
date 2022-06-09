@@ -78,6 +78,9 @@ class Plotter {
     const Coordinate friendlyGameboardOrigin = {0, 0};
     Coordinate maxDimension;
 
+    const float pi = 3.14159265358979323846;
+
+
     const int friendlyGameboardSize = 20000;
     const int enemyGameboardSize = 5000;
 
@@ -90,4 +93,7 @@ class Plotter {
     virtual void up() = 0;
 
     virtual void setServo(bool draw) = 0;
+
+    Coordinate pointsOnCircle(int radius, int angle, Coordinate origin);
+
 };
