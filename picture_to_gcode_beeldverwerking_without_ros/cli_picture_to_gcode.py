@@ -33,6 +33,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-    os.remove("tmp.gcode")
-    os.remove("tmp.bmp")
-    os.remove("tmp.svg")
