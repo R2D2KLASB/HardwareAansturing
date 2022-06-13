@@ -32,10 +32,6 @@ void XYPlotter::init() {
   home();
 }
 
-void XYPlotter::setMotorState(motorState newState){
-  digitalWrite(enablePin, newState);
-}
-
 XYPlotter::XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, uint8_t xDirectionPin, uint8_t xStepPin, uint8_t xSwitchPin, uint8_t yDirectionPin, uint8_t yStepPin, uint8_t ySwitchPin):
   Plotter(maxDimension),
   penHolder(pen),
