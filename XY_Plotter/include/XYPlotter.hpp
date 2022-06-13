@@ -35,9 +35,7 @@ class XYPlotter: public Plotter {
        @brief init function that set the Pinmode sets the servo in the upposition and calls the home-function
     */
     void init();
-
-    void setMotorState(motorState newState);
-
+    
     /**
       @brief constructor for the XYPlotter class.
       @param enablePin this is the enable pin for both of the steppermotors.
