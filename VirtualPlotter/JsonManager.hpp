@@ -23,17 +23,23 @@ public:
 	*/
     JsonManager(const std::string& gameFile);
     
-	/**
-    * @brief function to get the color of the foreground
-    * @return The color of the foreground
+    /**
+    * @brief function to retrieve if travels are shown or not
+    * @return If the travels are enabled
     */
-    sf::Color getForeground();
-
+    bool getShowTravels();
+	
 	/**
     * @brief function to get the color of the background
     * @return The color of the background
 	*/
     sf::Color getBackground();
+    
+    /**
+    * @brief function to get the color of the foreground
+    * @return The color of the foreground
+    */
+    sf::Color getForeground();
 
 	/**
     * @brief function to get the color used when traveling
@@ -65,6 +71,12 @@ public:
     void setBackground(sf::Color newColor);
 
     /**
+    * @brief function to enable and disable the display of travels
+    * @param newShowTravels The boolean that indicates if travels atre shown or not
+    */
+    void setShowTravels(bool newShowTravels);
+
+    /**
     * @brief function to set the color used for the foreground
     * @param newColor The color used when the pixel is traveled
 	*/
@@ -82,7 +94,6 @@ public:
     */
     void setText(sf::Color newColor);
 
-
     /**
     * @brief Update function that runs on closing of the gamestate that checks if the boolean is set if that is the case it writes the data to the jsonfile.
     */
@@ -95,6 +106,7 @@ private:
     struct JsonData {
         sf::Color background;
         sf::Color foreground;
+        bool show_travels;
         sf::Color traveling;
         sf::Color traveling_drawed;
         sf::Color text;
@@ -110,8 +122,8 @@ private:
     /**
     * @brief function that turn std::string into sf::color using the colors vector
     */
-    sf::Color stringToColor(const std::string &colorString) const;
-
+    sf::Color jsonGetColorFromString(std::string colorString);
+	
     /**
     * @brief
     * function that turn sf::color into std::string using the colors vector
@@ -136,15 +148,6 @@ private:
         const std::string colorString;
         const sf::Color colorSf;
     };
-    const std::vector<Color> colors = { {"Black",   sf::Color::Black},
-                                       {"White",   sf::Color::White},
-                                       {"Red",     sf::Color::Red},
-                                       {"Green",   sf::Color::Green},
-                                       {"Blue",    sf::Color::Blue},
-                                       {"Yellow",  sf::Color::Yellow},
-                                       {"Magenta", sf::Color::Magenta},
-                                       {"Cyan",    sf::Color::Cyan}};
-
 };
 
 #endif // PROJECT_GAME_JSONMANAGER_HPP

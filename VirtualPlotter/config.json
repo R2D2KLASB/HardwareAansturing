@@ -1,6 +1,7 @@
 {
 	"background" : "1,2,7",
 	"foreground" : "254,229,225",
+	"show_travels" : false,
 	"text" : "251,20,2",
 	"traveling" : "240,33,1",
 	"travelingDrawed" : "0,246,225"

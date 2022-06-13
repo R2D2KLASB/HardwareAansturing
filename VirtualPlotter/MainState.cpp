@@ -2,7 +2,16 @@
 #include <utility>
 
 
-MainState::MainState(GameDataReference gameData) : gameData(std::move(gameData)) {}
+MainState::MainState(GameDataReference gameData) :
+	gameData(gameData),
+	showTravels(gameData->jsonManager.getShowTravels()),
+	background(gameData->jsonManager.getBackground()),
+	foreground(gameData->jsonManager.getForeground()),
+	traveling(gameData->jsonManager.getTraveling()),
+	traveling_drawed(gameData->jsonManager.getTravelingDrawed()),
+	text(gameData->jsonManager.getText()),
+	plotter(VirtualPlotter(foreground, background, traveling, traveling_drawed, showTravels))
+{}
 
 std::vector<std::string> splitString(std::string str, int offset, std::string delimiter = " ") {
 	std::vector<std::string> words;

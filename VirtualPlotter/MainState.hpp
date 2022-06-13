@@ -21,6 +21,7 @@
 */
 class MainState : public GameState {
 private:
+    bool showTravels;
     GameDataReference gameData;
     sf::Image image;
     sf::Texture texture;
@@ -28,13 +29,13 @@ private:
     sf::Text statistics;
     sf::Text statistics_data;
     sf::Font statistics_font;
-    sf::Color background = gameData->jsonManager.getBackground();
-    sf::Color foreground = gameData->jsonManager.getForeground();
-    sf::Color traveling = gameData->jsonManager.getTraveling();
-    sf::Color traveling_drawed = gameData->jsonManager.getTravelingDrawed();
-    sf::Color text = gameData->jsonManager.getText();
+    sf::Color background;
+    sf::Color foreground;
+    sf::Color traveling;
+    sf::Color traveling_drawed;
+    sf::Color text;
     std::vector<std::string> gcodeStrings;
-    VirtualPlotter plotter = VirtualPlotter(foreground, background, traveling, traveling_drawed);
+    VirtualPlotter plotter;
     unsigned int speed = 1;
     unsigned int i = 0;
 

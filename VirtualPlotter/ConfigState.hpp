@@ -22,6 +22,10 @@
 */
 class ConfigState : public GameState {
 private:
+    bool showTravels;
+    sf::Text showTravelsText;
+    sf::Text showTravelsStateText;
+	sf::RectangleShape showTravelsButton;
 
     ColorPicker* colorPickerBackground;
     sf::Color background;
