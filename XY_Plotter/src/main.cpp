@@ -42,7 +42,6 @@ void SerialFlush() {
 }
 
 void loop() {
-  plot.setMotorState(XYPlotter::motorState::off);
   Gcode readCode;
   readCode.gcode = 0;
   // clear buffer for random existing bytes
@@ -105,8 +104,6 @@ void loop() {
       }
     }
   }
-  plot.setMotorState(XYPlotter::motorState::on);
-  plot.home();
   Gcode writeCode;
   while (!queue.pop(writeCode)) {
     switch (writeCode.gcode) {
@@ -149,5 +146,4 @@ void loop() {
         break;
     }
   }
-  plot.setMotorState(XYPlotter::motorState::off);
 }

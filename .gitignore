@@ -31,7 +31,7 @@
 
 */.vs
 
-VirtualPlotter/x64/Debug/
+VirtualPlotter/x64/Debug/*
 VirtualPlotter/x64/Release/*.obj
 VirtualPlotter/x64/Release/*.iobj
 VirtualPlotter/x64/Release/*.ipdb
@@ -45,3 +45,6 @@ VirtualPlotter/.vs/*
 VirtualPlotter/image.bmp
 VirtualPlotter/.idea/*
 VirtualPlotter/cmake-build-debug/*
+VirtualPlotter/Debug/
+picture_to_gcode_beeldverwerking_without_ros/__pycache__*
+.vscode/

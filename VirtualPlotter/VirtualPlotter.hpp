@@ -16,7 +16,7 @@ public:
 	* @param traveling_drawed cosnt sf::Color& The color used when traveling and drawn
 	*/
 	
-	VirtualPlotter(const sf::Color& foreground, const sf::Color& background, const sf::Color& traveling, const sf::Color& traveling_drawed);
+	VirtualPlotter(const sf::Color& foreground, const sf::Color& background, const sf::Color& traveling, const sf::Color& traveling_drawed, const bool show_travels);
 
 	/**
 	* @brief implementation of the inherited function home
@@ -82,6 +82,8 @@ private:
 	sf::Color traveling;
 	sf::Color traveling_drawed;
 	sf::Image image;
+	bool show_travels;
+
 };
 
 #endif //VIRTUALPLOTTER_HPP

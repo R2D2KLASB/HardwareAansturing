@@ -1,12 +1,13 @@
 #include "VirtualPlotter.hpp"
 #include <iostream>
 
-VirtualPlotter::VirtualPlotter(const sf::Color& foreground, const sf::Color& background, const sf::Color& traveling, const sf::Color& traveling_drawed) :
+VirtualPlotter::VirtualPlotter(const sf::Color& foreground, const sf::Color& background, const sf::Color& traveling, const sf::Color& traveling_drawed, const bool show_travels) :
 	Plotter({30000, 25000}),
 	foreground(foreground),
 	background(background),
 	traveling(traveling),
-	traveling_drawed(traveling_drawed)
+	traveling_drawed(traveling_drawed),
+	show_travels(show_travels)
 {
 	image.create(maxDimension.x/scale + padding*2, maxDimension.y/scale + padding * 2, background);
 }
@@ -62,15 +63,15 @@ void VirtualPlotter::plot_pixel(const int& x, const int& y, const drawing_mode& 
 	unsigned int drawY = (maxDimension.y / scale) - (y / scale) + padding;
 	if (drawX >= 0 && drawX < image.getSize().x && drawY >= 0 && drawY < image.getSize().y) {
 		sf::Color temp = image.getPixel(drawX, drawY);
-		if(mode == drawing_mode::FOREGROUND){
+		if (mode == drawing_mode::FOREGROUND) {
 			if (temp == background || temp == foreground) {
 				image.setPixel(drawX, drawY, foreground);
 			}
-			else if (temp == traveling || temp == traveling_drawed) {
+			else if ((temp == traveling || temp == traveling_drawed) && show_travels) {
 				image.setPixel(drawX, drawY, traveling_drawed);
 			}
 		}
-		else if (mode == drawing_mode::TRAVELING){
+		else if (mode == drawing_mode::TRAVELING && show_travels) {
 			if (temp == foreground || temp == traveling_drawed) {
 				image.setPixel(drawX, drawY, traveling_drawed);
 			}

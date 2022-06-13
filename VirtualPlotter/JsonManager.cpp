@@ -16,7 +16,7 @@ std::vector<std::string> jsonSplitString(std::string str, int offset, std::strin
 	return words;
 }
 
-sf::Color jsonGetColorFromString(std::string colorString) {
+sf::Color JsonManager::jsonGetColorFromString(std::string colorString) {
 	std::vector<std::string> colors = jsonSplitString(colorString, 0, ",");
 	if (colors.size() == 3) {
 		int r = 0;
@@ -48,13 +48,18 @@ JsonManager::JsonManager(const std::string & gameFile):
 void JsonManager::getData() {
 	jsonData = getJsonFromFile();
 
-    data = {
+	data = {
 		jsonGetColorFromString(jsonData["background"].asString()),
 		jsonGetColorFromString(jsonData["foreground"].asString()),
+		jsonData["show_travels"].asBool(),
 		jsonGetColorFromString(jsonData["traveling"].asString()),
 		jsonGetColorFromString(jsonData["travelingDrawed"].asString()),
 		jsonGetColorFromString(jsonData["text"].asString())
-    };
+	};
+}
+
+bool JsonManager::getShowTravels() {
+	return data.show_travels;
 }
 
 sf::Color JsonManager::getForeground() {
@@ -77,6 +82,15 @@ sf::Color JsonManager::getText() {
 	return data.text;
 }
 
+void JsonManager::setBackground(sf::Color newColor) {
+	if (newColor == data.background) {
+		return;
+	}
+	data.background = newColor;
+	jsonData["background"] = colorToString(newColor);
+	writeOut = true;
+}
+
 void JsonManager::setForeground(sf::Color newColor) {
 	if (newColor == data.foreground) {
 		return;
@@ -86,12 +100,12 @@ void JsonManager::setForeground(sf::Color newColor) {
 	writeOut = true;
 }
 
-void JsonManager::setBackground(sf::Color newColor) {
-	if (newColor == data.background) {
+void JsonManager::setShowTravels(bool newShowTravels) {
+	if (newShowTravels == data.show_travels) {
 		return;
 	}
-	data.background = newColor;
-	jsonData["background"] = colorToString(newColor);
+	data.show_travels = newShowTravels;
+	jsonData["show_travels"] = newShowTravels;
 	writeOut = true;
 }
 
