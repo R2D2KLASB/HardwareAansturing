@@ -28,7 +28,13 @@ private:
     sf::Sprite sprite;
     sf::Text statistics;
     sf::Text statistics_data;
-    sf::Font statistics_font;
+    sf::Font textFont;
+    sf::Text configText;
+	sf::RectangleShape configButton;
+    sf::Text exportImageText;
+	sf::RectangleShape exportImageButton;
+    sf::Text exportImageStatsText;
+	sf::RectangleShape exportImageStatsButton;
     sf::Color background;
     sf::Color foreground;
     sf::Color traveling;

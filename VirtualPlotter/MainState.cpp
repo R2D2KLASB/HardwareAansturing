@@ -1,6 +1,6 @@
 #include "MainState.hpp"
 #include <utility>
-
+#include "ConfigState.hpp"
 
 MainState::MainState(GameDataReference gameData) :
 	gameData(gameData),
@@ -33,27 +33,66 @@ void MainState::init() {
 	while (std::getline(inputFile, temp)) {
 		gcodeStrings.push_back(temp); //splitString(temp, 1));
 	}
-	statistics_font.loadFromFile(BIT_FONT_PATH);
-	statistics.setFont(statistics_font);
+	textFont.loadFromFile(BIT_FONT_PATH);
+	statistics.setFont(textFont);
 	statistics.setCharacterSize(20);
 	statistics.setString(plotter.statistics());
-	statistics_data.setFont(statistics_font);
+	statistics_data.setFont(textFont);
 	statistics_data.setCharacterSize(20);
 	statistics_data.setString(plotter.statistics_values(i, gcodeStrings.size()));
+
+	exportImageButton.setSize({ 450, 100 });
+	exportImageButton.setFillColor(sf::Color::Black);
+	exportImageButton.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 450));
+	exportImageButton.setOutlineColor(sf::Color::White);
+	exportImageButton.setOutlineThickness(5);
+	exportImageButton.setOrigin(exportImageButton.getSize().x / 2, exportImageButton.getSize().y / 2);
+
+	exportImageText.setFont(textFont);
+	exportImageText.setCharacterSize(30);
+	exportImageText.setString("Export image");
+	exportImageText.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 450));
+	exportImageText.setOrigin(exportImageText.getGlobalBounds().width / 2, exportImageText.getGlobalBounds().height / 2 + 10);
+
+	exportImageStatsButton.setSize({ 450, 100 });
+	exportImageStatsButton.setFillColor(sf::Color::Black);
+	exportImageStatsButton.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 300));
+	exportImageStatsButton.setOutlineColor(sf::Color::White);
+	exportImageStatsButton.setOutlineThickness(5);
+	exportImageStatsButton.setOrigin(exportImageStatsButton.getSize().x / 2, exportImageStatsButton.getSize().y / 2);
+	
+	exportImageStatsText.setFont(textFont);
+	exportImageStatsText.setCharacterSize(30);
+	exportImageStatsText.setString("Export image with statistics");
+	exportImageStatsText.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 300));
+	exportImageStatsText.setOrigin(exportImageStatsText.getGlobalBounds().width / 2, exportImageStatsText.getGlobalBounds().height / 2 + 10);
+	
+	configButton.setSize({ 450, 100});
+	configButton.setFillColor(sf::Color::Black);
+	configButton.setPosition(sf::Vector2f(gameData->window.getSize().x-350, gameData->window.getSize().y - 150));
+	configButton.setOutlineColor(sf::Color::White);
+	configButton.setOutlineThickness(5);
+	configButton.setOrigin(configButton.getSize().x / 2, configButton.getSize().y / 2);
+	
+	configText.setFont(textFont);
+	configText.setCharacterSize(30);
+	configText.setString("Config button");
+	configText.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 150));
+	configText.setOrigin(configText.getGlobalBounds().width / 2, configText.getGlobalBounds().height / 2+10);
+	
 }
 
 void MainState::handleInput() {
 	sf::Event event{};
 	while (gameData->window.pollEvent(event)) {
-		if (sf::Event::Closed == event.type) {
+		if (event.type == sf::Event::Closed) {
 			gameData->window.close();
-			plotter.export_picture("image.bmp");
 		}
-		if (sf::Event::KeyPressed == event.type) {
-			if(event.key.code == sf::Keyboard::Left and speed >= 1) {
+		if (event.type == sf::Event::KeyPressed) {
+			if (event.key.code == sf::Keyboard::Left and speed >= 1) {
 				speed--;
 			}
-			else if(event.key.code == sf::Keyboard::Right) {
+			else if (event.key.code == sf::Keyboard::Right) {
 				speed++;
 			}
 			else if (event.key.code == sf::Keyboard::Up) {
@@ -69,7 +108,33 @@ void MainState::handleInput() {
 				gameData->machine.addGameState(GameStateReference(new MainState(gameData)));
 			}
 		}
-    }
+		if (event.type == sf::Event::MouseButtonPressed) {
+			if (event.mouseButton.button == sf::Mouse::Left) {
+				if (configButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+					gameData->machine.addGameState(GameStateReference(new ConfigState(gameData)));
+				}
+				if (exportImageButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+					plotter.export_picture("image.bmp");
+				}
+				if (exportImageStatsButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+					draw();
+					
+					sf::Vector2u windowSize = gameData->window.getSize();
+					sf::RectangleShape hideButtons({ 600, 800 });
+					hideButtons.setFillColor(sf::Color::Black);
+					hideButtons.setPosition(sf::Vector2f(windowSize.x - 300, windowSize.y - 400));
+					hideButtons.setOrigin(hideButtons.getSize().x / 2, hideButtons.getSize().y / 2);
+					gameData->window.draw(hideButtons);
+					
+					sf::Texture texture;
+					texture.create(windowSize.x, windowSize.y);
+					texture.update(gameData->window);
+					
+					texture.copyToImage().saveToFile("image.bmp");
+				}
+			}
+		}
+	}
 }
 
 void MainState::update() {
@@ -147,6 +212,15 @@ void MainState::draw() {
 	gameData->window.draw(sprite);
 	gameData->window.draw(statistics);
 	gameData->window.draw(statistics_data);
+
+	gameData->window.draw(exportImageButton);
+	gameData->window.draw(exportImageText);
+
+	gameData->window.draw(exportImageStatsButton);
+	gameData->window.draw(exportImageStatsText);
+
+	gameData->window.draw(configButton);
+	gameData->window.draw(configText);
 
     gameData->window.display();
 }
