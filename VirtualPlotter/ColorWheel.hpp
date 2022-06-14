@@ -16,6 +16,11 @@ public:
 	~ColorWheel();
 
 	/**
+	* @brief function to check if mouse is over the color wheel
+	* @return true if mouse is over the color picker
+	*/
+	bool isMouseOver(sf::Vector2f mousePosition);
+	/**
 	* @brief function to get the color of the current pixel in the canvas
 	* @details This function is used to get the color of the current pixel in the canvas if clicked out of bounds it will return the param currentColor
 	* @param pos The position of the mouse

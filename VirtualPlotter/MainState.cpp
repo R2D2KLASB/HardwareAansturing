@@ -76,10 +76,11 @@ void MainState::init() {
 	
 	configText.setFont(textFont);
 	configText.setCharacterSize(30);
-	configText.setString("Config button");
+	configText.setString("Return to config menu");
 	configText.setPosition(sf::Vector2f(gameData->window.getSize().x - 350, gameData->window.getSize().y - 150));
 	configText.setOrigin(configText.getGlobalBounds().width / 2, configText.getGlobalBounds().height / 2+10);
 	
+	gameData->window.setMouseCursor(gameData->arrowCursor);
 }
 
 void MainState::handleInput() {
@@ -108,7 +109,7 @@ void MainState::handleInput() {
 				gameData->machine.addGameState(GameStateReference(new MainState(gameData)));
 			}
 		}
-		if (event.type == sf::Event::MouseButtonPressed) {
+		else if (event.type == sf::Event::MouseButtonPressed) {
 			if (event.mouseButton.button == sf::Mouse::Left) {
 				if (configButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
 					gameData->machine.addGameState(GameStateReference(new ConfigState(gameData)));
@@ -132,6 +133,20 @@ void MainState::handleInput() {
 					
 					texture.copyToImage().saveToFile("image.bmp");
 				}
+			}
+		}
+		else if (event.type == sf::Event::MouseMoved) {
+			if (configButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (exportImageButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (exportImageStatsButton.getGlobalBounds().contains(gameData->window.mapPixelToCoords(sf::Mouse::getPosition(gameData->window)))) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else {
+				gameData->window.setMouseCursor(gameData->arrowCursor);
 			}
 		}
 	}

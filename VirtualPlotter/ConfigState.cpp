@@ -103,26 +103,26 @@ void ConfigState::init() {
 void ConfigState::handleInput() {
 	sf::Event event{};
 	while (gameData->window.pollEvent(event)) {
-		if (sf::Event::Closed == event.type) {
+		if (event.type == sf::Event::Closed) {
 			gameData->window.close();
 		}
-		if (sf::Event::MouseButtonPressed == event.type) {
+		else if (event.type == sf::Event::MouseButtonPressed) {
 			if (event.mouseButton.button == sf::Mouse::Left) {
 				if (showTravelsButton.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
 					showTravels = !showTravels;
 					if (showTravels) {
 						showTravelsStateText.setString("ON");
-							showTravelsStateText.setOrigin(showTravelsStateText.getGlobalBounds().width / 2, showTravelsStateText.getGlobalBounds().height / 2 + 5);
-							showTravelsButton.setFillColor(sf::Color::Green);
+						showTravelsStateText.setOrigin(showTravelsStateText.getGlobalBounds().width / 2, showTravelsStateText.getGlobalBounds().height / 2 + 5);
+						showTravelsButton.setFillColor(sf::Color::Green);
 
 					}
 					else {
 						showTravelsStateText.setString("OFF");
-							showTravelsStateText.setOrigin(showTravelsStateText.getGlobalBounds().width / 2, showTravelsStateText.getGlobalBounds().height / 2 + 5);
-							showTravelsButton.setFillColor(sf::Color::Red);
+						showTravelsStateText.setOrigin(showTravelsStateText.getGlobalBounds().width / 2, showTravelsStateText.getGlobalBounds().height / 2 + 5);
+						showTravelsButton.setFillColor(sf::Color::Red);
 					}
 				}
-				if (playButton.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
+				else if (playButton.getGlobalBounds().contains(event.mouseButton.x, event.mouseButton.y)) {
 					gameData->jsonManager.setShowTravels(showTravels);
 					gameData->jsonManager.setBackground(background);
 					gameData->jsonManager.setForeground(foreground);
@@ -130,11 +130,53 @@ void ConfigState::handleInput() {
 					gameData->jsonManager.setTravelingDrawed(travelingDrawed);
 					gameData->jsonManager.setText(text);
 					gameData->jsonManager.write();
-
-
-
 					gameData->machine.addGameState(GameStateReference(new MainState(gameData)));
 				}
+				else {
+					update();
+				}
+			}
+		}
+		if (event.type == sf::Event::MouseButtonPressed || event.type == sf::Event::MouseMoved) {
+			sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(gameData->window).x / 1.0f, sf::Mouse::getPosition(gameData->window).y / 1.0f);
+			if (playButton.getGlobalBounds().contains(mousePos)) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (showTravelsButton.getGlobalBounds().contains(mousePos)) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (colorPickerBackground->isMouseOver(mousePos) == -1) {
+				gameData->window.setMouseCursor(gameData->crossCursor);
+			}
+			else if (colorPickerBackground->isMouseOver(mousePos) == 1) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (colorPickerForeground->isMouseOver(mousePos) == -1) {
+				gameData->window.setMouseCursor(gameData->crossCursor);
+			}
+			else if (colorPickerForeground->isMouseOver(mousePos) == 1) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (colorPickerTraveling->isMouseOver(mousePos) == -1) {
+				gameData->window.setMouseCursor(gameData->crossCursor);
+			}
+			else if (colorPickerTraveling->isMouseOver(mousePos) == 1) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (colorPickerTravelingDrawed->isMouseOver(mousePos) == -1) {
+				gameData->window.setMouseCursor(gameData->crossCursor);
+			}
+			else if (colorPickerTravelingDrawed->isMouseOver(mousePos) == 1) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else if (colorPickerText->isMouseOver(mousePos) == -1) {
+				gameData->window.setMouseCursor(gameData->crossCursor);
+			}
+			else if (colorPickerText->isMouseOver(mousePos) == 1) {
+				gameData->window.setMouseCursor(gameData->handCursor);
+			}
+			else {
+				gameData->window.setMouseCursor(gameData->arrowCursor);
 			}
 		}
 	}
@@ -150,6 +192,7 @@ void ConfigState::update() {
 
 void ConfigState::draw() {
     gameData->window.clear();
+	gameData->window.draw(playButton);
 
 	gameData->window.draw(backgroundText);
 	gameData->window.draw(foregroundText);
@@ -165,7 +208,6 @@ void ConfigState::draw() {
 	colorPickerTraveling->draw();
 	colorPickerTravelingDrawed->draw();
 	colorPickerText->draw();
-	gameData->window.draw(playButton);
 
     gameData->window.display();
 }

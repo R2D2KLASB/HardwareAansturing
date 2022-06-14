@@ -4,6 +4,9 @@
 Game::Game(const int &screenWidth, const int &screenHeight, const std::string &gameTitle) {
     gameData->window.create(sf::VideoMode(screenWidth, screenHeight), gameTitle, sf::Style::Close | sf::Style::Titlebar);
     gameData->machine.addGameState(GameStateReference(new ConfigState(gameData)));
+    gameData->arrowCursor.loadFromSystem(sf::Cursor::Arrow);
+	gameData->crossCursor.loadFromSystem(sf::Cursor::Cross);
+	gameData->handCursor.loadFromSystem(sf::Cursor::Hand);
     start();
 }
 
