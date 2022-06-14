@@ -42,8 +42,7 @@ private:
     ColorPicker* colorPickerText;
     sf::Color text;
 	sf::Text textText;
-    GameDataReference gameData;
-	
+    GameDataReference gameData;	
     sf::Font Textfont;
 	
     sf::CircleShape playButton;

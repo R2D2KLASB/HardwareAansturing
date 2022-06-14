@@ -12,6 +12,18 @@ ColorPicker::~ColorPicker() {
 	delete colorWheel;
 }
 
+int ColorPicker::isMouseOver(sf::Vector2f mousePosition) {
+	if (wheelVisible) {
+		if (colorWheel->isMouseOver(mousePosition)) {
+			return -1;
+		}
+		else return 0;
+	}
+	else {
+		return body.getGlobalBounds().contains(mousePosition);
+	}
+}
+
 void ColorPicker::update(const sf::Vector2f& mousePos) {
 	if (wheelVisible) {
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && !keyCheck) {

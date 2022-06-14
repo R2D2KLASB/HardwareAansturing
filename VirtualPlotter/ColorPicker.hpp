@@ -18,6 +18,11 @@ public:
 	~ColorPicker();
 	
 	/**
+	* @brief function to check if mouse is over the color picker
+	* @return -1 if mouse is over colorWheel, 0 if mouse is not over colorWheel or the colorPicker, 1 if mouse is over colorPicker
+	*/
+	int isMouseOver(sf::Vector2f mousePosition);
+	/**
 	* @brief Updates the color picker
 	* @param mousePos The current mouse position
 	*/

@@ -21,6 +21,9 @@ struct GameData {
     sf::RenderWindow window;
     JsonManager jsonManager = JsonManager(JSON_FILE);
     InputManager input;
+	sf::Cursor arrowCursor;
+    sf::Cursor crossCursor;
+    sf::Cursor handCursor;
 };
 
 /**

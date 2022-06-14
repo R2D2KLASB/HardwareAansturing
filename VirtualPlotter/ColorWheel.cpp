@@ -17,6 +17,11 @@ ColorWheel::~ColorWheel() {
 	
 }
 
+bool ColorWheel::isMouseOver(sf::Vector2f mousePosition)
+{
+	return body.getGlobalBounds().contains(mousePosition);
+}
+
 sf::Color ColorWheel::getPixel(sf::Vector2f pos, sf::Color currentColor) {
 	pos -= body.getPosition() - body.getSize() / 2.0f;
 
