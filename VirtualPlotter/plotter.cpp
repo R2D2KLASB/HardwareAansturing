@@ -167,14 +167,15 @@ void Plotter::g4(const int& row, const int& colom, const int& player) {
     Coordinate origin(0, 0);
     int celSize;
     int radius;
+    Coordinate target = { row - 1, 10 - colom };
     if (player == 1) {
         celSize = friendlyGameboardSize / 10;
-        origin = { int(friendlyGameboardOrigin.x + ((row + 0.5) * celSize)), int(friendlyGameboardOrigin.y + ((colom + 0.5) * celSize)) };
+        origin = { int(friendlyGameboardOrigin.x + ((target.x + 0.5) * celSize)), int(friendlyGameboardOrigin.y + ((target.y + 0.5) * celSize)) };
         radius = celSize * 0.4;
     }
     else {
         celSize = enemyGameboardSize / 10;
-        origin = { int(enemyGameboardOrigin.x + ((row + 0.5) * celSize)), int(enemyGameboardOrigin.y + ((colom + 0.5) * celSize)) };
+        origin = { int(enemyGameboardOrigin.x + ((target.x + 0.5) * celSize)), int(enemyGameboardOrigin.y + ((target.y + 0.5) * celSize)) };
         radius = celSize * 0.4;
     }
     draw(origin, 0);
