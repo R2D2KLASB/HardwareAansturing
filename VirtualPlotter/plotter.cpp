@@ -203,7 +203,7 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
         radius = celSize * 0.4;
     }
     draw(origin, 0);
-    for (unsigned int degree = 0; degree <= 360; degree += 90) {
+    for (unsigned int degree = 45; degree <= 360; degree += 90) {
         draw(pointsOnCircle(radius, degree, origin), 1);
         draw(origin, 1);
     }
