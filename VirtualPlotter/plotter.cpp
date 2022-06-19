@@ -213,29 +213,24 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
 void Plotter::g6(const int& row, const int& colom, const int& width, const int& length) {
     int celSize = friendlyGameboardSize / 10;
     int radius = celSize * 0.4;
+    Coordinate target = { row - 1, 10 - colom };
     if (width == 1) {
-        draw(friendlyGameboardOrigin + Coordinate((row + 0.9) * celSize, (colom + 0.5) * celSize), 0);
+        draw(friendlyGameboardOrigin + Coordinate((target.x + 0.9) * celSize, (target.y + 0.5) * celSize), 0);
 
-        draw(friendlyGameboardOrigin + Coordinate((row + 0.9) * celSize, (colom + length - 0.5) * celSize), 1);
-
-        for (unsigned int degree = 0; degree <= 180; degree++) {
-            draw(pointsOnCircle(radius, degree, Coordinate((row + 0.5) * celSize, (colom + length - 0.5) * celSize)), 1);
+        for (unsigned int degree = 90; degree <= 270; degree++) {
+            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y - length + 1.5) * celSize)), 1);
         }
-        draw(friendlyGameboardOrigin + Coordinate((row + 0.1) * celSize, (colom + 0.5) * celSize), 1);
-        for (unsigned int degree = 0; degree <= 180; degree++) {
-            draw(pointsOnCircle(radius, 180 + degree, Coordinate((row + 0.5) * celSize, (colom + 0.5) * celSize)), 1);
+        for (unsigned int degree = 270; degree <= 450; degree++) {
+            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
         }
     }
     else if (length == 1) {
-        draw(friendlyGameboardOrigin + Coordinate((row + 0.5) * celSize, (colom + 0.1) * celSize), 0);
-
-        draw(friendlyGameboardOrigin + Coordinate((row + width - 0.5) * celSize, (colom + 0.1) * celSize), 1);
+        draw(pointsOnCircle(radius, 0, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
         for (unsigned int degree = 0; degree <= 180; degree++) {
-            draw(pointsOnCircle(radius, 270 + degree, Coordinate((row + width - 0.5) * celSize, (colom + 0.5) * celSize)), 1);
+            draw(pointsOnCircle(radius, degree, Coordinate((target.x + width - 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
         }
-        draw(friendlyGameboardOrigin + Coordinate((row + 0.5) * celSize, (colom + 0.9) * celSize), 1);
-        for (unsigned int degree = 0; degree <= 180; degree++) {
-            draw(pointsOnCircle(radius, 90 + degree, Coordinate((row + 0.5) * celSize, (colom + 0.5) * celSize)), 1);
+        for (unsigned int degree = 180; degree <= 360; degree++) {
+            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
         }
     }
     else {
