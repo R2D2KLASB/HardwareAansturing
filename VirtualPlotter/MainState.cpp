@@ -159,7 +159,7 @@ void MainState::update() {
 			return;
 		}
 		std::vector<std::string>gcode = splitString(gcodeStrings[i], 1);
-		if ((gcode[0] == "G0" || gcode[0] == "G00") && gcode.size() == 3) {
+ 		if ((gcode[0] == "G0" || gcode[0] == "G00") && gcode.size() == 3) {
 			plotter.draw({ std::stoi(gcode[1]), std::stoi(gcode[2]) }, 0);
 		}
 		else if ((gcode[0] == "G1" || gcode[0] == "G01") && gcode.size() == 3) {
@@ -176,6 +176,9 @@ void MainState::update() {
 		}
 		else if ((gcode[0] == "G6" || gcode[0] == "G06") && gcode.size() == 5) {
 			plotter.g6(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]));
+		}
+		else if ((gcode[0]) == "G7" && gcode.size() == 6) {
+			plotter.g7(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]), std::stoi(gcode[5]));
 		}
 		else if (gcode[0] == "G28" && gcode.size() == 1) {
 			plotter.home();
