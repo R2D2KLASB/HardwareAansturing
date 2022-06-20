@@ -1,0 +1,184 @@
+[0.589s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--merge-install', '--packages-select', 'speech_ros2']
+[0.590s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffae633100>>, merge_install=True, metas=['./colcon.meta'], packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=['speech_ros2'], packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=4, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffae633100>, verb_name='build', verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffffae633580>)
+[0.609s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.611s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.611s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/deltarobot/Infrastructuur-feature-working-nodes/src'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.612s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.613s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extensions ['ignore', 'ignore_ament_install']
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extension 'ignore'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extension 'ignore_ament_install'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extensions ['colcon_pkg']
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extension 'colcon_pkg'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extensions ['colcon_meta']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extension 'colcon_meta'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extensions ['ros']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(Beeldverwerking) by extension 'ros'
+[0.673s] DEBUG:colcon.colcon_core.package_identification:Package 'Beeldverwerking' with type 'ros.ament_python' and name 'beeldverwerking'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['ignore', 'ignore_ament_install']
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'ignore'
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'ignore_ament_install'
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['colcon_pkg']
+[0.674s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'colcon_pkg'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['colcon_meta']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'colcon_meta'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['ros']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'ros'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['cmake', 'python']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'cmake'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'python'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extensions ['python_setup_py']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(Speech) by extension 'python_setup_py'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['ignore', 'ignore_ament_install']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'ignore'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'ignore_ament_install'
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['colcon_pkg']
+[0.677s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'colcon_pkg'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['colcon_meta']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'colcon_meta'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['ros']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'ros'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['cmake', 'python']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'cmake'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'python'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extensions ['python_setup_py']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/gcode_tools) by extension 'python_setup_py'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'ignore'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'ignore_ament_install'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['colcon_pkg']
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'colcon_pkg'
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['colcon_meta']
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'colcon_meta'
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['ros']
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'ros'
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['cmake', 'python']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'cmake'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'python'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extensions ['python_setup_py']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2) by extension 'python_setup_py'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extensions ['ignore', 'ignore_ament_install']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extension 'ignore'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extension 'ignore_ament_install'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extensions ['colcon_pkg']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extension 'colcon_pkg'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extensions ['colcon_meta']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extension 'colcon_meta'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extensions ['ros']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(Speech/ros2/speech_ros2) by extension 'ros'
+[0.687s] DEBUG:colcon.colcon_core.package_identification:Package 'Speech/ros2/speech_ros2' with type 'ros.ament_cmake' and name 'speech_ros2'
+[0.687s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.687s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.689s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.690s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.690s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extensions ['ignore', 'ignore_ament_install']
+[0.690s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extension 'ignore'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extension 'ignore_ament_install'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extensions ['colcon_pkg']
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extension 'colcon_pkg'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extensions ['colcon_meta']
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extension 'colcon_meta'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extensions ['ros']
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(receive_node) by extension 'ros'
+[0.694s] DEBUG:colcon.colcon_core.package_identification:Package 'receive_node' with type 'ros.ament_cmake' and name 'receive_node'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extensions ['ignore', 'ignore_ament_install']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extension 'ignore'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extension 'ignore_ament_install'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extensions ['colcon_pkg']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extension 'colcon_pkg'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extensions ['colcon_meta']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extension 'colcon_meta'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extensions ['ros']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ros_and_serial) by extension 'ros'
+[0.698s] DEBUG:colcon.colcon_core.package_identification:Package 'ros_and_serial' with type 'ros.ament_cmake' and name 'ros_and_serial'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extensions ['ignore', 'ignore_ament_install']
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extension 'ignore'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extension 'ignore_ament_install'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extensions ['colcon_pkg']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extension 'colcon_pkg'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extensions ['colcon_meta']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extension 'colcon_meta'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extensions ['ros']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(send_node) by extension 'ros'
+[0.703s] DEBUG:colcon.colcon_core.package_identification:Package 'send_node' with type 'ros.ament_cmake' and name 'send_node'
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.774s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'beeldverwerking' in 'Beeldverwerking'
+[0.774s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'receive_node' in 'receive_node'
+[0.774s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ros_and_serial' in 'ros_and_serial'
+[0.774s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'send_node' in 'send_node'
+[0.777s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_args' from command line to 'None'
+[0.777s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_target' from command line to 'None'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[0.778s] Level 5:colcon.colcon_core.verb:set package 'speech_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.779s] DEBUG:colcon.colcon_core.verb:Building package 'speech_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/deltarobot/Infrastructuur-feature-working-nodes/src/build/speech_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install', 'merge_install': True, 'path': '/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2', 'symlink_install': False, 'test_result_base': None}
+[0.805s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.813s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.814s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2' with build type 'ament_cmake'
+[0.815s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2'
+[0.840s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.841s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.841s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.882s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/deltarobot/Infrastructuur-feature-working-nodes/src/build/speech_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/deltarobot/Infrastructuur-feature-working-nodes/install/beeldverwerking:/opt/ros/foxy /usr/bin/cmake /home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2 -DCMAKE_INSTALL_PREFIX=/home/deltarobot/Infrastructuur-feature-working-nodes/src/install
+[9.280s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/deltarobot/Infrastructuur-feature-working-nodes/src/build/speech_ros2' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/deltarobot/Infrastructuur-feature-working-nodes/install/beeldverwerking:/opt/ros/foxy /usr/bin/cmake /home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2 -DCMAKE_INSTALL_PREFIX=/home/deltarobot/Infrastructuur-feature-working-nodes/src/install
+[9.332s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(speech_ros2)
+[9.362s] Level 1:colcon.colcon_core.environment:checking '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install' for CMake module files
+[9.364s] Level 1:colcon.colcon_core.environment:checking '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install' for CMake config files
+[9.366s] Level 1:colcon.colcon_core.environment:checking '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/bin'
+[9.367s] Level 1:colcon.colcon_core.environment:checking '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/lib/pkgconfig/speech_ros2.pc'
+[9.368s] Level 1:colcon.colcon_core.environment:checking '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/lib/python3.8/site-packages'
+[9.370s] INFO:colcon.colcon_core.shell:Creating package script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/speech_ros2/package.ps1'
+[9.374s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/speech_ros2/package.dsv'
+[9.377s] INFO:colcon.colcon_core.shell:Creating package script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/speech_ros2/package.sh'
+[9.380s] INFO:colcon.colcon_core.shell:Creating package script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/speech_ros2/package.bash'
+[9.384s] INFO:colcon.colcon_core.shell:Creating package script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/speech_ros2/package.zsh'
+[9.388s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/share/colcon-core/packages/speech_ros2)
+[9.400s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[9.400s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[9.401s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[9.401s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[9.431s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[9.432s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[9.432s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[9.432s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[9.463s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[9.464s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[9.467s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/local_setup.ps1'
+[9.472s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/_local_setup_util_ps1.py'
+[9.479s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/setup.ps1'
+[9.486s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/local_setup.sh'
+[9.489s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/_local_setup_util_sh.py'
+[9.491s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/setup.sh'
+[9.498s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/local_setup.bash'
+[9.500s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/setup.bash'
+[9.507s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/local_setup.zsh'
+[9.509s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/deltarobot/Infrastructuur-feature-working-nodes/src/install/setup.zsh'

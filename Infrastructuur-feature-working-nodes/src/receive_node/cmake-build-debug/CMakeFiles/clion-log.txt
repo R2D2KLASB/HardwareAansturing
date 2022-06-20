@@ -1,0 +1,20 @@
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\coenc\Documents\GitHub\Infrastructuur\src\receive_node
+CMake Error at CMakeLists.txt:19 (find_package):
+  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+  has asked CMake to find a package configuration file provided by
+  "ament_cmake", but CMake did not find one.
+
+  Could not find a package configuration file provided by "ament_cmake" with
+  any of the following names:
+
+    ament_cmakeConfig.cmake
+    ament_cmake-config.cmake
+
+  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+  "ament_cmake_DIR" to a directory containing one of the above files.  If
+  "ament_cmake" provides a separate development package or SDK, be sure it
+  has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/coenc/Documents/GitHub/Infrastructuur/src/receive_node/cmake-build-debug/CMakeFiles/CMakeOutput.log".
