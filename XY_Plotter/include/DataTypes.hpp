@@ -8,45 +8,49 @@
   @param y the value of the y-location
 */
 struct Coordinate {
-  int x;
-  int y;
-  Coordinate(const int& x, const int& y):
-  x(x),
-  y(y)
-  {}
-  Coordinate operator-(const Coordinate & rhs) const{
-    return {x - rhs.x, y - rhs.y};
-  }
-  bool operator==(const Coordinate &rhs) const{
-    return (x == rhs.x && y == rhs.y);
-  }
-  void operator+=(const Coordinate &rhs) {
-    x += rhs.x;
-    y += rhs.y;
-  }
-  void operator-=(const Coordinate &rhs) {
-    x -= rhs.x;
-    y -= rhs.y;
-  }
-  Coordinate operator+(const Coordinate &rhs) const{
-    return {x + rhs.x, y + rhs.y};
-  }
+    int x;
+    int y;
+    Coordinate():
+        x(0),
+        y(0)
+    {}
+    Coordinate(const int& x, const int& y) :
+        x(x),
+        y(y)
+    {}
+    Coordinate operator-(const Coordinate& rhs) const {
+        return { x - rhs.x, y - rhs.y };
+    }
+    bool operator==(const Coordinate& rhs) const {
+        return (x == rhs.x && y == rhs.y);
+    }
+    void operator+=(const Coordinate& rhs) {
+        x += rhs.x;
+        y += rhs.y;
+    }
+    void operator-=(const Coordinate& rhs) {
+        x -= rhs.x;
+        y -= rhs.y;
+    }
+    Coordinate operator+(const Coordinate& rhs) const {
+        return { x + rhs.x, y + rhs.y };
+    }
 
-  bool operator!=(const Coordinate & rhs) const{
-    return !(x == rhs.x && y == rhs.y);
-  }
+    bool operator!=(const Coordinate& rhs) const {
+        return !(x == rhs.x && y == rhs.y);
+    }
 };
 
 /**
   @brief Gcode class that contains the gcode command and either the location or the battleship information;
 */
 struct Gcode {
-  int gcode = 0;
-  Coordinate location = {0, 0};
-  int row = 0;
-  int colom = 0;
-  int player = 0;
-  int width = 0;
-  int length = 0;
+    int gcode = 0;
+    Coordinate location = { 0, 0 };
+    int row = 0;
+    int colom = 0;
+    int player = 0;
+    int width = 0;
+    int length = 0;
 };
 #endif //DATATYPES_HPP

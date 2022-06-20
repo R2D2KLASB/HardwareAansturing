@@ -159,7 +159,7 @@ void MainState::update() {
 			return;
 		}
 		std::vector<std::string>gcode = splitString(gcodeStrings[i], 1);
-		if ((gcode[0] == "G0" || gcode[0] == "G00") && gcode.size() == 3) {
+ 		if ((gcode[0] == "G0" || gcode[0] == "G00") && gcode.size() == 3) {
 			plotter.draw({ std::stoi(gcode[1]), std::stoi(gcode[2]) }, 0);
 		}
 		else if ((gcode[0] == "G1" || gcode[0] == "G01") && gcode.size() == 3) {

@@ -105,6 +105,6 @@ class Plotter {
 
     virtual void setServo(bool draw) = 0;
 
-    Coordinate pointsOnCircle(int radius, int angle, Coordinate origin);
+    Coordinate pointsOnCircle(const int& radius, const int& angle, const Coordinate& origin);
 
 };

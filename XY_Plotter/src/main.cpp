@@ -89,6 +89,13 @@ void loop() {
           readCode.width = Serial.parseInt();
           readCode.length = Serial.parseInt();
           break;
+        // case 7:
+        //   readCode.row = Serial.parseInt();
+        //   readCode.colom = Serial.parseInt();
+        //   readCode.width = Serial.parseInt();
+        //   readCode.length = Serial.parseInt();
+        //   readCode.player = Serial.parseInt();
+        //   break;
         case 28:
           break;
         default:
@@ -137,6 +144,10 @@ void loop() {
       case 6:
         plot.g6(writeCode.row, writeCode.colom, writeCode.width, writeCode.length);
         break;
+      // case 7:
+      //   plot.g7(writeCode.row, writeCode.colom, writeCode.width, writeCode.length, writeCode.player);
+      //   break;
+      
       //G28 home
       case 28:
         plot.home();
