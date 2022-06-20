@@ -177,6 +177,9 @@ void MainState::update() {
 		else if ((gcode[0] == "G6" || gcode[0] == "G06") && gcode.size() == 5) {
 			plotter.g6(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]));
 		}
+		else if ((gcode[0]) == "G7" && gcode.size() == 6) {
+			plotter.g7(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]), std::stoi(gcode[5]));
+		}
 		else if (gcode[0] == "G28" && gcode.size() == 1) {
 			plotter.home();
 		}
