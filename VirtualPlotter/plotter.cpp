@@ -244,6 +244,7 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
 
     int celSize;
 	Coordinate origin;
+    Coordinate target = { row - 1, 10 - colom };
     if (player == 0) {
         celSize = friendlyGameboardSize / 10;
         origin = friendlyGameboardOrigin;
@@ -257,7 +258,7 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
     }
     int radius = celSize * 0.4;
     if (width == 1) {
-        Coordinate boatOrigin = origin + Coordinate((row-0.2) * celSize, colom * celSize);
+        Coordinate boatOrigin = origin + Coordinate((target.x-0.2) * celSize, target.y * celSize);
         draw(boatOrigin + Coordinate(celSize / 5 * sin(10 * pi / 180), 10), 0);
         for (unsigned int a = 0; a < 3; a++) {
             boatOrigin.x += celSize/3;
@@ -269,7 +270,7 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
     }
 
     else if (length == 1) {
-		Coordinate boatOrigin = origin + Coordinate(row * celSize, (colom-0.2) * celSize);
+		Coordinate boatOrigin = origin + Coordinate(target.x * celSize, (target.y-0.2) * celSize);
 		for (unsigned int a = 0; a < 3; a++) {
 			boatOrigin.y += celSize / 3;
 			draw(boatOrigin + Coordinate(10, celSize / 10 * sin(0)), 0);

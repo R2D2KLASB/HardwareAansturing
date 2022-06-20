@@ -238,3 +238,49 @@ void Plotter::g6(const int& row, const int& colom, const int& width, const int& 
         return;
     }
 }
+
+void Plotter::g7(const int& row, const int& colom, const int& width, const int& length, const int& player){
+    float pi = 3.14159265358979323846;
+
+    int celSize;
+	Coordinate origin;
+    Coordinate target = { row - 1, 10 - colom };
+    if (player == 0) {
+        celSize = friendlyGameboardSize / 10;
+        origin = friendlyGameboardOrigin;
+    }
+    else if (player == 1) {
+		celSize = enemyGameboardSize / 10;
+		origin = enemyGameboardOrigin;
+	}
+    else {
+        return; // unallowed player
+    }
+    int radius = celSize * 0.4;
+    if (width == 1) {
+        Coordinate boatOrigin = origin + Coordinate((target.x-0.2) * celSize, target.y * celSize);
+        draw(boatOrigin + Coordinate(celSize / 5 * sin(10 * pi / 180), 10), 0);
+        for (unsigned int a = 0; a < 3; a++) {
+            boatOrigin.x += celSize/3;
+            draw(boatOrigin + Coordinate(celSize / 7 * sin(10 * pi / 180), 10), 0);
+            for (unsigned int i = 10; i + 10 < length * celSize; i++) {
+                draw(boatOrigin + Coordinate(celSize / 10 * sin(i * (500 / (float)celSize) * pi / 180), i), 1);
+            }
+        }
+    }
+
+    else if (length == 1) {
+		Coordinate boatOrigin = origin + Coordinate(target.x * celSize, (target.y-0.2) * celSize);
+		for (unsigned int a = 0; a < 3; a++) {
+			boatOrigin.y += celSize / 3;
+			draw(boatOrigin + Coordinate(10, celSize / 10 * sin(0)), 0);
+			for (unsigned int i = 10; i + 10 < width * celSize; i++) {
+                draw(boatOrigin + Coordinate(i, celSize / 10 * sin(i * (500 / (float)celSize) * pi / 180)), 1);
+				}
+			}
+		}
+	else {
+		// unallowed size
+		return;
+	}
+}
