@@ -122,7 +122,7 @@ void MainState::handleInput() {
 					
 					sf::Vector2u windowSize = gameData->window.getSize();
 					sf::RectangleShape hideButtons({ 600, 800 });
-					hideButtons.setFillColor(sf::Color::Black);
+					hideButtons.setFillColor(background);
 					hideButtons.setPosition(sf::Vector2f(windowSize.x - 300, windowSize.y - 400));
 					hideButtons.setOrigin(hideButtons.getSize().x / 2, hideButtons.getSize().y / 2);
 					gameData->window.draw(hideButtons);
