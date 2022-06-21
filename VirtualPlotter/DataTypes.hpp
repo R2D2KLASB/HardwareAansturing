@@ -14,9 +14,10 @@ struct Coordinate {
         x(0),
         y(0)
     {}
-    Coordinate(const int& x, const int& y) :
-        x(x),
-        y(y)
+	template <typename X, typename Y>
+    Coordinate(X x, Y y) :
+        x(int(x)),
+        y(int(y))
     {}
     Coordinate operator-(const Coordinate& rhs) const {
         return { x - rhs.x, y - rhs.y };
@@ -52,5 +53,9 @@ struct Gcode {
     int player = 0;
     int width = 0;
     int length = 0;
+	Gcode(int gcode, Coordinate location):
+		gcode(gcode),
+		location(location)
+	{}
 };
 #endif //DATATYPES_HPP
