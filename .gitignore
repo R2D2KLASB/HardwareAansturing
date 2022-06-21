@@ -30,7 +30,7 @@
 *.app
 
 */.vs
-
+.idea/*
 VirtualPlotter/x64/Debug/*
 VirtualPlotter/x64/Release/*.obj
 VirtualPlotter/x64/Release/*.iobj
