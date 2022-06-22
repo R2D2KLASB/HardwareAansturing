@@ -35,7 +35,6 @@ public:
 
   void addShot(){
     shots++;
-    updateScreen();
   }
 
   void addHit(){
@@ -59,7 +58,6 @@ public:
 
   void addEnemyShot(){
     enemyshots++;
-    updateScreen();
   }
 
   void addEnemyHit(){
