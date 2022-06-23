@@ -96,6 +96,8 @@ void loop() {
           readCode.length = Serial.parseInt();
           readCode.player = Serial.parseInt();
           break;
+        case 8:
+          readCode.player = Serial.parseInt();
         case 28:
           break;
         default:
@@ -147,7 +149,8 @@ void loop() {
       case 7:
         plot.g7(writeCode.row, writeCode.colom, writeCode.width, writeCode.length, writeCode.player);
         break;
-      
+      case 8:
+        plot.g8(writeCode.player);
       //G28 home
       case 28:
         plot.home();

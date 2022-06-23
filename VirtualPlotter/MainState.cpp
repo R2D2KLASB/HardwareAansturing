@@ -122,7 +122,7 @@ void MainState::handleInput() {
 					
 					sf::Vector2u windowSize = gameData->window.getSize();
 					sf::RectangleShape hideButtons({ 600, 800 });
-					hideButtons.setFillColor(sf::Color::Black);
+					hideButtons.setFillColor(background);
 					hideButtons.setPosition(sf::Vector2f(windowSize.x - 300, windowSize.y - 400));
 					hideButtons.setOrigin(hideButtons.getSize().x / 2, hideButtons.getSize().y / 2);
 					gameData->window.draw(hideButtons);
@@ -180,13 +180,15 @@ void MainState::update() {
 		else if ((gcode[0]) == "G7" && gcode.size() == 6) {
 			plotter.g7(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]), std::stoi(gcode[5]));
 		}
+		else if ((gcode[0]) == "G8" && gcode.size() == 2) {
+			plotter.g8(std::stoi(gcode[1]));
+		}
 		else if (gcode[0] == "G28" && gcode.size() == 1) {
 			plotter.home();
 		}
 		else {
 			std::string error = "The command: '" + gcodeStrings[i] + "' is not found as Gcode\n";
 			std::cout << error;
-//			throw std::exception(error.c_str());
 		}
 		i++;
 	}

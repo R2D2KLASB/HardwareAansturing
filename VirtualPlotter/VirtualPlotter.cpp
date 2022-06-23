@@ -9,20 +9,21 @@ VirtualPlotter::VirtualPlotter(const sf::Color& foreground, const sf::Color& bac
 	traveling_drawed(traveling_drawed),
 	show_travels(show_travels)
 {
+	currentLocation = { 30000, 25000 };
 	image.create(maxDimension.x/scale + padding*2, maxDimension.y/scale + padding * 2, background);
 }
 
 void VirtualPlotter::home() {
 	setServo(false);
-	while (currentLocation.y > 0) {
-		down();
-		currentLocation.y--;
+	while (currentLocation.y < maxDimension.y) {
+		up();
+		currentLocation.y++;
 	}
-	while (currentLocation.x > 0) {
-		left();
-		currentLocation.x--;
+	while (currentLocation.x < maxDimension.x) {
+		right();
+		currentLocation.x++;
 	}
-	currentLocation = { 0, 0 };
+	currentLocation = { 30000, 25000 };
 }
 
 void VirtualPlotter::export_picture(std::string path) {
