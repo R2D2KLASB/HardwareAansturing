@@ -180,13 +180,15 @@ void MainState::update() {
 		else if ((gcode[0]) == "G7" && gcode.size() == 6) {
 			plotter.g7(std::stoi(gcode[1]), std::stoi(gcode[2]), std::stoi(gcode[3]), std::stoi(gcode[4]), std::stoi(gcode[5]));
 		}
+		else if ((gcode[0]) == "G8" && gcode.size() == 2) {
+			plotter.g8(std::stoi(gcode[1]));
+		}
 		else if (gcode[0] == "G28" && gcode.size() == 1) {
 			plotter.home();
 		}
 		else {
 			std::string error = "The command: '" + gcodeStrings[i] + "' is not found as Gcode\n";
 			std::cout << error;
-//			throw std::exception(error.c_str());
 		}
 		i++;
 	}
