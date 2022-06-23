@@ -78,6 +78,13 @@ public:
     void g7(const int& row, const int& colom, const int& width, const int& length, const int& player);
 
     /**
+    * @brief function to draw the result of the game
+    * 
+    * @param winner the player id of the winner 0 indicates the opponent won 1 indicates the player 1
+    */
+    void g8(const int& winner);
+
+    /**
       @brief Function to return to the homeposition using the microswitches
       @details Homing function that uses the microswitches to return to the homeposition over x and y-axis and than resets than calibrates the position.
     */
@@ -100,6 +107,7 @@ public:
     unsigned int servoDelayUs = 150000;
     
     void drawBoard(Coordinate origin, int size);
+    void drawBoat(const int& row, const int& colom, const int& width, const int& length, const int& player);
 	
     virtual void down() = 0;
     virtual void left() = 0;

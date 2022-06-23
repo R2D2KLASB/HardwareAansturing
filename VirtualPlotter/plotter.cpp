@@ -749,6 +749,51 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 733 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
 }
 
+void Plotter::drawBoat(const int& row, const int& colom, const int& width, const int& length, const int& player) {
+    int celSize;
+    int radius;
+    Coordinate target = { row - 1, 10 - colom };
+    Coordinate origin;
+    if (player == 0) {
+        celSize = enemyGameboardSize / 10;
+        radius = celSize * 0.4;
+        origin = enemyGameboardOrigin;
+    }
+    else if (player == 1) {
+        celSize = friendlyGameboardSize / 10;
+        radius = celSize * 0.4;
+        origin = friendlyGameboardOrigin;
+    }
+    else {
+        // unallowed player
+        return;
+
+    }
+    if (width == 1) {
+        draw(pointsOnCircle(radius, 90, origin + Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
+
+        for (unsigned int degree = 90; degree <= 270; degree++) {
+            draw(pointsOnCircle(radius, degree, origin + Coordinate((target.x + 0.5) * celSize, (target.y - length + 1.5) * celSize)), 1);
+        }
+        for (unsigned int degree = 270; degree <= 450; degree++) {
+            draw(pointsOnCircle(radius, degree, origin + Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
+        }
+    }
+    else if (length == 1) {
+        draw(pointsOnCircle(radius, 0, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
+        for (unsigned int degree = 0; degree <= 180; degree++) {
+            draw(pointsOnCircle(radius, degree, origin + Coordinate((target.x + width - 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
+        }
+        for (unsigned int degree = 180; degree <= 360; degree++) {
+            draw(pointsOnCircle(radius, degree, origin + Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
+        }
+    }
+    else {
+        // unallowed size
+        return;
+    }
+}
+
 void Plotter::g3() {
     float scale = ((friendlyGameboardSize / 10) / 250) * 0.3;
 	
@@ -1154,32 +1199,7 @@ void Plotter::g5(const int& row, const int& colom, const int& player) {
 }
 
 void Plotter::g6(const int& row, const int& colom, const int& width, const int& length) {
-    int celSize = friendlyGameboardSize / 10;
-    int radius = celSize * 0.4;
-    Coordinate target = { row - 1, 10 - colom };
-    if (width == 1) {
-        draw(friendlyGameboardOrigin + Coordinate((target.x + 0.9) * celSize, (target.y + 0.5) * celSize), 0);
-
-        for (unsigned int degree = 90; degree <= 270; degree++) {
-            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y - length + 1.5) * celSize)), 1);
-        }
-        for (unsigned int degree = 270; degree <= 450; degree++) {
-            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
-        }
-    }
-    else if (length == 1) {
-        draw(pointsOnCircle(radius, 0, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
-        for (unsigned int degree = 0; degree <= 180; degree++) {
-            draw(pointsOnCircle(radius, degree, Coordinate((target.x + width - 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
-        }
-        for (unsigned int degree = 180; degree <= 360; degree++) {
-            draw(pointsOnCircle(radius, degree, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
-        }
-    }
-    else {
-        // unallowed size
-        return;
-    }
+    drawBoat(row, colom, width, length, 1);
 }
 
 void Plotter::g7(const int& row, const int& colom, const int& width, const int& length, const int& player){
@@ -1193,6 +1213,7 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
         origin = friendlyGameboardOrigin;
     }
     else if (player == 0) {
+        drawBoat(row, colom, width, length, 0);
 		celSize = enemyGameboardSize / 10;
 		origin = enemyGameboardOrigin;
 	}
@@ -1227,3 +1248,395 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
 		return;
 	}
 }
+
+void Plotter::g8(const int& winner)
+{
+    int celsize = friendlyGameboardSize / 10;
+    float scale = (celsize / 250) * 0.4;
+    Coordinate character_origin = { maxDimension.x/2, maxDimension.y * 0.8 };
+    if (winner == 0) {
+        draw({ -3842 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
+        draw({ -3947 * scale + character_origin.x, 568 * scale + character_origin.y }, 1);
+        draw({ -4000 * scale + character_origin.x, 628 * scale + character_origin.y }, 1);
+        draw({ -4000 * scale + character_origin.x, 659 * scale + character_origin.y }, 1);
+        draw({ -3947 * scale + character_origin.x, 719 * scale + character_origin.y }, 1);
+        draw({ -3842 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -3789 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -3684 * scale + character_origin.x, 719 * scale + character_origin.y }, 1);
+        draw({ -3631 * scale + character_origin.x, 659 * scale + character_origin.y }, 1);
+        draw({ -3631 * scale + character_origin.x, 598 * scale + character_origin.y }, 1);
+        draw({ -3684 * scale + character_origin.x, 477 * scale + character_origin.y }, 1);
+        draw({ -3736 * scale + character_origin.x, 386 * scale + character_origin.y }, 1);
+        draw({ -3789 * scale + character_origin.x, 265 * scale + character_origin.y }, 1);
+        draw({ -3789 * scale + character_origin.x, 204 * scale + character_origin.y }, 1);
+        draw({ -3736 * scale + character_origin.x, 143 * scale + character_origin.y }, 1);
+        draw({ -3684 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+        draw({ -3578 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+        draw({ -3473 * scale + character_origin.x, 143 * scale + character_origin.y }, 1);
+        draw({ -3368 * scale + character_origin.x, 204 * scale + character_origin.y }, 1);
+        draw({ -3263 * scale + character_origin.x, 295 * scale + character_origin.y }, 1);
+        draw({ -3210 * scale + character_origin.x, 356 * scale + character_origin.y }, 1);
+        draw({ -3105 * scale + character_origin.x, 537 * scale + character_origin.y }, 1);
+        draw({ -3000 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -3105 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
+        draw({ -3263 * scale + character_origin.x, 234 * scale + character_origin.y }, 1);
+        draw({ -3368 * scale + character_origin.x, 53 * scale + character_origin.y }, 1);
+        draw({ -3473 * scale + character_origin.x, -98 * scale + character_origin.y }, 1);
+        draw({ -3578 * scale + character_origin.x, -219 * scale + character_origin.y }, 1);
+        draw({ -3684 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -3736 * scale + character_origin.x, -219 * scale + character_origin.y }, 1);
+        draw({ -3736 * scale + character_origin.x, -159 * scale + character_origin.y }, 1);
+        draw({ -3684 * scale + character_origin.x, -68 * scale + character_origin.y }, 1);
+        draw({ -3578 * scale + character_origin.x, 22 * scale + character_origin.y }, 1);
+        draw({ -3421 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+        draw({ -3263 * scale + character_origin.x, 174 * scale + character_origin.y }, 1);
+        draw({ -3000 * scale + character_origin.x, 265 * scale + character_origin.y }, 1);
+        draw({ -2470 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
+        draw({ -2647 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ -2764 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ -2882 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ -2941 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ -3000 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+        draw({ -3000 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ -2941 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ -2882 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -2764 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -2647 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -2470 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -2352 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ -2235 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ -2176 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ -2117 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ -2117 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ -2176 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+        draw({ -2235 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ -2352 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -2470 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -2588 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+        draw({ -2588 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ -2529 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ -2411 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ -2294 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ -2117 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ -2000 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ -1863 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+        draw({ -1954 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ -2000 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+        draw({ -2000 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ -1954 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ -1863 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -1818 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -1727 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ -1681 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ -1681 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ -1727 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ -1772 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+        draw({ -1818 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ -1818 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ -1772 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -1681 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -1590 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -1500 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -1454 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ -1363 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ -1227 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
+        draw({ -1136 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ -1227 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+        draw({ -1272 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ -1318 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+        draw({ -1318 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -1272 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -1227 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ -1136 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ -1090 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ -1000 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ 222 * scale + character_origin.x, 178 * scale + character_origin.y }, 0);
+        draw({ 333 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+        draw({ 555 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ 722 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ 833 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
+        draw({ 888 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 888 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+        draw({ 833 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 722 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 666 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 611 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ 555 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ 500 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ 444 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ 388 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 277 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 166 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 55 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 0 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 0 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 55 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+        draw({ 166 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+        draw({ 277 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 444 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 611 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 722 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 888 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 1000 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 1529 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
+        draw({ 1352 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 1235 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ 1117 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ 1058 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ 1000 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+        draw({ 1000 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ 1058 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ 1117 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 1235 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 1352 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 1529 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 1647 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 1764 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ 1823 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ 1882 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ 1882 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 1823 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+        draw({ 1764 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 1647 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 1529 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 1411 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+        draw({ 1411 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 1470 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ 1588 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ 1705 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ 1882 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ 2000 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ 2117 * scale + character_origin.x, -202 * scale + character_origin.y }, 0);
+        draw({ 2117 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 2235 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 2411 * scale + character_origin.x, 83 * scale + character_origin.y }, 1);
+        draw({ 2529 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ 2647 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
+        draw({ 2705 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+        draw({ 2705 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 2647 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 2588 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 2529 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 2470 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ 2470 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 2529 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
+        draw({ 2647 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ 2823 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ 2941 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+        draw({ 3000 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+        draw({ 3000 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+        draw({ 2941 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ 2882 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 2705 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 2470 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 2294 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 2176 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 2117 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+        draw({ 2117 * scale + character_origin.x, 83 * scale + character_origin.y }, 1);
+        draw({ 3733 * scale + character_origin.x, 559 * scale + character_origin.y }, 0);
+        draw({ 3733 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 3800 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ 3933 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ 4000 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+        draw({ 4000 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ 3933 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 3733 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 3466 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+        draw({ 3266 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+        draw({ 3200 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+        draw({ 3200 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+        draw({ 3266 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+        draw({ 3333 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+        draw({ 3533 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
+        draw({ 3333 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
+        draw({ 3133 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+        draw({ 3066 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+        draw({ 3000 * scale + character_origin.x, 83 * scale + character_origin.y }, 1);
+        draw({ 3000 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+        draw({ 3066 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+        draw({ 3133 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 3333 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 3533 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+        draw({ 3733 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+        draw({ 3866 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+        draw({ 3933 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    }
+    else if(winner == 1) {
+    draw({ -3342 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
+    draw({ -3447 * scale + character_origin.x, 568 * scale + character_origin.y }, 1);
+    draw({ -3500 * scale + character_origin.x, 628 * scale + character_origin.y }, 1);
+    draw({ -3500 * scale + character_origin.x, 659 * scale + character_origin.y }, 1);
+    draw({ -3447 * scale + character_origin.x, 719 * scale + character_origin.y }, 1);
+    draw({ -3342 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -3289 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -3184 * scale + character_origin.x, 719 * scale + character_origin.y }, 1);
+    draw({ -3131 * scale + character_origin.x, 659 * scale + character_origin.y }, 1);
+    draw({ -3131 * scale + character_origin.x, 598 * scale + character_origin.y }, 1);
+    draw({ -3184 * scale + character_origin.x, 477 * scale + character_origin.y }, 1);
+    draw({ -3236 * scale + character_origin.x, 386 * scale + character_origin.y }, 1);
+    draw({ -3289 * scale + character_origin.x, 265 * scale + character_origin.y }, 1);
+    draw({ -3289 * scale + character_origin.x, 204 * scale + character_origin.y }, 1);
+    draw({ -3236 * scale + character_origin.x, 143 * scale + character_origin.y }, 1);
+    draw({ -3184 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+    draw({ -3078 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+    draw({ -2973 * scale + character_origin.x, 143 * scale + character_origin.y }, 1);
+    draw({ -2868 * scale + character_origin.x, 204 * scale + character_origin.y }, 1);
+    draw({ -2763 * scale + character_origin.x, 295 * scale + character_origin.y }, 1);
+    draw({ -2710 * scale + character_origin.x, 356 * scale + character_origin.y }, 1);
+    draw({ -2605 * scale + character_origin.x, 537 * scale + character_origin.y }, 1);
+    draw({ -2500 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -2605 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
+    draw({ -2763 * scale + character_origin.x, 234 * scale + character_origin.y }, 1);
+    draw({ -2868 * scale + character_origin.x, 53 * scale + character_origin.y }, 1);
+    draw({ -2973 * scale + character_origin.x, -98 * scale + character_origin.y }, 1);
+    draw({ -3078 * scale + character_origin.x, -219 * scale + character_origin.y }, 1);
+    draw({ -3184 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -3236 * scale + character_origin.x, -219 * scale + character_origin.y }, 1);
+    draw({ -3236 * scale + character_origin.x, -159 * scale + character_origin.y }, 1);
+    draw({ -3184 * scale + character_origin.x, -68 * scale + character_origin.y }, 1);
+    draw({ -3078 * scale + character_origin.x, 22 * scale + character_origin.y }, 1);
+    draw({ -2921 * scale + character_origin.x, 113 * scale + character_origin.y }, 1);
+    draw({ -2763 * scale + character_origin.x, 174 * scale + character_origin.y }, 1);
+    draw({ -2500 * scale + character_origin.x, 265 * scale + character_origin.y }, 1);
+    draw({ -1970 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
+    draw({ -2147 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ -2264 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ -2382 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ -2441 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+    draw({ -2500 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+    draw({ -2500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ -2441 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+    draw({ -2382 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -2264 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -2147 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -1970 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -1852 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+    draw({ -1735 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+    draw({ -1676 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+    draw({ -1617 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+    draw({ -1617 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ -1676 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+    draw({ -1735 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ -1852 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -1970 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -2088 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+    draw({ -2088 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ -2029 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+    draw({ -1911 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+    draw({ -1794 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+    draw({ -1617 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+    draw({ -1500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ -1363 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+    draw({ -1454 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ -1500 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+    draw({ -1500 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ -1454 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ -1363 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -1318 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -1227 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ -1181 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ -1181 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ -1227 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+    draw({ -1272 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+    draw({ -1318 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ -1318 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+    draw({ -1272 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -1181 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -1090 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -1000 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -954 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+    draw({ -863 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+    draw({ -727 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
+    draw({ -636 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ -727 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+    draw({ -772 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+    draw({ -818 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+    draw({ -818 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -772 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -727 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ -636 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ -590 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+    draw({ -500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ 607 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+    draw({ 535 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ 500 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+    draw({ 500 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 535 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 607 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 642 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 714 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 750 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 750 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ 714 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 1071 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 1000 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 1107 * scale + character_origin.x, 83 * scale + character_origin.y }, 1);
+    draw({ 1214 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+    draw({ 1321 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+    draw({ 1428 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 1500 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 2029 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
+    draw({ 1852 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 1735 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 1617 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ 1558 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+    draw({ 1500 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
+    draw({ 1500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ 1558 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+    draw({ 1617 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ 1735 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 1852 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 2029 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ 2147 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
+    draw({ 2264 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+    draw({ 2323 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+    draw({ 2382 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
+    draw({ 2382 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ 2323 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+    draw({ 2264 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 2147 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 2029 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 1911 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+    draw({ 1911 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ 1970 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
+    draw({ 2088 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
+    draw({ 2205 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
+    draw({ 2382 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
+    draw({ 2500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ 2727 * scale + character_origin.x, 83 * scale + character_origin.y }, 0);
+    draw({ 2863 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ 2954 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
+    draw({ 3000 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 3090 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 3181 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 3272 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 3318 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 3318 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ 3272 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
+    draw({ 3181 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
+    draw({ 3181 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ 3227 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 3272 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    draw({ 3363 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
+    draw({ 3409 * scale + character_origin.x, -154 * scale + character_origin.y }, 1);
+    draw({ 3500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
+    draw({ 2636 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
+    draw({ 2545 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
+    draw({ 2500 * scale + character_origin.x, 559 * scale + character_origin.y }, 1);
+    draw({ 2500 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 2545 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 2636 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 2681 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
+    draw({ 2772 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
+    draw({ 2818 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
+    draw({ 2818 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
+    draw({ 2772 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
+    draw({ 2727 * scale + character_origin.x, 83 * scale + character_origin.y }, 1);
+    draw({ 2636 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
+    }
+    else {
+        //invalid outcome
+        return;
+    }
+}
+
