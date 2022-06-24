@@ -1,6 +1,0 @@
-Invoking command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial': /usr/bin/cmake /home/ubuntu/HardwareAansturing/ros2/rpi_serial -DCMAKE_INSTALL_PREFIX=/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial
-Invoked command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial' returned '0': /usr/bin/cmake /home/ubuntu/HardwareAansturing/ros2/rpi_serial -DCMAKE_INSTALL_PREFIX=/home/ubuntu/HardwareAansturing/ros2/install/rpi_serial
-Invoking command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial': /usr/bin/cmake --build /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial -- -j4 -l4
-Invoked command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial' returned '0': /usr/bin/cmake --build /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial -- -j4 -l4
-Invoking command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial': /usr/bin/cmake --install /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial
-Invoked command in '/home/ubuntu/HardwareAansturing/ros2/build/rpi_serial' returned '0': /usr/bin/cmake --install /home/ubuntu/HardwareAansturing/ros2/build/rpi_serial
