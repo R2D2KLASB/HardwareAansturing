@@ -32,6 +32,6 @@ public:
     if ( digitalRead(right) == LOW ){
       return 4;
     }
-    return -1;
+    return 8;
   }
 };

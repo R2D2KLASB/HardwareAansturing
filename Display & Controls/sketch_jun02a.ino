@@ -20,6 +20,14 @@ void loop() {
 
   // Serial for Display
   int message = SerialUSB.read();
+  
+  if ( message == '6' ){
+    String string = "\n";
+    while ( string == "\n" ){
+      string = SerialUSB.readString();
+    }
+    TFT.setText( string );
+  }
   if ( message == '0' ){ // 0 = removeBoats
     TFT.removeBoats();       
   }

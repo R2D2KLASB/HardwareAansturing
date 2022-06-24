@@ -25,6 +25,8 @@ private:
   int enemyhits = 0;
   int enemymisses = 0;
 
+  String text = "thisneedstochange";
+
 public:
 // Player ships =================================================================
 
@@ -72,6 +74,8 @@ public:
     updateScreen();
   }
 
+// Setup and Update ==============================================================
+
   void setupScreen() {
     // Reading TFT ID:
     uint16_t ID=tft.readID();
@@ -107,6 +111,19 @@ public:
     drawEnemyShots();
     drawEnemyHits();
     drawEnemyMisses();
+    drawText();
+  }
+
+  void setText( String textToDraw ){
+    text = textToDraw;
+    updateScreen();
+  }
+
+  void drawText(){
+    tft.setCursor(48,360);
+    tft.setTextColor(BLACK);
+    tft.setTextSize(4);
+    tft.println(text);
   }
 
 // Player draws ============================================================
