@@ -1,4 +1,0 @@
-source;share/rpi_serial/local_setup.bash
-source;share/rpi_serial/local_setup.dsv
-source;share/rpi_serial/local_setup.sh
-source;share/rpi_serial/local_setup.zsh

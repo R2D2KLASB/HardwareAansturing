@@ -1,5 +1,0 @@
-CMake Error at CMakeLists.txt:14 (target_include_directories):
-  target_include_directories called with invalid arguments
-
-
-make: *** [Makefile:296: cmake_check_build_system] Error 1
