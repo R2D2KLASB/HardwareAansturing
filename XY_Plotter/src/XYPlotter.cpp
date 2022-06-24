@@ -3,12 +3,12 @@
 void XYPlotter::home() {
   setServo(0);
   while (digitalRead(ySwitchPin)) {
-    down();
+    up();
   }
   while (digitalRead(xSwitchPin)) {
-    left();
+    right();
   }
-  currentLocation = {0, 0};
+  currentLocation = {30000, 25000};
 }
 
 void XYPlotter::init() {
@@ -45,17 +45,17 @@ XYPlotter::XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, ui
 {}
 
 void XYPlotter::down() {
-  setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::counterClockwise);
+  setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::clockwise);
   step();
 }
 
 void XYPlotter::left() {
-  setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::clockwise);
+  setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::counterClockwise);
   step();
 }
 
 void XYPlotter::right() {
-  setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::counterClockwise);
+  setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::clockwise);
   step();
 }
 
@@ -107,6 +107,6 @@ void XYPlotter::step() {
 }
 
 void XYPlotter::up() {
-  setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::clockwise);
+  setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::counterClockwise);
   step();
 }
