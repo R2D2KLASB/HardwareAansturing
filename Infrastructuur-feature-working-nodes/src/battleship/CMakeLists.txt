@@ -37,15 +37,19 @@ include_directories(include/)
 # add the executable
 #add_executable(${PROJECT_NAME} ${SOURCES})
 
-add_executable(ros_and_serial src/ros_and_serial.cpp src/SerialStream.cpp src/SerialStreamBuf.cpp src/SerialPort.cpp)
-ament_target_dependencies(ros_and_serial rclcpp std_msgs)
+add_executable(xy_plotter src/xy_plotter_node.cpp src/SerialStream.cpp src/SerialStreamBuf.cpp src/SerialPort.cpp)
+ament_target_dependencies(xy_plotter rclcpp std_msgs)
 
-add_executable(sound_player src/sound_player_node.cpp )
-ament_target_dependencies(sound_player rclcpp std_msgs)
+add_executable(speaker src/sound_player_node.cpp )
+ament_target_dependencies(speaker rclcpp std_msgs)
+
+add_executable(display src/display_node.cpp src/SerialStream.cpp src/SerialStreamBuf.cpp src/SerialPort.cpp)
+ament_target_dependencies(display rclcpp std_msgs)
 
 install(TARGETS
-    ros_and_serial
-    sound_player
-    DESTINATION lib/${PROJECT_NAME})
+        xy_plotter
+        speaker
+        display
+        DESTINATION lib/${PROJECT_NAME})
 
 ament_package()

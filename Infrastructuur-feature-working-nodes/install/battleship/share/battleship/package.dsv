@@ -1,0 +1,8 @@
+source;share/battleship/hook/cmake_prefix_path.ps1
+source;share/battleship/hook/cmake_prefix_path.dsv
+source;share/battleship/hook/cmake_prefix_path.sh
+source;share/battleship/local_setup.bash
+source;share/battleship/local_setup.dsv
+source;share/battleship/local_setup.ps1
+source;share/battleship/local_setup.sh
+source;share/battleship/local_setup.zsh

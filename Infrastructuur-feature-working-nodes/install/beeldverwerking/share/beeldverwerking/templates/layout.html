@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>Image to Gcode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1>{% block title %} {% endblock %}</h1> 
+          {% block content %} {% endblock %}
+      </div>
+    </div>
+  </body>
+
+</html>
