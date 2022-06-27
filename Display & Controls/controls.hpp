@@ -1,10 +1,10 @@
 class controls {
 private:
-  const int fire = 41;
-  const int up = 35;
-  const int down = 37;
-  const int right = 39;
-  const int left = 33;
+  const int fire = 53;
+  const int up = 51;
+  const int down = 47;
+  const int right = 45;
+  const int left = 49;
 
 public:
   void setupControls(){
