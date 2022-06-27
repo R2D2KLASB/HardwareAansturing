@@ -30,7 +30,7 @@
 *.app
 
 */.vs
-
+.idea/*
 VirtualPlotter/x64/Debug/*
 VirtualPlotter/x64/Release/*.obj
 VirtualPlotter/x64/Release/*.iobj
@@ -48,3 +48,7 @@ VirtualPlotter/cmake-build-debug/*
 VirtualPlotter/Debug/
 picture_to_gcode_beeldverwerking_without_ros/__pycache__*
 .vscode/
+Infrastructuur-feature-working-nodes/build
+Infrastructuur-feature-working-nodes/log
+Infrastructuur-feature-working-nodes/src/Beeldverwerking
+Infrastructuur-feature-working-nodes/src/Speech

@@ -16,11 +16,11 @@ VirtualPlotter::VirtualPlotter(const sf::Color& foreground, const sf::Color& bac
 void VirtualPlotter::home() {
 	setServo(false);
 	while (currentLocation.y < maxDimension.y) {
-		up();
+		up(stepDelayUs);
 		currentLocation.y++;
 	}
 	while (currentLocation.x < maxDimension.x) {
-		right();
+		right(stepDelayUs);
 		currentLocation.x++;
 	}
 	currentLocation = { 30000, 25000 };
@@ -51,7 +51,10 @@ std::string VirtualPlotter::statistics_values(const int& amount_commands_process
 		+ std::to_string(amount_commands_processed) + '\n'
 		+ std::to_string(total_commands) + '\n'
 		+ proces_percentage + '%' + '\n'
-		+ std::to_string(int(int(time / us_per_s) / 60)) + ":" + time_second;
+		+ std::to_string(int(int(time / us_per_s) / 60)) + ":" + time_second + '\n'
+		+ "new:\t\t " + std::to_string(drawingTime + servoDelayUs * servoChanges) + '\n'
+		+ "original:\t" + std::to_string(stepDelayUs * 2 * amountStepsTotal + servoDelayUs * servoChanges) + '\n';
+		
 }
 
 void VirtualPlotter::setServo(bool draw) {
@@ -83,7 +86,7 @@ void VirtualPlotter::plot_pixel(const int& x, const int& y, const drawing_mode& 
 	}
 }
 
-void VirtualPlotter::up() {
+void VirtualPlotter::up(unsigned int stepDelay) {
 	if (prevState) {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::FOREGROUND);
 		amountStepsDrawing++;
@@ -91,10 +94,12 @@ void VirtualPlotter::up() {
 	else {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::TRAVELING);
 	}
+	drawingTime += stepDelay * 2;
+	//drawingTime += stepDelayUs * 2;
 	amountStepsTotal++;
 }
 
-void VirtualPlotter::right() {
+void VirtualPlotter::right(unsigned int stepDelay) {
 	if (prevState) {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::FOREGROUND);
 		amountStepsDrawing++;
@@ -102,10 +107,12 @@ void VirtualPlotter::right() {
 	else {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::TRAVELING);
 	}
+	drawingTime += stepDelay * 2;
+	//drawingTime += stepDelayUs * 2;
 	amountStepsTotal++;
 }
 
-void VirtualPlotter::down() {
+void VirtualPlotter::down(unsigned int stepDelay) {
 	if (prevState) {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::FOREGROUND);
 		amountStepsDrawing++;
@@ -113,10 +120,12 @@ void VirtualPlotter::down() {
 	else {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::TRAVELING);
 	}
+	drawingTime += stepDelay * 2;
+	//drawingTime += stepDelayUs * 2;
 	amountStepsTotal++;
 }
 
-void VirtualPlotter::left() {
+void VirtualPlotter::left(unsigned int stepDelay) {
 	if (prevState) {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::FOREGROUND);
 		amountStepsDrawing++;
@@ -124,5 +133,7 @@ void VirtualPlotter::left() {
 	else {
 		plot_pixel(currentLocation.x, currentLocation.y, drawing_mode::TRAVELING);
 	}
+	drawingTime += stepDelay * 2;
+	//drawingTime += stepDelayUs*2;
 	amountStepsTotal++;
 }

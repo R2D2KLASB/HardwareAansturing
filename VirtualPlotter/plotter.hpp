@@ -106,13 +106,15 @@ public:
     unsigned int stepDelayUs = 50;
     unsigned int servoDelayUs = 150000;
     
+    unsigned int calculateDelay(int aantalStappenGezet, int AantalStappenLijn);
+
     void drawBoard(Coordinate origin, int size);
     void drawBoat(const int& row, const int& colom, const int& width, const int& length, const int& player);
 	
-    virtual void down() = 0;
-    virtual void left() = 0;
-    virtual void right() = 0;
-    virtual void up() = 0;
+    virtual void down(unsigned int stepDelay) = 0;
+    virtual void left(unsigned int stepDelay) = 0;
+    virtual void right(unsigned int stepDelay) = 0;
+    virtual void up(unsigned int stepDelay) = 0;
 
     virtual void setServo(bool draw) = 0;
 

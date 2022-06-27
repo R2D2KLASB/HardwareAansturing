@@ -3,10 +3,10 @@
 void XYPlotter::home() {
   setServo(0);
   while (digitalRead(ySwitchPin)) {
-    up();
+    up(stepDelayUs);
   }
   while (digitalRead(xSwitchPin)) {
-    right();
+    right(stepDelayUs);
   }
   currentLocation = {30000, 25000};
 }
@@ -44,19 +44,19 @@ XYPlotter::XYPlotter(Coordinate maxDimension, Servo & pen, uint8_t enablePin, ui
   ySwitchPin(ySwitchPin)
 {}
 
-void XYPlotter::down() {
+void XYPlotter::down(unsigned int stepDelay) {
   setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::clockwise);
-  step();
+  step(stepDelay);
 }
 
-void XYPlotter::left() {
+void XYPlotter::left(unsigned int stepDelay) {
   setXYDirection(XYPlotter::Direction::counterClockwise, XYPlotter::Direction::counterClockwise);
-  step();
+  step(stepDelay);
 }
 
-void XYPlotter::right() {
+void XYPlotter::right(unsigned int stepDelay) {
   setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::clockwise);
-  step();
+  step(stepDelay);
 }
 
 void XYPlotter::setServo(bool draw) {
@@ -88,7 +88,7 @@ void XYPlotter::setXYDirection(Direction xDirection, Direction yDirection) {
   setYDirection(yDirection);
 }
 
-void XYPlotter::step() {
+void XYPlotter::step(unsigned int stepDelay) {
   bool delay = false;
   if (currentXDirection != XYPlotter::Direction::standStill) {
     digitalWrite(xStepPin, HIGH);
@@ -99,14 +99,14 @@ void XYPlotter::step() {
     delay = true;
   }
   if (delay) {
-    delayMicroseconds(stepDelayUs);
+    delayMicroseconds(stepDelay);
     digitalWrite(xStepPin, LOW);
     digitalWrite(yStepPin, LOW);
-    delayMicroseconds(stepDelayUs);
+    delayMicroseconds(stepDelay);
   }
 }
 
-void XYPlotter::up() {
+void XYPlotter::up(unsigned int stepDelay) {
   setXYDirection(XYPlotter::Direction::clockwise, XYPlotter::Direction::counterClockwise);
-  step();
+  step(stepDelay);
 }
