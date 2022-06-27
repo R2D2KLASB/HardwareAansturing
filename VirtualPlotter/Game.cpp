@@ -2,7 +2,7 @@
 #include "ConfigState.hpp"
 
 Game::Game(const int &screenWidth, const int &screenHeight, const std::string &gameTitle) {
-    gameData->window.create(sf::VideoMode(screenWidth, screenHeight), gameTitle, sf::Style::Close | sf::Style::Titlebar);
+    gameData->window.create(sf::VideoMode(screenWidth, screenHeight), gameTitle, sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
     gameData->machine.addGameState(GameStateReference(new ConfigState(gameData)));
     gameData->arrowCursor.loadFromSystem(sf::Cursor::Arrow);
 	gameData->crossCursor.loadFromSystem(sf::Cursor::Cross);

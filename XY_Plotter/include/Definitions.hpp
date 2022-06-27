@@ -14,8 +14,8 @@
 #define MAX_Y 25000 
 
 #define SERVO_PIN 11
-#define SERVO_UP 40
-#define SERVO_DOWN 90
+#define SERVO_UP 30
+#define SERVO_DOWN 85
 
 #define MICROSWITCHX 9
 #define MICROSWITCHY 10
