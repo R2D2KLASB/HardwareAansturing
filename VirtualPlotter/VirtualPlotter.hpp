@@ -60,16 +60,17 @@ private:
 
 	void setServo(bool draw) override;
 
-	void up() override;
+	void up(unsigned int stepDelay) override;
 
-	void right() override;
+	void right(unsigned int stepDelay) override;
 
-	void down() override;
+	void down(unsigned int stepDelay) override;
 
-	void left() override;
+	void left(unsigned int stepDelay) override;
 
 	void plot_pixel(const int& x, const int& y, const drawing_mode& mode);
 
+	unsigned int drawingTime = 0;
 	unsigned int us_per_s = 1000000;
 	unsigned int servoChanges = 0;
 	unsigned int amountStepsDrawing = 0;

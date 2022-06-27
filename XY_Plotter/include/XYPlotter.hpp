@@ -85,12 +85,12 @@ class XYPlotter: public Plotter {
     */
     void setXYDirection(Direction xDirection, Direction yDirection);
 
-    void step();
+    void step(unsigned int stepDelay);
     
-    void down() override;
-    void left() override;
-    void right() override;
-    void up() override;
+    void down(unsigned int stepDelay) override;
+    void left(unsigned int stepDelay) override;
+    void right(unsigned int stepDelay) override;
+    void up(unsigned int stepDelay) override;
 
     void setServo(bool draw) override;
 };
