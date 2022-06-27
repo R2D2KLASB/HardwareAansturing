@@ -33,7 +33,7 @@ void display_node::decode_message(std::string message) {
       Serial << '5';
     }
   } else if (keyWord == "TEXT") {
-    auto text = message.substr(message.find(" ") + 1);
+    auto text = message.substr(message.find(" ")+1);
     Serial << '6';
     Serial << text.c_str();
     RCLCPP_INFO(this->get_logger(), "I heard: '%s'", text.c_str());

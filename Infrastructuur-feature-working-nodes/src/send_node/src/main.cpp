@@ -25,12 +25,8 @@ class send_nodes : public rclcpp::Node
   private:
     void timer_callback()
     {
-      auto message = std_msgs::msg::String();
-      auto message2 = std_msgs::msg::String();
-//
-      std::cin >> message.data;
-      std::cin >> message2.data;
-      message.data = message.data + ' ' + message2.data;
+        auto message = std_msgs::msg::String();
+        std::getline(std::cin, message.data);
 
         RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
         publisher_->publish(message);
