@@ -9,7 +9,7 @@ public:
     printer_node()
         : Node("minimal_subscriber") {
         subscription_ = this->create_subscription<std_msgs::msg::String>(
-                "topic", 10, std::bind(&printer_node::topic_callback, this, _1));
+                "game_info/intern/gcode", 10, std::bind(&printer_node::topic_callback, this, _1));
     }
 
     int plotter_print(std::string s) const;
