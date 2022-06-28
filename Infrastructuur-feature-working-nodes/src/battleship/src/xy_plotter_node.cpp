@@ -48,21 +48,12 @@ int printer_node::plotter_print( std::string s ) const {
 
     std::vector<std::string> coords;
     coords = getXYCoords(s);
-    //  std::cout << "got coords.. length: " << coords.size() << "\n";
 
     char input = 0;
     std::cout << "opening device" << "\n";
     Serial.Open("/dev/ttyACM0_PLOTTER");
-    // Serial.
-    // if ( != 1) {
-    //   //    std::cout << "Failed to open\n";
-    //   Serial.Open("/dev/ttyACM1");
-    // }
 
     Serial.SetBaudRate( LibSerial::BaudRate::BAUD_19200);
-
-    int count_failed = 0;
-    int count_succes = 0;
 
     std::ofstream myfile2;
     myfile2.open("gcode_omgezet.txt");
@@ -83,10 +74,6 @@ int printer_node::plotter_print( std::string s ) const {
     Serial << "-1" << '\n';
     Serial.Close();
     myfile2.close();
-    std::cout << "written"
-              << "\ttimes failed = " << count_failed
-              << "\ttimes succes = " << count_succes << "\ttotal lines "
-              << coords.size();
     return 0;
 }
 

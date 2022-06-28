@@ -1,7 +1,7 @@
 #include "sound_player_node.hpp"
 #include <string>
 
-void sound_player_node::play_game_sound(std::string file_name) const {
+void sound_player_node::play_game_sound(const std::string& file_name) const {
   if (file_name == "WIN" or file_name == "LOSE") {
     system("killall --user $USER --ignore-case --signal INT ffplay");
   }
@@ -10,7 +10,7 @@ void sound_player_node::play_game_sound(std::string file_name) const {
   system(message.c_str());
 }
 
-void sound_player_node::play_background_sound(std::string file_name) const {
+void sound_player_node::play_background_sound(const std::string& file_name) const {
   std::string message = "ffplay -i ~/Sounds/" + file_name +".mp3 -autoexit -nodisp -af 'volume=0.1' &";
   system(message.c_str());
 }
@@ -20,18 +20,16 @@ void sound_player_node::topic_callback(const std_msgs::msg::String::SharedPtr ms
   std::string message = msg->data;
   if ((message == "LOSE") or (message == "READY") or (message == "WIN") or
       (message == "FIRE")) {
-    RCLCPP_INFO(this->get_logger(), "in if");
     if (message == "READY")
       this->play_background_sound("BACKGROUND");
     else
       this->play_game_sound(message);
   } else {
-      RCLCPP_INFO(this->get_logger(), "in else");
+
     auto player = message.rbegin();
     auto keyWord = message.substr(0, message.find(' '));
     if (*player == '0') {
         if ((keyWord == "HIT") or (keyWord == "MISS") or (keyWord == "SUNK")){
-            RCLCPP_INFO(this->get_logger(), "HIT MISS");
             this->play_game_sound(keyWord);
         }
     }

@@ -35,7 +35,7 @@ colcon_zsh_convert_to_array() {
 }
 
 # source sh script of this package
-_colcon_package_zsh_source_script "$_colcon_package_zsh_COLCON_CURRENT_PREFIX/share/receive_node/package.sh"
+_colcon_package_zsh_source_script "$_colcon_package_zsh_COLCON_CURRENT_PREFIX/share/src/package.sh"
 unset convert_zsh_to_array
 
 unset _colcon_package_zsh_source_script

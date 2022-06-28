@@ -9,10 +9,12 @@ include_directories(Infrastructuur-feature-working-nodes/src/receive_node/includ
 include_directories(Infrastructuur-feature-working-nodes/src/send_node/include)
 include_directories(Infrastructuur-feature-working-nodes/src/send_node/include/send_node)
 include_directories(Infrastructuur-feature-working-nodes/src/Speech/ros2/speech_ros2/src)
+include_directories(/opt/ros/foxy/include/)
 
 add_executable(HardwareAansturing
+        /opt/ros/foxy/include/rclcpp/rclcpp.hpp
+        /opt/ros/foxy/include/std_msgs/msg/string.hpp
         Infrastructuur-feature-working-nodes/src/battleship/include/display_node.hpp
-        Infrastructuur-feature-working-nodes/src/battleship/include/ros_and_serial.hpp
         Infrastructuur-feature-working-nodes/src/battleship/include/SerialPort.h
         Infrastructuur-feature-working-nodes/src/battleship/include/SerialPortConstants.h
         Infrastructuur-feature-working-nodes/src/battleship/include/SerialStream.h
@@ -20,7 +22,6 @@ add_executable(HardwareAansturing
         Infrastructuur-feature-working-nodes/src/battleship/include/sound_player_node.hpp
         Infrastructuur-feature-working-nodes/src/battleship/include/xy_plotter_node.hpp
         Infrastructuur-feature-working-nodes/src/battleship/src/display_node.cpp
-        Infrastructuur-feature-working-nodes/src/battleship/src/ros_and_serial.cpp
         Infrastructuur-feature-working-nodes/src/battleship/src/SerialPort.cpp
         Infrastructuur-feature-working-nodes/src/battleship/src/SerialStream.cpp
         Infrastructuur-feature-working-nodes/src/battleship/src/SerialStreamBuf.cpp

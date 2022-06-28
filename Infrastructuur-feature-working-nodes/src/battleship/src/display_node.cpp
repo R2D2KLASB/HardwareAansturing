@@ -1,6 +1,6 @@
 #include "display_node.hpp"
 
-void display_node::topic_callback(std_msgs::msg::String::SharedPtr msg) {
+void display_node::topic_callback(const std_msgs::msg::String::SharedPtr msg) {
   RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
   std::string message = msg->data;
   this->decode_message(message);
@@ -33,10 +33,9 @@ void display_node::decode_message(std::string message) {
       Serial << '5';
     }
   } else if (keyWord == "TEXT") {
-    auto text = message.substr(message.find(" ")+1);
+    auto text = message.substr(message.find(' ')+1);
     Serial << '6';
     Serial << text.c_str();
-    RCLCPP_INFO(this->get_logger(), "I heard: '%s'", text.c_str());
   }
   Serial.Close();
 

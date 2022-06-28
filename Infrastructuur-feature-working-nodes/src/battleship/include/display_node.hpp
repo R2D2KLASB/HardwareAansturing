@@ -20,7 +20,6 @@ public:
   void decode_message(std::string s) ;
 
 private:
-  void topic_callback(std_msgs::msg::String::SharedPtr msg) ;
+  void topic_callback(const std_msgs::msg::String::SharedPtr msg) ;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
-  bool serial_open = false;
 };

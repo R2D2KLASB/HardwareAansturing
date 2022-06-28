@@ -25,7 +25,7 @@ _colcon_package_bash_source_script() {
 }
 
 # source sh script of this package
-_colcon_package_bash_source_script "$_colcon_package_bash_COLCON_CURRENT_PREFIX/share/receive_node/package.sh"
+_colcon_package_bash_source_script "$_colcon_package_bash_COLCON_CURRENT_PREFIX/share/src/package.sh"
 
 unset _colcon_package_bash_source_script
 unset _colcon_package_bash_COLCON_CURRENT_PREFIX
