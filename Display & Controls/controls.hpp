@@ -5,6 +5,8 @@ private:
   const int down = 47;
   const int right = 45;
   const int left = 49;
+  const int switchButton = 43;
+  bool sw = false;
 
 public:
   void setupControls(){
@@ -14,24 +16,38 @@ public:
     pinMode(down, INPUT_PULLUP);
     pinMode(right, INPUT_PULLUP);
     pinMode(left, INPUT_PULLUP);
+    pinMode(switchButton, INPUT_PULLUP);
   }
 
   int getPosition(){
-    if ( digitalRead(fire) == LOW ){
-      return 0;
+    int returnValue;
+    if ( digitalRead( switchButton ) == LOW ){
+      if ( digitalRead(fire) == LOW ){
+        returnValue = 0;
+      }
+      else if ( digitalRead(up) == LOW ){
+        returnValue = 1;
+      }
+      else if ( digitalRead(down) == LOW ){
+        returnValue = 2;
+      }
+      else if ( digitalRead(left) == LOW ){
+        returnValue = 3;
+      }
+      else if ( digitalRead(right) == LOW ){
+        returnValue = 4;
+      }
+      else{
+        returnValue = 8;
+      }
     }
-    if ( digitalRead(up) == LOW ){
-      return 1;
+    else{
+      returnValue = 6;
     }
-    if ( digitalRead(down) == LOW ){
-      return 2;
+    if (digitalRead( switchButton) != sw){
+      returnValue = 5;
     }
-    if ( digitalRead(left) == LOW ){
-      return 3;
-    }
-    if ( digitalRead(right) == LOW ){
-      return 4;
-    }
-    return 8;
+    sw = digitalRead( switchButton);
+    return returnValue;
   }
 };
