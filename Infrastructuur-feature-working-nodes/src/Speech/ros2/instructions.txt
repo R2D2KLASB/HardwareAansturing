@@ -1,0 +1,29 @@
+follow the following installation guide https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Binary.html
+
+sudo apt install python3-colcon-common-extensions libssl-dev libasound-dev		// install ros2 build tools, ALSA and ssl for cmake
+git clone https://github.com/PortAudio/portaudio.git					// clone the latest portaudio source files
+cmake . -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/home/ubuntu/portaudio/install	// generate build files
+make && make install									// build portaudio and install
+
+. ~/ros2_foxy/ros2-linux/setup.bash				// source the ros2 environment
+colcon build --merge-install --packages-select speech_ros2	// build the speech node
+. install/setup.bash						// ???
+ros2 run speech_ros2 talker					// run the speech node
+
+arecord -l							// remember microphone card number and device number
+nano ~/.asoundrc						// add the following section, remember to change the card and device number
+
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:<card number>,<device number>"
+  }
+}
+
+// to give ubuntu access to GPIO without root
+sudo chown ubuntu /dev/gpiomem
+sudo chmod g+rw /dev/gpiomem

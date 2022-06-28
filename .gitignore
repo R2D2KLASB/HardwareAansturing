@@ -50,6 +50,4 @@ picture_to_gcode_beeldverwerking_without_ros/__pycache__*
 .vscode/
 Infrastructuur-feature-working-nodes/build
 Infrastructuur-feature-working-nodes/log
-Infrastructuur-feature-working-nodes/src/Beeldverwerking
-Infrastructuur-feature-working-nodes/src/Speech
 cmake-build-debug/*

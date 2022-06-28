@@ -1,0 +1,10 @@
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/install/strip.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/install/local.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/install.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/list_install_components.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/rebuild_cache.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/edit_cache.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/test.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/talker.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/speech_ros2_uninstall.dir
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/build/speech_ros2/CMakeFiles/uninstall.dir

@@ -1,0 +1,16 @@
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/lib/speech_ros2/talker
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/ament_index/resource_index/package_run_dependencies/speech_ros2
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/ament_index/resource_index/parent_prefix_path/speech_ros2
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/environment/ament_prefix_path.sh
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/environment/ament_prefix_path.dsv
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/environment/path.sh
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/environment/path.dsv
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/local_setup.bash
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/local_setup.sh
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/local_setup.zsh
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/local_setup.dsv
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/package.dsv
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/ament_index/resource_index/packages/speech_ros2
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/cmake/speech_ros2Config.cmake
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/cmake/speech_ros2Config-version.cmake
+/home/deltarobot/Infrastructuur-feature-working-nodes/src/Speech/ros2/install/share/speech_ros2/package.xml
