@@ -8,7 +8,7 @@ void setup() {
   control.setupControls();
 }
 
-	@@ -19,32 +19,31 @@ void loop() {
+void loop() {
   Serial.println(control.getPosition());
 
   // Serial for Display
