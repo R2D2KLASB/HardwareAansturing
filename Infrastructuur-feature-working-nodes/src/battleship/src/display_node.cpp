@@ -39,6 +39,7 @@ void display_node::decode_message(std::string message) {
     RCLCPP_INFO(this->get_logger(), "I heard: '%s'", text.c_str());
   }
   Serial.Close();
+
 }
 
 int main(int argc, char *argv[]) {
