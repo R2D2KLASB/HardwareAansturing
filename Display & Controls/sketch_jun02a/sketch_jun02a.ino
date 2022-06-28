@@ -1,3 +1,9 @@
+#include "display.hpp"
+#include "controls.hpp"
+
+TFTdisplay TFT;
+controls control;
+
 void setup() {
   // TFT screen setup and SerialUSB
   TFT.setupScreen();
