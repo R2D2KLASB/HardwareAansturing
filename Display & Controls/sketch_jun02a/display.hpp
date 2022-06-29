@@ -1,3 +1,5 @@
+#ifndef DISPLAY_HPP
+#define DISPLAY_HPP
 #include <Adafruit_GFX.h>
 #include <MCUFRIEND_kbv.h>
 MCUFRIEND_kbv tft;
@@ -25,7 +27,8 @@ private:
   int enemyhits = 0;
   int enemymisses = 0;
 
-  String text = "thisneedstochange";
+  String text = "";
+  String joystick = "A1";
 
 public:
 // Player ships =================================================================
@@ -112,7 +115,29 @@ public:
     drawEnemyHits();
     drawEnemyMisses();
     drawText();
+    drawPositionJoystick();
   }
+
+// Position ===============================================================
+
+  void setPositionJoystick(int x, int y){
+    String pos[2][10] = {{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}, {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}};
+    joystick = pos[0][x] + pos[1][y];
+    updateScreen();
+  }
+
+  String getPositionJoystick(){
+    return joystick;
+  }
+
+  void drawPositionJoystick(){
+    tft.setCursor(48,320);
+    tft.setTextColor(GREEN);
+    tft.setTextSize(3);
+    tft.println(joystick);
+  }
+
+// Text ===================================================================
 
   void setText( String textToDraw ){
     text = textToDraw;
@@ -253,3 +278,5 @@ public:
 
   }
 };
+
+#endif //DISPLAY_HPP
