@@ -131,10 +131,11 @@ public:
   }
 
   void drawPositionJoystick(){
-    tft.setCursor(48,320);
+    tft.setCursor(24,320);
     tft.setTextColor(GREEN);
     tft.setTextSize(3);
-    tft.println(joystick);
+    String toPrint = "Locatie: " + joystick;
+    tft.println(toPrint);
   }
 
 // Text ===================================================================
