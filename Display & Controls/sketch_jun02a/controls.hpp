@@ -92,5 +92,13 @@ public:
     sw = digitalRead( switchButton);
     return returnValue;
   }
+
+  void resetEverything(){
+    joystick_X = 0;
+    joystick_Y = 0;
+    TFT.resetTFT();
+    TFT.setPositionJoystick(joystick_X, joystick_Y);
+  }
+  
 };
 #endif //CONTROLS_HPP

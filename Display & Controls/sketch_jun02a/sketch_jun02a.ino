@@ -44,6 +44,9 @@ void loop() {
     else if ( message == 5 ) { // 5 = addEnemyMiss
       TFT.addEnemyMiss();
     }
+    else if ( message == 7 ) { // 7 = reset game to 0
+      control.resetEverything();
+    }
   }
 
 }

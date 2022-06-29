@@ -27,7 +27,7 @@ private:
   int enemyhits = 0;
   int enemymisses = 0;
 
-  String text = "fuckyourlifeBINGBONG";
+  String text = "";
   String joystick = "A1";
 
 public:
@@ -117,6 +117,21 @@ public:
     drawText();
     drawPositionJoystick();
   }
+
+// Reset function =========================================================
+
+
+void resetTFT(){
+  boats = 5;
+  shots = 0;
+  hits = 0;
+  misses = 0;
+  enemyboats = 5;
+  enemyshots = 0;
+  enemyhits = 0;
+  enemymisses = 0;
+  text = "";
+}
 
 // Position ===============================================================
 
