@@ -27,7 +27,7 @@ private:
   int enemyhits = 0;
   int enemymisses = 0;
 
-  String text = "";
+  String text = "fuckyourlifeBINGBONG";
   String joystick = "A1";
 
 public:
@@ -131,10 +131,10 @@ public:
   }
 
   void drawPositionJoystick(){
-    tft.setCursor(24,320);
+    tft.setCursor(24,340);
     tft.setTextColor(GREEN);
-    tft.setTextSize(3);
-    String toPrint = "Locatie: " + joystick;
+    tft.setTextSize(4);
+    String toPrint = "Location:" + joystick;
     tft.println(toPrint);
   }
 
@@ -146,9 +146,9 @@ public:
   }
 
   void drawText(){
-    tft.setCursor(48,360);
-    tft.setTextColor(BLACK);
-    tft.setTextSize(4);
+    tft.setCursor(24,400);
+    tft.setTextColor(ENEMY);
+    tft.setTextSize(3);
     tft.println(text);
   }
 
