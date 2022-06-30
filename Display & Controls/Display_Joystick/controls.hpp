@@ -19,6 +19,7 @@ private:
   unsigned int joystick_X = 0;
   unsigned int joystick_Y = 0;
   TFTdisplay &TFT;
+  int state = 2;
   
 public:
   // @brief constructor that creates the controls class and gets the TFT display from main
@@ -39,66 +40,72 @@ public:
   }
 
   /// @brief Function to get the values of the joystick, firebutton and switch
-  int getPosition(){
-    int returnValue;
-    if ( digitalRead( switchButton ) == LOW ){
-      if ( digitalRead(fire) == LOW ){
-        //Serial.println( TFT.getPositionJoystick() );
-        returnValue = 0;
-      }
-      else if ( digitalRead(up) == LOW ){
-        if ( pressed == false ){
-          if(joystick_Y > 0){
-            joystick_Y--;
-            TFT.setPositionJoystick(joystick_X, joystick_Y);
+  void getPosition(){
+    switch ( state ){
+      case 2:
+        state = Serial.parseInt();
+      case 1:
+        int returnValue;
+        if ( digitalRead( switchButton ) == LOW ){
+          if ( digitalRead(fire) == LOW ){
+            //Serial.println( TFT.getPositionJoystick() );
+            returnValue = 9;
+          }
+          else if ( digitalRead(up) == LOW ){
+            if ( pressed == false ){
+              if(joystick_Y > 0){
+                joystick_Y--;
+                TFT.setPositionJoystick(joystick_X, joystick_Y);
+              }
+            }
+            pressed = true;
+            returnValue = 1;
+          }
+          else if ( digitalRead(down) == LOW ){
+            if ( pressed == false ){
+                if(joystick_Y < 9){
+                  joystick_Y++;
+                  TFT.setPositionJoystick(joystick_X, joystick_Y);
+                }
+            }
+            pressed = true;
+            returnValue = 2;
+          }
+          else if ( digitalRead(left) == LOW ){
+            if ( pressed == false ){
+              if(joystick_X < 9){
+                  joystick_X++;
+                  TFT.setPositionJoystick(joystick_X, joystick_Y);
+                }
+            }
+            pressed = true;
+            returnValue = 3;
+          }
+          else if ( digitalRead(right) == LOW ){
+            if ( pressed == false ){
+              if(joystick_X > 0){
+                  joystick_X--;
+                  TFT.setPositionJoystick(joystick_X, joystick_Y);
+                } 
+            }
+            pressed = true;
+            returnValue = 4;
+          }
+          else{
+            pressed = false;
+            returnValue = 8;
           }
         }
-        pressed = true;
-        returnValue = 1;
-      }
-      else if ( digitalRead(down) == LOW ){
-        if ( pressed == false ){
-            if(joystick_Y < 9){
-              joystick_Y++;
-              TFT.setPositionJoystick(joystick_X, joystick_Y);
-            }
+        else{
+          returnValue = 6;
         }
-        pressed = true;
-        returnValue = 2;
-      }
-      else if ( digitalRead(left) == LOW ){
-        if ( pressed == false ){
-          if(joystick_X < 9){
-              joystick_X++;
-              TFT.setPositionJoystick(joystick_X, joystick_Y);
-            }
+        if (digitalRead( switchButton) != sw){
+          returnValue = 5;
         }
-        pressed = true;
-        returnValue = 3;
-      }
-      else if ( digitalRead(right) == LOW ){
-        if ( pressed == false ){
-          if(joystick_X > 0){
-              joystick_X--;
-              TFT.setPositionJoystick(joystick_X, joystick_Y);
-            } 
-        }
-        pressed = true;
-        returnValue = 4;
-      }
-      else{
-        pressed = false;
-        returnValue = 8;
-      }
+        sw = digitalRead( switchButton);
+        Serial.print(returnValue);
     }
-    else{
-      returnValue = 6;
-    }
-    if (digitalRead( switchButton) != sw){
-      returnValue = 5;
-    }
-    sw = digitalRead( switchButton);
-    return returnValue;
+    
   }
 
   /// @brief Resets all values to 0, also from display.

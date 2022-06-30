@@ -15,7 +15,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(control.getPosition());
+  control.getPosition();
 
   // Serial for Display
   while (SerialUSB.available() > 0) {
