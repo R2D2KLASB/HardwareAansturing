@@ -128,7 +128,7 @@ void loop() {
         }
         else {
           // write byte to start a handshake
-          Serial.write('C');
+          Serial.write('A');
         }
       }
       else{
