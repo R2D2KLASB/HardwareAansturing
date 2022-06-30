@@ -1,7 +1,7 @@
 #ifndef DEFINITIONS_HPP
 #define DEFINITIONS_HPP
 
-#define BAUDRATE 19200
+#define BAUDRATE 9600
 
 #define ENABLE_PIN 8
 #define DIR_X_PIN 5

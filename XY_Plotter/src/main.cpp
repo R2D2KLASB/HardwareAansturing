@@ -4,7 +4,7 @@
 #include "Definitions.hpp"
 #include "queue.hpp"
 
-// #define DEBUG
+//#define DEBUG
 
 Servo pen;
 XYPlotter plot({MAX_X, MAX_Y}, pen, ENABLE_PIN, DIR_X_PIN, STEP_X_PIN,MICROSWITCHX, DIR_Y_PIN, STEP_Y_PIN, MICROSWITCHY);
@@ -20,17 +20,32 @@ void print_draw(Coordinate xy, int mode) {
  SerialUSB.print(" int mode : ");
  SerialUSB.println(mode);
 }
+
+// void print_draw(Gcode command){
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print(command.location.x);
+//   SerialUSB.print("Draw y: ");
+//   SerialUSB.print(command.location.y);
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+//   SerialUSB.print("Draw x: ");
+  
+// }
 #endif // DEBUG
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   // start serial port
-  Serial.begin(BAUDRATE);
-
+  Serial.begin(BAUDRATE, SERIAL_8E1);
   #ifdef DEBUG
   SerialUSB.begin(BAUDRATE);
   #endif // DEBUG
-
   // call init function for plotter
   plot.init();
 }
@@ -44,11 +59,11 @@ void SerialFlush() {
 void loop() {
   Gcode readCode;
   readCode.gcode = 0;
-  // clear buffer for random existing bytes
+
   SerialFlush();
 
   // write byte to start a handshake
-  Serial.write(6);
+  Serial.write('A');
 
   // while not exit gcode
   while (readCode.gcode != -1) {
@@ -56,10 +71,13 @@ void loop() {
     // wait for reply
     while (Serial.available() == 0) {}
     readCode.gcode = Serial.parseInt();
-
     // check if gcode is not equal to exit
     if (readCode.gcode != -1) {
       switch (readCode.gcode) {
+        case -2:
+          queue.flush();
+          SerialFlush();
+          break;
         //G00 Z-axis up and move to location (x, y)
         case 0:
           readCode.location.x = Serial.parseInt();
@@ -103,13 +121,18 @@ void loop() {
         default:
           break;
       }
-      queue.append(readCode);
-      if (queue.isFull()) {
-        break;
+      if(readCode.gcode!=-2){
+        queue.append(readCode);
+        if (queue.isFull()) {
+          break;
+        }
+        else {
+          // write byte to start a handshake
+          Serial.write('C');
+        }
       }
-      else {
-        // write byte to start a handshake
-        Serial.write(6);
+      else{
+        Serial.write('B');
       }
     }
   }
@@ -119,7 +142,6 @@ void loop() {
       //G00 Z-axis up and move to location (x, y)
       case 0:
         plot.draw(writeCode.location, 0);
-        
         #ifdef DEBUG
         print_draw(writeCode.location, 0);
         #endif // DEBUG
@@ -129,7 +151,6 @@ void loop() {
       //G01 Z-axis down and move to location (draw line) (x, y)
       case 1:
         plot.draw(writeCode.location, 1);
-
         #ifdef DEBUG
         print_draw(writeCode.location, 1);
         #endif // DEBUG
@@ -155,9 +176,10 @@ void loop() {
       case 28:
         plot.home();
         break;
-
       default:
         break;
     }
   }
+  // clear buffer for random existing bytes
+  SerialFlush();
 }

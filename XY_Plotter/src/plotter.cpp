@@ -41,8 +41,6 @@ unsigned int Plotter::calculateDelay(int aantalStappenGezet, int AantalStappenLi
     }
 }
 
-
-
 bool Plotter::draw(Coordinate finish, bool draw) {
     if (draw != prevState) {
         setServo(draw);
@@ -154,7 +152,6 @@ bool Plotter::draw(int x, int y, bool d) {
     return draw(Coordinate{ x, y }, d);
 }
 
-
 void Plotter::drawBoard(Coordinate origin, int size) {
     draw(origin, 0);
     for (unsigned int i = 0; i < 5; i++) {
@@ -177,6 +174,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     float scale = (celsize / 250) * 0.15;
     Coordinate character_origin = { origin.x + celsize / 2, origin.y + celsize * 10.5 };
 
+    // draw 'a'
     draw({ 62 * scale + character_origin.x, 83 * scale + character_origin.y }, 0);
     draw({ 0 * scale + character_origin.x, 194 * scale + character_origin.y }, 0);
     draw({ -125 * scale + character_origin.x, 250 * scale + character_origin.y }, 1);
@@ -200,7 +198,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, 27 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'b'
     draw({ -500 * scale + character_origin.x, -11 * scale + character_origin.y }, 0);
     draw({ -357 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
     draw({ -142 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
@@ -225,7 +223,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'c'
     draw({ 136 * scale + character_origin.x, 138 * scale + character_origin.y }, 0);
     draw({ 136 * scale + character_origin.x, 194 * scale + character_origin.y }, 1);
     draw({ 45 * scale + character_origin.x, 250 * scale + character_origin.y }, 1);
@@ -242,7 +240,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
 
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'd'
     draw({ 62 * scale + character_origin.x, 35 * scale + character_origin.y }, 0);
     draw({ 0 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
     draw({ -125 * scale + character_origin.x, 178 * scale + character_origin.y }, 1);
@@ -267,7 +265,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'e'
     draw({ -400 * scale + character_origin.x, -138 * scale + character_origin.y }, 0);
     draw({ -200 * scale + character_origin.x, -83 * scale + character_origin.y }, 1);
     draw({ -100 * scale + character_origin.x, -27 * scale + character_origin.y }, 1);
@@ -286,7 +284,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, 27 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'f'
     draw({ -115 * scale + character_origin.x, 265 * scale + character_origin.y }, 0);
     draw({ 192 * scale + character_origin.x, 416 * scale + character_origin.y }, 1);
     draw({ 346 * scale + character_origin.x, 507 * scale + character_origin.y }, 1);
@@ -312,7 +310,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, 265 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'g'
     draw({ 33 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
     draw({ -233 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
     draw({ -300 * scale + character_origin.x, -202 * scale + character_origin.y }, 1);
@@ -341,7 +339,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 166 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'h'
     draw({ -500 * scale + character_origin.x, -11 * scale + character_origin.y }, 0);
     draw({ -366 * scale + character_origin.x, 130 * scale + character_origin.y }, 1);
     draw({ -166 * scale + character_origin.x, 369 * scale + character_origin.y }, 1);
@@ -370,7 +368,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'i'
     draw({ -71 * scale + character_origin.x, 250 * scale + character_origin.y }, 0);
     draw({ -71 * scale + character_origin.x, 214 * scale + character_origin.y }, 1);
     draw({ 71 * scale + character_origin.x, 214 * scale + character_origin.y }, 1);
@@ -387,7 +385,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, -71 * scale + character_origin.y }, 1);
 
     character_origin += Coordinate{ celsize, 0 };
-
+    // draw 'j'
     draw({ 33 * scale + character_origin.x, 403 * scale + character_origin.y }, 0);
     draw({ 166 * scale + character_origin.x, 557 * scale + character_origin.y }, 1);
     draw({ -233 * scale + character_origin.x, -134 * scale + character_origin.y }, 1);
@@ -408,7 +406,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 233 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
 
     character_origin = { origin.x - celsize/2, origin.y + celsize * 9.4 };
-	
+	// draw '1'
     draw({ 250 * scale + character_origin.x, 559 * scale + character_origin.y }, 0);
     draw({ -375 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
     draw({ -250 * scale + character_origin.x, -250 * scale + character_origin.y }, 0);
@@ -420,7 +418,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 375 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
 
     character_origin -= {0, celsize};
-	
+	// draw '2'
     draw({ 264 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
     draw({ 382 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
     draw({ 441 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
@@ -460,7 +458,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ -264 * scale + character_origin.x, -107 * scale + character_origin.y }, 1);
 
     character_origin -= {0, celsize};
-	
+	// draw '3'
     draw({ -187 * scale + character_origin.x, 559 * scale + character_origin.y }, 0);
     draw({ -125 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
     draw({ -187 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
@@ -508,7 +506,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ -437 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
 
 	character_origin -= {0, celsize};
-
+    // draw '4'
     draw({ 375 * scale + character_origin.x, 702 * scale + character_origin.y }, 0);
     draw({ 0 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
     draw({ 62 * scale + character_origin.x, -250 * scale + character_origin.y }, 0);
@@ -517,7 +515,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 500 * scale + character_origin.x, 35 * scale + character_origin.y }, 1);
 
 	character_origin -= {0, celsize};
-	
+	// draw '5'
     draw({ 29 * scale + character_origin.x, 369 * scale + character_origin.y }, 0);
     draw({ 147 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
     draw({ 205 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
@@ -551,7 +549,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ -441 * scale + character_origin.x, -59 * scale + character_origin.y }, 1);
 	
 	character_origin -= {0, celsize};
-
+    // draw '6'
     draw({ 100 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
     draw({ -33 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
     draw({ -166 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
@@ -597,7 +595,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 233 * scale + character_origin.x, 273 * scale + character_origin.y }, 1);
 
 	character_origin -= {0, celsize};
-	
+	// draw '7'
     draw({ -433 * scale + character_origin.x, 607 * scale + character_origin.y }, 0);
     draw({ -233 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
     draw({ -100 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
@@ -624,7 +622,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ -366 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
 	
 	character_origin -= {0, celsize};
-
+    // draw '8'
     draw({ 62 * scale + character_origin.x, 750 * scale + character_origin.y }, 0);
     draw({ -125 * scale + character_origin.x, 702 * scale + character_origin.y }, 1);
     draw({ -187 * scale + character_origin.x, 654 * scale + character_origin.y }, 1);
@@ -681,7 +679,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 250 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
 
 	character_origin -= {0, celsize};
-
+    // draw '9'
     draw({ 433 * scale + character_origin.x, 416 * scale + character_origin.y }, 0);
     draw({ 366 * scale + character_origin.x, 321 * scale + character_origin.y }, 1);
     draw({ 233 * scale + character_origin.x, 226 * scale + character_origin.y }, 1);
@@ -727,7 +725,7 @@ void Plotter::drawBoard(Coordinate origin, int size) {
     draw({ 33 * scale + character_origin.x, 750 * scale + character_origin.y }, 1);
 
 	character_origin -= {celsize/8, celsize};
-
+    // draw '10'
     draw({ -250 * scale + character_origin.x, 559 * scale + character_origin.y }, 0);
     draw({ -875 * scale + character_origin.x, -250 * scale + character_origin.y }, 1);
     draw({ -750 * scale + character_origin.x, -250 * scale + character_origin.y }, 0);
@@ -808,7 +806,7 @@ void Plotter::drawBoat(const int& row, const int& colom, const int& width, const
         }
     }
     else if (length == 1) {
-        draw(pointsOnCircle(radius, 0, Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
+        draw(pointsOnCircle(radius, 0, origin + Coordinate((target.x + 0.5) * celSize, (target.y + 0.5) * celSize)), 0);
         for (unsigned int degree = 0; degree <= 180; degree++) {
             draw(pointsOnCircle(radius, degree, origin + Coordinate((target.x + width - 0.5) * celSize, (target.y + 0.5) * celSize)), 1);
         }
@@ -824,7 +822,7 @@ void Plotter::drawBoat(const int& row, const int& colom, const int& width, const
 
 void Plotter::g3() {
     float scale = ((friendlyGameboardSize / 10) / 250) * 0.3;
-	
+	//Draw "PLAYER"
     Coordinate character_origin = { friendlyGameboardOrigin.x + friendlyGameboardSize / 2, friendlyGameboardOrigin.y + friendlyGameboardSize * 1.3 };
     draw({ -2523 * scale + character_origin.x, 654 * scale + character_origin.y }, 0);
     draw({ -2476 * scale + character_origin.x, 607 * scale + character_origin.y }, 1);
@@ -1011,6 +1009,7 @@ void Plotter::g3() {
 
     character_origin = { enemyGameboardOrigin.x + enemyGameboardSize / 2, enemyGameboardOrigin.y + enemyGameboardSize * 1.3 };
 	
+    //Draw "ENEMY"
     draw({ -1766 * scale + character_origin.x, 559 * scale + character_origin.y }, 0);
     draw({ -1766 * scale + character_origin.x, 511 * scale + character_origin.y }, 1);
     draw({ -1700 * scale + character_origin.x, 464 * scale + character_origin.y }, 1);
@@ -1176,7 +1175,7 @@ void Plotter::g3() {
 
 	
     drawBoard(enemyGameboardOrigin, enemyGameboardSize);
-    home();
+    
 }
 
 void Plotter::g4(const int& row, const int& colom, const int& player) {
@@ -1283,6 +1282,7 @@ void Plotter::g8(const int& winner)
     float scale = (celsize / 250) * 0.4;
     Coordinate character_origin = { maxDimension.x/2, maxDimension.y * 0.8 };
     if (winner == 0) {
+        //draw "YOU HAVE LOST"
         draw({ -6342 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
         draw({ -6447 * scale + character_origin.x, 568 * scale + character_origin.y }, 1);
         draw({ -6500 * scale + character_origin.x, 628 * scale + character_origin.y }, 1);
@@ -1599,6 +1599,7 @@ void Plotter::g8(const int& winner)
         draw({ 5750 * scale + character_origin.x, -11 * scale + character_origin.y }, 1);
     }
     else if (winner == 1) {
+        //Draw "YOU HAVE WON"
         draw({ -5842 * scale + character_origin.x, 537 * scale + character_origin.y }, 0);
         draw({ -5947 * scale + character_origin.x, 568 * scale + character_origin.y }, 1);
         draw({ -6000 * scale + character_origin.x, 628 * scale + character_origin.y }, 1);
