@@ -2,6 +2,10 @@
 #define CONTROLS_HPP
 #include "display.hpp"
 
+/// @file contains the controls class
+/// @brief Controls Class
+/// @details This class contains everything needed for the joystick, firebutton and switch for the R2D2 project.
+
 class controls {
 private:
   const int fire = 53;
@@ -12,15 +16,18 @@ private:
   const int switchButton = 43;
   bool sw = false;
   bool pressed = false;
-  
   unsigned int joystick_X = 0;
   unsigned int joystick_Y = 0;
   TFTdisplay &TFT;
+  
 public:
+  // @brief constructor that creates the controls class and gets the TFT display from main
+  // @param TFT Display that is connected to the same Arduino Due
   controls(TFTdisplay &TFT):
     TFT(TFT)
-  {} 
+  {}
 
+  /// @brief Setup for controls needs to run once.
   void setupControls(){
     // Fire button and joystick init
     pinMode(fire, INPUT_PULLUP);
@@ -30,7 +37,8 @@ public:
     pinMode(left, INPUT_PULLUP);
     pinMode(switchButton, INPUT_PULLUP);
   }
-  
+
+  /// @brief Function to get the values of the joystick, firebutton and switch
   int getPosition(){
     int returnValue;
     if ( digitalRead( switchButton ) == LOW ){
@@ -93,6 +101,7 @@ public:
     return returnValue;
   }
 
+  /// @brief Resets all values to 0, also from display.
   void resetEverything(){
     joystick_X = 0;
     joystick_Y = 0;
