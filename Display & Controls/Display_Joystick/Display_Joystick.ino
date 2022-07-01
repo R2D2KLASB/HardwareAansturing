@@ -2,7 +2,7 @@
 #include "controls.hpp"
 
 TFTdisplay TFT;
-controls control( TFT );
+controls control( TFT);
 
 void setup() {
   // TFT screen setup and SerialUSB
@@ -15,7 +15,7 @@ void setup() {
 }
 
 void loop() {
-  Serial.println(control.getPosition());
+  control.getPosition();
 
   // Serial for Display
   while (SerialUSB.available() > 0) {
