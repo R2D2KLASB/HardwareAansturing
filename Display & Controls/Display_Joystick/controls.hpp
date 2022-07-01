@@ -36,7 +36,7 @@ public:
     if ( digitalRead( switchButton ) == LOW ){
       if ( digitalRead(fire) == LOW ){
         //Serial.println( TFT.getPositionJoystick() );
-        returnValue = 0;
+        returnValue = 9;
       }
       else if ( digitalRead(up) == LOW ){
         if ( pressed == false ){
