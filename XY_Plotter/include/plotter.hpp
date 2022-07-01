@@ -92,8 +92,9 @@ public:
   protected:
     bool prevState = false;
     Coordinate currentLocation = {0,0};
-    const Coordinate enemyGameboardOrigin = { 17000, 0 };
-    const Coordinate friendlyGameboardOrigin = { 3000, 0 };
+    const Coordinate enemyGameboardOrigin = { 17700, 450 };
+    const Coordinate friendlyGameboardOrigin = { 1550, 550 };
+    
 
     Coordinate maxDimension;
 
