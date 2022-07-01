@@ -2,7 +2,7 @@
 #include "controls.hpp"
 
 TFTdisplay TFT;
-controls control( TFT);
+controls control( TFT );
 
 void setup() {
   // TFT screen setup and SerialUSB
@@ -15,10 +15,12 @@ void setup() {
 }
 
 void loop() {
-  control.getPosition();
+  Serial.println(control.getPosition());
+
   // Serial for Display
   while (SerialUSB.available() > 0) {
     int message = SerialUSB.parseInt();
+
     if ( message == 1 ) { // 1 = removeBoats
       TFT.removeBoats();
     }
