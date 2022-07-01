@@ -19,7 +19,7 @@ private:
   unsigned int joystick_X = 0;
   unsigned int joystick_Y = 0;
   TFTdisplay &TFT;
-  int state = 2;
+  int state = 0;
   
 public:
   // @brief constructor that creates the controls class and gets the TFT display from main
@@ -42,14 +42,16 @@ public:
   /// @brief Function to get the values of the joystick, firebutton and switch
   void getPosition(){
     switch ( state ){
-      case 2:
+      case 0:
         state = Serial.parseInt();
+        break;
       case 1:
         int returnValue;
         if ( digitalRead( switchButton ) == LOW ){
           if ( digitalRead(fire) == LOW ){
             //Serial.println( TFT.getPositionJoystick() );
             returnValue = 9;
+            state = 0;
           }
           else if ( digitalRead(up) == LOW ){
             if ( pressed == false ){
@@ -104,6 +106,7 @@ public:
         }
         sw = digitalRead( switchButton);
         Serial.print(returnValue);
+        break;
     }
     
   }

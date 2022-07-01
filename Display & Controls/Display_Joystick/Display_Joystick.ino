@@ -2,7 +2,7 @@
 #include "controls.hpp"
 
 TFTdisplay TFT;
-controls control( TFT );
+controls control( TFT);
 
 void setup() {
   // TFT screen setup and SerialUSB
