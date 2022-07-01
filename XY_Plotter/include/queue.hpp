@@ -21,7 +21,9 @@ class Queue {
        @details this funtion adds a line of gcode to the buffer and increments the tail counter
     */
     void append(const Gcode& code);
-
+   
+   void flush();
+   
     /**
        @brief This function pops the last line of the buffer into the given parameter. With this action, it also removes the line from the buffer.
        @param code this parameter's value is changed to the popped line of gcode.

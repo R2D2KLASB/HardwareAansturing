@@ -10,6 +10,10 @@ void Queue::append(const Gcode& code) {
   tail++;
 }
 
+void Queue::flush(){
+  head=0;
+  tail=0;
+}
 bool Queue::pop(Gcode& code) {
   if (head < tail) {
     code = queue[head];
