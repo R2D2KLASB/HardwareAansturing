@@ -1274,6 +1274,7 @@ void Plotter::g7(const int& row, const int& colom, const int& width, const int& 
 		// unallowed size
 		return;
 	}
+    home();
 }
 
 void Plotter::g8(const int& winner)

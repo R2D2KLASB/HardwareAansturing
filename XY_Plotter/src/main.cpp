@@ -82,30 +82,36 @@ void loop() {
         case 0:
           readCode.location.x = Serial.parseInt();
           readCode.location.y = Serial.parseInt();
+          queue.append(readCode);
           break;
 
         //G01 Z-axis down and move to location (draw line) (x, y)
         case 1:
           readCode.location.x = Serial.parseInt();
           readCode.location.y = Serial.parseInt();
+          queue.append(readCode);
           break;
         case 3:
+          queue.append(readCode);
           break;
         case 4:
           readCode.row = Serial.parseInt();
           readCode.colom = Serial.parseInt();
           readCode.player = Serial.parseInt();
+          queue.append(readCode);
           break;
         case 5:
           readCode.row = Serial.parseInt();
           readCode.colom = Serial.parseInt();
           readCode.player = Serial.parseInt();
+          queue.append(readCode);
           break;
         case 6:
           readCode.row = Serial.parseInt();
           readCode.colom = Serial.parseInt();
           readCode.width = Serial.parseInt();
           readCode.length = Serial.parseInt();
+          queue.append(readCode);
           break;
         case 7:
           readCode.row = Serial.parseInt();
@@ -113,26 +119,22 @@ void loop() {
           readCode.width = Serial.parseInt();
           readCode.length = Serial.parseInt();
           readCode.player = Serial.parseInt();
+          queue.append(readCode);
           break;
         case 8:
           readCode.player = Serial.parseInt();
+          queue.append(readCode);
         case 28:
+          queue.append(readCode);
           break;
         default:
           break;
       }
-      if(readCode.gcode!=-2){
-        queue.append(readCode);
-        if (queue.isFull()) {
+      if (queue.isFull()) {
           break;
-        }
-        else {
-          // write byte to start a handshake
-          Serial.write('A');
-        }
       }
       else{
-        Serial.write('B');
+        Serial.write('A');
       }
     }
   }
