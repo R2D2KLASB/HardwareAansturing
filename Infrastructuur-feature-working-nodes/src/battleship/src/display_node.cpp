@@ -16,29 +16,30 @@ void display_node::decode_message(std::string message) {
   auto player = message.rbegin();
   if (keyWord == "SUNK") {
     if (*player == '0') {
-      Serial << '0';
-    } else {
-      Serial << '3';
+      Serial << "1\n";
+    }  else if (*player == '1')  {
+      Serial << "4\n";
     }
   } else if (keyWord == "HIT") {
     if (*player == '0') {
-      Serial << '1';
-    } else {
-      Serial << '4';
+      Serial << "2\n";
+    }  else if (*player == '1')  {
+      Serial << "5\n";
     }
   } else if (keyWord == "MISS") {
     if (*player == '0') {
-      Serial << '2';
-    } else {
-      Serial << '5';
+      Serial << "3\n";
+    } else if (*player == '1') {
+      Serial << "6\n";
     }
   } else if (keyWord == "TEXT") {
     auto text = message.substr(message.find(' ')+1);
-    Serial << '6';
-    Serial << text.c_str();
+    Serial << '7' << text.c_str();
+  }
+  else if ((keyWord == "WIN") or (keyWord == "LOSE")) {
+    Serial << "8\n";
   }
   Serial.Close();
-
 }
 
 int main(int argc, char *argv[]) {

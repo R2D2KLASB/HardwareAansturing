@@ -55,7 +55,6 @@ namespace LibSerial
          * @brief Default Constructor.
          */
         Implementation() = default ;
-
         /**
          * @brief Constructor that allows a SerialPort instance to be
          *        created and opened, initializing the corresponding

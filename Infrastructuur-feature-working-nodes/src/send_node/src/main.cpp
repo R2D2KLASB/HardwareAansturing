@@ -17,7 +17,7 @@ class send_nodes : public rclcpp::Node
     send_nodes()
     : Node("minimal_publisher"), count_(0)
     {
-      publisher_ = this->create_publisher<std_msgs::msg::String>("game_info/intern/publish", 10);
+      publisher_ = this->create_publisher<std_msgs::msg::String>("game_info/intern/gcode", 10);
       timer_ = this->create_wall_timer(
       100ms, std::bind(&send_nodes::timer_callback, this));
     }
@@ -27,6 +27,7 @@ class send_nodes : public rclcpp::Node
     {
         auto message = std_msgs::msg::String();
         std::getline(std::cin, message.data);
+        message.data += '\n';
 
         RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
         publisher_->publish(message);

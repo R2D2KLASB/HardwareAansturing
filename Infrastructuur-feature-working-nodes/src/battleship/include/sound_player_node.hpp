@@ -1,6 +1,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
+#include <../include/SerialStream.h>
+#include <bits/stdc++.h>
+#include <iostream>
 #include <memory>
+#include <string>
+#include <unistd.h>
 
 using std::placeholders::_1;
 
@@ -11,10 +16,12 @@ public:
         "game_info/intern/publish", 10,
         std::bind(&sound_player_node::topic_callback, this, _1));
   }
-  void play_game_sound( std::string &file_name) ;
-  void play_background_sound( std::string &file_name) ;
+  void play_game_sound(std::string file_name);
+  void play_background_sound(std::string file_name);
 
 private:
-  void topic_callback(std_msgs::msg::String::SharedPtr msg);
+  void topic_callback(const std_msgs::msg::String::SharedPtr msg);
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+
+
 };

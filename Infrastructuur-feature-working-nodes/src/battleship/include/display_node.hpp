@@ -16,7 +16,6 @@ public:
         "game_info/intern/publish", 10,
         std::bind(&display_node::topic_callback, this, _1));
   }
-
   void decode_message(std::string s) ;
 
 private:

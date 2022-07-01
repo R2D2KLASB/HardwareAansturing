@@ -69,47 +69,41 @@ int printer_node::plotter_print(std::string s) const {
         RCLCPP_INFO(this->get_logger(), "opened serial");
         Serial.FlushIOBuffers();
         RCLCPP_INFO(this->get_logger(), "flushed");
+
     } else {
         RCLCPP_INFO(this->get_logger(), "serial was already open");
     }
-    int timeout = 9999999;
-
-    char begin_input = 'n';
-    while (begin_input != 'A') {
-        Serial.ReadByte(begin_input, timeout);
-    }
-    begin_input = 'n';
-
+    
     coords = getXYCoords(s);
     char input = 'n';
     char input_flush = 'n';
+    int timeout = 9999999;
     // handshake for buffer clear
-    Serial.Write("-2");
-//    Serial.Write("_");
+    Serial.Write(("-2" + '\n'));
+    Serial.Write("_");
     RCLCPP_INFO(this->get_logger(), "Written -2");
-    while (input_flush != 'A') {
+    while (input_flush != 'B') {
         Serial.ReadByte(input_flush, timeout);
 	RCLCPP_INFO(this->get_logger(), "character read: '%c'", input_flush);
     }
     input_flush = 'n';
     RCLCPP_INFO(this->get_logger(), "Start writing gcode");
     for (std::string &gcode : coords) {
-//        gcode += " ";
-//        std::string word = "";
-        std::replace(gcode.begin(), gcode.end(), ' ', '_');
-//        std::for_each(gcode.begin(), gcode.end(), [&Serial, this, &word](char x) {
-//            if (x == ' ') {
-//                RCLCPP_INFO(this->get_logger(), "word: '%s'", word.c_str());
-//                RCLCPP_INFO(this->get_logger(), "char: '%c'", x);
-//
-//                Serial.Write((word + '\n'));
-//                Serial.Write("_");
-//                word = "";
-//            } else {
-//                word += x;
-//            }
-//        });
-        Serial.Write(gcode);
+        gcode += " ";
+        std::string word = "";
+        std::for_each(gcode.begin(), gcode.end(), [&Serial, this, &word](char x) {
+            if (x == ' ') {
+                RCLCPP_INFO(this->get_logger(), "word: '%s'", word.c_str());
+                RCLCPP_INFO(this->get_logger(), "char: '%c'", x);
+
+                Serial.Write((word + '\n'));
+                Serial.Write("_");
+                word = "";
+            } else {
+                word += x;
+            }
+        });
+
         RCLCPP_INFO(this->get_logger(), "sent gcode line: '%s'", gcode.c_str());
         while (input != 'A') {
             Serial.ReadByte(input, timeout);
