@@ -44,7 +44,7 @@ public:
     switch ( state ){
       case 0:
         state = Serial.parseInt();
-        return;
+        break;
       case 1:
         int returnValue;
         if ( digitalRead( switchButton ) == LOW ){
@@ -105,9 +105,10 @@ public:
           returnValue = 5;
         }
         sw = digitalRead( switchButton);
-        Serial.print(returnValue);
-        return;
+        Serial.println(returnValue);
+        break;
     }
+    
   }
 
   /// @brief Resets all values to 0, also from display.

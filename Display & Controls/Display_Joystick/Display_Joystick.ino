@@ -16,11 +16,11 @@ void setup() {
 
 void loop() {
   control.getPosition();
-  TFT.addMiss();
+
   // Serial for Display
   while (SerialUSB.available() > 0) {
     int message = SerialUSB.parseInt();
-     TFT.addHit();
+
     if ( message == 1 ) { // 1 = removeBoats
       TFT.removeBoats();
     }
